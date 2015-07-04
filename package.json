@@ -1,0 +1,49 @@
+{
+    "name": "angular-cabinet-directive",
+    "main": "./src/cabinetDirective/cabinetDirective.js",
+    "version": "0.1.0",
+    "description": "",
+    "keywords": [
+        "angular",
+        "directive"
+    ],
+    "homepage": "https://github.com/JeffHing/angular-cabinet-directive",
+    "license": "MIT",
+    "author": {
+        "name": "Jeffrey Hing",
+        "email": "hingcruz@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/JeffHing/angular-cabinet-directive.git"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "angular": "^1.4.1",
+        "angular-test-context": "^0.1.4",
+        "eslint": "^0.23.0",
+        "eslint-loader": "^0.14.0",
+        "extend": "^2.0.1",
+        "extend-this": "^0.1.2",
+        "html-loader": "^0.3.0",
+        "jquery": "^2.1.4",
+        "karma": "^0.12.31",
+        "karma-cli": "0.0.4",
+        "karma-coverage": "^0.4.2",
+        "karma-jasmine": "^0.3.5",
+        "karma-phantomjs-launcher": "^0.1.4",
+        "karma-webpack": "^1.5.1",
+        "path": "^0.11.14",
+        "phantomjs-polyfill": "0.0.1",
+        "rimraf": "^2.4.0",
+        "webpack": "^1.9.4"
+    },
+    "scripts": {
+        "dev": "karma start",
+        "test": "karma start --single-run",
+        "predist": "rimraf dist && mkdir dist",
+        "dist": "npm run test && npm run distUnmin && npm run distMin",
+        "distUnmin": "webpack --progress --config webpack.dist.config.js && karma start karma.dist.conf.js --single-run",
+        "distMin": "webpack -p --progress --config webpack.min.config.js && karma start karma.min.conf.js --single-run"
+    }
+}
