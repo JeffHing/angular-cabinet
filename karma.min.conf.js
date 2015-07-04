@@ -11,19 +11,15 @@
 // Module dependencies and variables.
 //-------------------------------------
 
-var path = require('path');
-var karmaBaseConf = require('./karma.base.conf');
+var common = require('./karma.common');
+var commonWebpack = require('./webpack.common');
 
 //-------------------------------------
 // Module exports
 //-------------------------------------
 
 module.exports = function(config) {
-    var options = karmaBaseConf();
-
-    // Test using this source file.
-    options.webpack.resolve.alias['angular-cabinet-directive'] =
-        path.join(__dirname, 'dist/cabinetDirective.min.js');
-
-    config.set(options);
+    config.set(
+        common('dist/cabinetDirective.min.js', [commonWebpack.HTML_LOADER])
+    );
 };

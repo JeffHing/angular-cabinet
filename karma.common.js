@@ -3,12 +3,7 @@
  *
  * MIT License
  *
- * A function which returns the karma configuration merged
- * with the provided options.
- *
- * @example
- *    var karmaBaseConf = require('./karma.base.conf.js);
- *    config.set(karmaBaseConf({...});
+ * Common karma configuration values.
  */
 'use strict';
 
@@ -16,7 +11,6 @@
 // Module dependencies and variables
 //-------------------------------------
 
-var extend = require('extend');
 var path = require('path');
 var karmaWebpackPlugin = require('karma-webpack');
 
@@ -27,12 +21,16 @@ var TEST_UTILITIES_DIR = 'src/testUtilities';
 // Module exports
 //-------------------------------------
 
-module.exports = function(options) {
+/*
+ * @param {string} sourceFile The source file to test
+ * @param {array} loaders An array of loaders to apply to the source file.
+ */
+module.exports = function(sourceFile, loaders) {
 
     var testFilesPattern = path.join(TEST_UTILITIES_DIR, 'allTests.js');
 
     // Return a new instance each time.
-    var finalOptions = {
+    var conf = {
 
         browsers: ['PhantomJS'],
 
@@ -49,14 +47,13 @@ module.exports = function(options) {
 
         webpack: {
             module: {
-                loaders: [{
-                    // Load HTML as javascript.
-                    test: /\.html$/,
-                    loader: 'html'
-                }]
+                loaders: loaders
             },
             resolve: {
-                alias: {},
+                alias: {
+                    'angular-cabinet-directive': path.join(
+                        __dirname, sourceFile)
+                },
                 fallback: [
                     TEST_UTILITIES_DIR
                 ]
@@ -78,9 +75,7 @@ module.exports = function(options) {
         reporters: ['progress']
     };
 
-    finalOptions.preprocessors[testFilesPattern] = ['webpack'];
+    conf.preprocessors[testFilesPattern] = ['webpack'];
 
-    extend(true, finalOptions, options);
-
-    return finalOptions;
+    return conf;
 };
