@@ -11,9 +11,7 @@
 // Module exports
 //-------------------------------------
 
-module.exports = cabinetDirective;
-
-cabinetDirective.addToModule = addToModule;
+module.exports = addToModule;
 
 //-------------------------------------
 // Module dependencies and variables
@@ -42,12 +40,14 @@ var MODEL = '_model';
 /*
  * Adds the cabinet directive and its child directives to the angular module.
  *
+ * @example
+ *    cabinetDirective('app', options);
+ *
  * @param {object} module The angular module
  * @param {object} options
  */
 function addToModule(moduleName, options) {
 
-    moduleName = moduleName ? moduleName : 'app';
     var module = angular.module(moduleName);
 
     var config = new CabinetConfig(options);

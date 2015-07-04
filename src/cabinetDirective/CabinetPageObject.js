@@ -42,7 +42,7 @@ function CabinetPageObject(html, scopeProperties, options) {
 
     // Add cabinet directives to module.
     angular.module('testApp', []);
-    cabinetDirective.addToModule('testApp', options);
+    cabinetDirective('testApp', options);
 
     // Create test context.
     var testContext = new AngularTestContext('testApp');
