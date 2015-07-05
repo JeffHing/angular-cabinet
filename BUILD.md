@@ -1,6 +1,6 @@
 ## Develop
 
-To run unit tests while editing source files:
+To run unit tests and HTTP server (localhost:8080) while editing source files:
 
     npm run dev
     
