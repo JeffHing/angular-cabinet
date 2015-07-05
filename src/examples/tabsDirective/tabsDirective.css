@@ -1,0 +1,40 @@
+/*
+ * Copyright 2015. Author: Jeffrey Hing. All Rights Reserved.
+ *
+ * MIT License
+ *
+ * Tabs directive CSS.
+ */
+.tabs {
+}
+
+.tab-trigger {
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    padding: 6px;
+    border-top: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    width: 70px;
+    text-align: center;
+}
+
+.tab-trigger-open {
+    background-color: #f4f4f4;
+}
+
+.tab-contents {
+    display: none;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    background-color: #f4f4f4;
+}
+
+.tab-contents-open {
+    display: block;
+    left: 0;
+}
