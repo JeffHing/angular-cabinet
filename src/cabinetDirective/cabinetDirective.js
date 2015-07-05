@@ -67,9 +67,9 @@ function addToModule(moduleName, options) {
             config.getElementClass('drawerContents'));
     });
 
-    module.directive(directiveNames.drawerClass, function($parse) {
+    module.directive(directiveNames.drawerClass, ['$parse', function($parse) {
         return drawerClassDirective(directiveNames, $parse);
-    });
+    }]);
 }
 
 //-------------------------------------
@@ -97,7 +97,7 @@ function cabinetDirective(config) {
     Controller.prototype = CabinetController.prototype;
 
     return {
-        controller: Controller,
+        controller: ['$timeout', Controller],
         link: link,
         require: config.directiveNames.cabinet,
         restrict: 'A'
