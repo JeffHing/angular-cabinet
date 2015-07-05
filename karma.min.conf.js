@@ -12,7 +12,6 @@
 //-------------------------------------
 
 var common = require('./karma.common');
-var commonWebpack = require('./webpack.common');
 
 //-------------------------------------
 // Module exports
@@ -20,6 +19,6 @@ var commonWebpack = require('./webpack.common');
 
 module.exports = function(config) {
     config.set(
-        common('dist/cabinetDirective.min.js', [commonWebpack.HTML_LOADER])
+        common('dist/cabinetDirective.min.js')
     );
 };

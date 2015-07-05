@@ -3,7 +3,7 @@
  *
  * MIT License
  *
- * Karma configuration for testing the source files.
+ * Karma configuration for testing source files.
  */
 'use strict';
 
@@ -11,26 +11,17 @@
 // Module dependencies and variables.
 //-------------------------------------
 
-var path = require('path');
-var karmaBaseConf = require('./karma.base.conf');
+var common = require('./karma.common');
+var commonWebpack = require('./webpack.common');
 
 //-------------------------------------
 // Module exports
 //-------------------------------------
 
 module.exports = function(config) {
-    var options = karmaBaseConf();
-
-    // Test using this source file.
-    options.webpack.resolve.alias['angular-cabinet-directive'] =
-        path.join(__dirname, 'src/cabinetDirective/cabinetDirective.js');
-
-    // Lint source files.
-    options.webpack.module.loaders.push({
-        test: /\.js$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/
-    });
-
-    config.set(options);
+    config.set(
+        common(commonWebpack.CABINET_DIRECTIVE_SOURCE, [
+            commonWebpack.ESLINT_LOADER
+        ])
+    );
 };

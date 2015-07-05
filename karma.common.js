@@ -34,8 +34,6 @@ module.exports = function(sourceFile, loaders) {
 
         browsers: ['PhantomJS'],
 
-        frameworks: ['jasmine'],
-
         files: [
             // https://github.com/webpack/style-loader/issues/31
             'node_modules/phantomjs-polyfill/bind-polyfill.js',
@@ -43,6 +41,20 @@ module.exports = function(sourceFile, loaders) {
             'node_modules/angular/angular.js',
 
             testFilesPattern
+        ],
+
+        frameworks: ['jasmine'],
+
+        plugins: [
+            karmaWebpackPlugin,
+            'karma-jasmine',
+            'karma-phantomjs-launcher'
+        ],
+
+        preprocessors: {},
+
+        reporters: [
+            'dots'
         ],
 
         webpack: {
@@ -62,17 +74,8 @@ module.exports = function(sourceFile, loaders) {
 
         webpackMiddleware: {
             noInfo: true
-        },
+        }
 
-        plugins: [
-            karmaWebpackPlugin,
-            'karma-jasmine',
-            'karma-phantomjs-launcher'
-        ],
-
-        preprocessors: {},
-
-        reporters: ['progress']
     };
 
     conf.preprocessors[testFilesPattern] = ['webpack'];

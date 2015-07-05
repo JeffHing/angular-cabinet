@@ -3,7 +3,7 @@
  *
  * MIT License
  *
- * Karma configuration for testing un-minimized version.
+ * Karma configuration for testing non-minimized version.
  */
 'use strict';
 
@@ -11,19 +11,14 @@
 // Module dependencies and variables.
 //-------------------------------------
 
-var path = require('path');
-var karmaBaseConf = require('./karma.base.conf');
+var common = require('./karma.common');
 
 //-------------------------------------
 // Module exports
 //-------------------------------------
 
 module.exports = function(config) {
-    var options = karmaBaseConf();
-
-    // Test using this source file.
-    options.webpack.resolve.alias['angular-cabinet-directive'] =
-        path.join(__dirname, 'dist/cabinetDirective.js');
-
-    config.set(options);
+    config.set(
+        common('dist/cabinetDirective.js')
+    );
 };

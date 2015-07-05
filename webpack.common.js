@@ -11,33 +11,39 @@
 // Module dependencies and variables
 //-------------------------------------
 
-// Lint javascript.
-var ESLINT_LOADER = {
-    test: /\.js$/,
-    loader: 'eslint-loader',
-    exclude: /node_modules/
+var extend = require('extend');
+
+var common = {
+
+    CABINET_DIRECTIVE_SOURCE: './src/cabinetDirective/cabinetDirective.js',
+
+    // Lint javascript.
+    ESLINT_LOADER: {
+        test: /\.js$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/
+    },
+
+    // Load HTML as javascript.
+    HTML_LOADER: {
+        test: /\.html$/,
+        loader: 'html'
+    },
+
+    // Load CSS as javascript.
+    CSS_LOADER: {
+        test: /\.css$/,
+        loader: 'style!css'
+    }
 };
 
-// Load HTML as javascript.
-var HTML_LOADER = {
-    test: /\.html$/,
-    loader: 'html'
-};
+var distConfig = {
 
-//-------------------------------------
-// Module exports
-//-------------------------------------
-
-module.exports = {
-
-    ESLINT_LOADER: ESLINT_LOADER,
-
-    HTML_LOADER: HTML_LOADER,
-
+    // Configuration for a distribution.
     distConfig: function(outputName) {
 
         return {
-            entry: './src/cabinetDirective/cabinetDirective.js',
+            entry: common.CABINET_DIRECTIVE_SOURCE,
 
             eslint: {
                 failOnError: true
@@ -45,8 +51,7 @@ module.exports = {
 
             module: {
                 loaders: [
-                    ESLINT_LOADER,
-                    HTML_LOADER
+                    common.ESLINT_LOADER
                 ]
             },
 
@@ -59,3 +64,9 @@ module.exports = {
         };
     }
 };
+
+//-------------------------------------
+// Module exports
+//-------------------------------------
+
+module.exports = extend({}, distConfig, common);
