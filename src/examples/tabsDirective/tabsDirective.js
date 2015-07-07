@@ -19,13 +19,7 @@ require('./tabsDirective.css');
 // Module exports
 //--------------------------------------
 
-module.exports = addToModule;
-
-//--------------------------------------
-// Factory method
-//--------------------------------------
-
-function addToModule(moduleName) {
+module.exports = function(moduleName) {
 
     cabinetDirective(moduleName, {
         oneAlwaysOpen: true,
@@ -37,4 +31,4 @@ function addToModule(moduleName) {
             drawerClass: 'tabClass'
         }
     });
-}
+};
