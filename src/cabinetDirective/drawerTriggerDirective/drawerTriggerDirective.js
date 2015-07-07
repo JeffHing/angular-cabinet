@@ -55,8 +55,8 @@ function drawerTriggerDirective(directiveNames, elementClass) {
         element.addClass(elementClass);
 
         // Get drawer controller.
-        var group = attrs[directiveNames.drawerTrigger];
-        var drawerCtrl = cabinetCtrl.createDrawerController(group);
+        var id = attrs[directiveNames.drawerTrigger];
+        var drawerCtrl = cabinetCtrl.createDrawerController(id);
 
         // Change open class when open state changes.
         var openClass = elementClass + '-open';

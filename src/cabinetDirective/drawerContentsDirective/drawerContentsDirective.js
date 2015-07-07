@@ -45,8 +45,8 @@ function drawerContentsDirective(directiveNames, elementClass) {
         element.addClass(elementClass);
 
         // Get drawer controller.
-        var group = attrs[directiveNames.drawerContents];
-        var drawerCtrl = cabinetCtrl.getDrawerController(group);
+        var id = attrs[directiveNames.drawerContents];
+        var drawerCtrl = cabinetCtrl.getDrawerController(id);
 
         // Change open class when open state changes.
         var openClass = elementClass + '-open';
