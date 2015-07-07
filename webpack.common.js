@@ -33,7 +33,7 @@ var common = {
     // Load CSS as javascript.
     CSS_LOADER: {
         test: /\.css$/,
-        loader: 'style!css'
+        loader: 'style!css!csslint?failOnError=false'
     }
 };
 
