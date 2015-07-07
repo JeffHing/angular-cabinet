@@ -5,22 +5,20 @@
  *
  * Tabs directive CSS.
  */
-.tabs {
-}
 
 .tab-trigger {
-    position: relative;
-    top: 1px;
+    border-top: 1px solid #d0d0d0;
+    border-right: 1px solid #d0d0d0;
+    border-left: 1px solid #d0d0d0;
+    color: inherit;
     cursor: pointer;
     display: inline-block;
-    text-decoration: none;
-    color: inherit;
     padding: 6px;
-    border-top: 1px solid #e0e0e0;
-    border-left: 1px solid #e0e0e0;
-    border-right: 1px solid #e0e0e0;
-    width: 70px;
+    position: relative;
     text-align: center;
+    text-decoration: none;
+    top: 1px;
+    width: 70px;
 }
 
 .tab-trigger-open {
@@ -28,10 +26,10 @@
 }
 
 .tab-contents {
+    background-color: #f4f4f4;
+    border: 1px solid #d0d0d0;
     display: none;
     padding: 10px;
-    border: 1px solid #e0e0e0;
-    background-color: #f4f4f4;
 }
 
 .tab-contents-open {
