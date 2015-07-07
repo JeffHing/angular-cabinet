@@ -8,6 +8,7 @@
 
 .menus {
     border: 1px solid #d0d0d0;
+    padding: 3px 3px 3px 4px;
 }
 
 .menu {
@@ -16,16 +17,14 @@
 }
 
 .menu-trigger {
-    border-bottom: 1px solid #d0d0d0;
-    border-left: 1px solid #ffffff;
-    border-right: 1px solid #ffffff;
     color: inherit;
     cursor: pointer;
     display: inline-block;
-    padding: 10px;
+    padding: 9px 10px 11px 10px;
     position: relative;
     text-decoration: none;
     top: 1px;
+    z-index: 2;
 }
 
 .menu-trigger-open {
@@ -33,7 +32,8 @@
     border-bottom: 1px solid #f4f4f4;
     border-left: 1px solid #d0d0d0;
     border-right: 1px solid #d0d0d0;
-    z-index: 2;
+    border-top: 1px solid #d0d0d0;
+    padding: 8px 9px 10px 9px;
 }
 
 .menu-contents {
