@@ -50,8 +50,8 @@ describe('drawerClass directive:', function() {
     describe('applying directive to the element', function() {
 
         it('should have the closed class', function() {
-            //expect(contents.hasClass('my-open')).toBe(false);
-            //expect(contents.hasClass('my-closed')).toBe(true);
+            expect(contents.hasClass('my-open')).toBe(false);
+            expect(contents.hasClass('my-closed')).toBe(true);
         });
     });
 
