@@ -1,0 +1,57 @@
+/*
+ * Copyright 2015. Author: Jeffrey Hing. All Rights Reserved.
+ *
+ * MIT License
+ *
+ * Menus directive CSS.
+ */
+
+.menus {
+    border: 1px solid #d0d0d0;
+}
+
+.menu {
+    display: inline-block;
+    position: relative;
+}
+
+.menu-trigger {
+    border-bottom: 1px solid #d0d0d0;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+    text-decoration: none;
+    top: 1px;
+}
+
+.menu-trigger-open {
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #f4f4f4;
+    border-left: 1px solid #d0d0d0;
+    border-right: 1px solid #d0d0d0;
+    z-index: 2;
+}
+
+.menu-contents {
+    background-color: #f4f4f4;
+    display: none;
+    padding: 10px;
+    position: absolute;
+    width: 100px;
+    z-index: 1;
+}
+
+.menu-contents-open {
+    border: 1px solid #d0d0d0;
+    display: block;
+}
+
+.menu-contents > a {
+    color: inherit;
+    display: block;
+    text-decoration: none;
+}
