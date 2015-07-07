@@ -1,0 +1,42 @@
+/*
+ * Copyright 2015. Author: Jeffrey Hing. All Rights Reserved.
+ *
+ * MIT License
+ *
+ * Accordion directive CSS.
+ */
+.accordion {
+    width: 250px;
+}
+
+.accordion-trigger {
+    background-color: #f4f4f4;
+    border: 1px solid #d0d0d0;
+    color: inherit;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 5px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.accordion-trigger-open {
+    margin-bottom: 0;
+}
+
+.accordion-trigger > .fa {
+    float: right;
+}
+
+.accordion-contents {
+    border-bottom: 1px solid #d0d0d0;
+    border-left: 1px solid #d0d0d0;
+    border-right: 1px solid #d0d0d0;
+    display: none;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+.accordion-contents-open {
+    display: block;
+}
