@@ -1,0 +1,56 @@
+/*
+ * Copyright 2015. Author: Jeffrey Hing. All Rights Reserved.
+ *
+ * MIT License
+ *
+ * Sidebar directive CSS.
+ */
+.sidebar-trigger {
+    color: inherit;
+    padding-left: 15px;
+    padding-right: 10px;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.sidebar-trigger:hover {
+    color: #0000ff;
+}
+
+.sidebar-contents {
+    border: 1px solid #d0d0d0;
+    display: none;
+    float: left;
+    margin-top: 15px;
+}
+
+.sidebar-contents-open {
+    display: inline-block;
+}
+
+.sidebar-contents-link {
+    border-bottom: 1px solid #d0d0d0;
+    color: inherit;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    width: 170px;
+}
+
+.sidebar-contents-link:hover {
+    background-color: #f4f4f4;
+}
+
+.sidebar-contents-link:last-child {
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.sidebar-contents-link > .fa {
+    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.sidebar-main-contents {
+    margin-left: 207px;
+}

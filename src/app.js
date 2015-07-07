@@ -21,6 +21,8 @@ var accordionDirective = require('./examples/accordionDirective/accordionDirecti
 var accordionHtml = require('./examples/accordionDirective/accordion.html');
 var menusDirective = require('./examples/menusDirective/menusDirective');
 var menusHtml = require('./examples/menusDirective/menus.html');
+var sidebarDirective = require('./examples/sidebarDirective/sidebarDirective');
+var sidebarHtml = require('./examples/sidebarDirective/sidebar.html');
 var tabsDirective = require('./examples/tabsDirective/tabsDirective');
 var tabsHtml = require('./examples/tabsDirective/tabs.html');
 
@@ -48,6 +50,10 @@ angular.module('app', ['ui.router'])
             url: 'menus',
             template: menusHtml
         })
+        .state('examples.sidebar', {
+            url: 'sidebar',
+            template: sidebarHtml
+        })
         .state('examples.tabs', {
             url: 'tabs',
             template: tabsHtml
@@ -58,4 +64,5 @@ angular.module('app', ['ui.router'])
 cabinetDirective('app');
 accordionDirective('app');
 menusDirective('app');
+sidebarDirective('app');
 tabsDirective('app');
