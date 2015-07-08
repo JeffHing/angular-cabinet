@@ -317,17 +317,30 @@ modelProto.openDrawer = function(index, isOpen) {
     // If opening drawer and only one drawer can be open
     // at a time, close the other drawers.
     if (isOpen && !this.config.allowMultipleOpen) {
-        angular.forEach(this.drawers, function(drawer, i) {
+        for (var i = 0; i < this.drawers.length; i++) {
+            var drawer = this.drawers[i];
             if (i !== index) {
-                drawer.isOpen = false;
-                drawer.controller.open(drawer.isOpen);
+                if (!changeState(drawer, false)) {
+                    // Closing drawer failed.
+                    return;
+                }
             }
-        });
+        }
     }
 
-    var currentDrawer = this.drawers[index];
-    currentDrawer.isOpen = isOpen;
-    currentDrawer.controller.open(isOpen);
+    changeState(this.drawers[index], isOpen);
+
+    // If closing drawer fails, revert open state.
+    function changeState(draw, openState) {
+        if (draw.isOpen !== openState) {
+            draw.isOpen = openState;
+            if (!draw.controller.open(draw.isOpen)) {
+                draw.isOpen = true;
+                return false;
+            }
+        }
+        return true;
+    }
 };
 
 /*

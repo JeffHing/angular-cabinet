@@ -45,14 +45,16 @@ var controllerProto = DrawerController.prototype;
  * Opens or closes the drawer.
  *
  * @param {boolean} [isOpen]
+ * @return {boolean} False if close failed
  */
 controllerProto.open = function(isOpen) {
     var m = this[MODEL];
-
-    if (isOpen !== m.isOpen) {
-        m.isOpen = isOpen;
-        m.notifyOpenListeners(m.isOpen);
+    m.isOpen = isOpen;
+    if (!m.notifyOpenListeners(m.isOpen)) {
+        m.isOpen = true;
+        return false;
     }
+    return true;
 };
 
 /*
@@ -185,11 +187,20 @@ var modelProto = DrawerModel.prototype;
  * Notifies the listeners that the open state has changed.
  *
  * @param {boolean} isOpen
+ * @returns {boolean} False if closed failed.
  */
 modelProto.notifyOpenListeners = function(isOpen) {
     for (var i = 0; i < this.openListeners.length; i++) {
-        this.openListeners[i](isOpen);
+        var ret = this.openListeners[i](isOpen);
+        if (!isOpen && typeof ret === 'boolean' && !ret) {
+            // Restore open for previous listeners.
+            for (var j = 0; j < i; j++) {
+                this.openListeners[j](true);
+            }
+            return false;
+        }
     }
+    return true;
 };
 
 /*

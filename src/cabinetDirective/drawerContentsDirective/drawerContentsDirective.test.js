@@ -15,16 +15,16 @@ var Cabinet = require('../CabinetPageObject');
 
 var HTML =
     '<div cabinet>' +
-    '<a drawer-trigger href=""></a>' +
-    '<div drawer-contents="myHandler"></div>' +
+        '<a drawer-trigger href=""></a>' +
+        '<div drawer-contents="myHandler"></div>' +
     '</div>';
 
 var HTML_MAPPING =
     '<div cabinet="{allowMultipleOpen: true}">' +
-    '<a drawer-trigger="0" href=""></a>' +
-    '<div drawer-contents="[1, myHandler]"></div>' +
-    '<a drawer-trigger="1" href=""></a>' +
-    '<div drawer-contents="0"></div>' +
+        '<a drawer-trigger="0" href=""></a>' +
+        '<div drawer-contents="[1, myHandler]"></div>' +
+        '<a drawer-trigger="1" href=""></a>' +
+        '<div drawer-contents="0"></div>' +
     '</div>';
 
 //-------------------------------------
@@ -93,6 +93,36 @@ describe('drawerContents directive handler:', function() {
             trigger.mouseClick();
             trigger.mouseClick();
             expect(scope.myHandler).toHaveBeenCalledWith('closed');
+        });
+    });
+
+    describe('returning false from handler', function() {
+        it('should disallow closing the drawer', function() {
+            // Need to add spy before compile.
+            var scope = {
+                myHandler: function() {
+                    return false;
+                }
+            };
+            spyOn(scope, 'myHandler').and.callThrough();
+
+            var cabinet = new Cabinet(HTML, scope);
+            var trigger = cabinet.getTrigger(0);
+            var contents = cabinet.getContents(0);
+
+            scope.myHandler.calls.reset();
+            trigger.mouseClick();
+            expect(scope.myHandler).toHaveBeenCalledWith('open');
+            expect(contents.isOpen()).toBe(true);
+
+            // It should still be open.
+            scope.myHandler.calls.reset();
+            trigger.mouseClick();
+            expect(scope.myHandler).toHaveBeenCalledWith('closed');
+            expect(contents.isOpen()).toBe(true);
+
+            // It should not have been called with open to reset its state.
+            expect(scope.myHandler).not.toHaveBeenCalledWith('open');
         });
     });
 });

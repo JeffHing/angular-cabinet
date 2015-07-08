@@ -76,7 +76,12 @@ function drawerContentsDirective(directiveNames, elementClass, parse) {
             } else {
                 element.removeClass(openClass);
                 if (handler) {
-                    handler('closed');
+                    var ret = handler('closed');
+                    if (typeof ret === 'boolean' && !ret) {
+                        // Restore open class.
+                        element.addClass(openClass);
+                    }
+                    return ret;
                 }
             }
         });
