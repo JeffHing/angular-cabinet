@@ -125,7 +125,7 @@ function cabinetDirective(config) {
  * @constructor
  */
 function CabinetController(config, timeout) {
-    this[MODEL] = new CabinetModel(this, config, timeout);
+    this[MODEL] = new CabinetModel(config, timeout);
 }
 
 var controllerProto = CabinetController.prototype;
@@ -197,28 +197,7 @@ controllerProto.createDrawerController = function(id) {
  */
 controllerProto.openDrawer = function(index, isOpen) {
     var m = this[MODEL];
-
-    // Leave one drawer always open.
-    if (!isOpen && m.config.oneAlwaysOpen) {
-        if (m.openDrawerCount() <= 1) {
-            return;
-        }
-    }
-
-    // If opening drawer and only one drawer can be open
-    // at a time, close the other drawers.
-    if (isOpen && !m.config.allowMultipleOpen) {
-        angular.forEach(m.drawers, function(drawer, i) {
-            if (i !== index) {
-                drawer.isOpen = false;
-                drawer.controller.open(drawer.isOpen);
-            }
-        });
-    }
-
-    var currentDrawer = m.drawers[index];
-    currentDrawer.isOpen = isOpen;
-    currentDrawer.controller.open(isOpen);
+    m.openDrawer(index, isOpen);
 };
 
 /*
@@ -238,8 +217,7 @@ controllerProto.addConfigListener = function(listener) {
 /*
  * @constructor
  */
-function CabinetModel(controller, config, timeout) {
-    this.controller = controller;
+function CabinetModel(config, timeout) {
 
     // Timeout service.
     this.timeout = timeout;
@@ -301,7 +279,7 @@ modelProto.watchOptions = function(scope, attrs) {
         if (oneAlwaysOpenChanged) {
             if (options.oneAlwaysOpen) {
                 if (self.openDrawerCount() === 0) {
-                    self.controller.openDrawer(0, true);
+                    self.openDrawer(0, true);
                 }
             }
         }
@@ -322,6 +300,37 @@ modelProto.notifyConfigListeners = function() {
 };
 
 /*
+ * Handle request to open or close a drawer.
+ *
+ * @param {number} index The index of the drawer.
+ * @param {boolean} isOpen True to open, false to close.
+ */
+modelProto.openDrawer = function(index, isOpen) {
+
+    // Leave one drawer always open.
+    if (!isOpen && this.config.oneAlwaysOpen) {
+        if (this.openDrawerCount() <= 1) {
+            return;
+        }
+    }
+
+    // If opening drawer and only one drawer can be open
+    // at a time, close the other drawers.
+    if (isOpen && !this.config.allowMultipleOpen) {
+        angular.forEach(this.drawers, function(drawer, i) {
+            if (i !== index) {
+                drawer.isOpen = false;
+                drawer.controller.open(drawer.isOpen);
+            }
+        });
+    }
+
+    var currentDrawer = this.drawers[index];
+    currentDrawer.isOpen = isOpen;
+    currentDrawer.controller.open(isOpen);
+};
+
+/*
  * Set the open state of the drawers, where each drawer is identifed
  * by a key. If a key is a number, it is interpreted as the index of
  * the drawer. If a key is a string, it is interpreted as the element
@@ -335,7 +344,7 @@ modelProto.openDrawersById = function(openStates) {
         if (drawer.id !== undefined) {
             var isOpen = openStates[drawer.id];
             if (isOpen !== undefined) {
-                this.controller.openDrawer(i, isOpen);
+                this.openDrawer(i, isOpen);
             }
         }
     }
