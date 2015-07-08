@@ -28,9 +28,6 @@ var drawerContentsDirective =
 var drawerClassDirective =
     require('./drawerClassDirective/drawerClassDirective');
 
-var drawerHandlerDirective =
-    require('./drawerHandlerDirective/drawerHandlerDirective');
-
 var DrawerController = require('./DrawerController');
 
 // Private model name.
@@ -72,10 +69,6 @@ function addToModule(moduleName, options) {
 
     module.directive(directiveNames.drawerClass, ['$parse', function($parse) {
         return drawerClassDirective(directiveNames, $parse);
-    }]);
-
-    module.directive(directiveNames.drawerHandler, ['$parse', function($parse) {
-        return drawerHandlerDirective(directiveNames, $parse);
     }]);
 }
 
