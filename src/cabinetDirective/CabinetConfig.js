@@ -48,7 +48,8 @@ function CabinetConfig(options) {
         cabinet: 'cabinet',
         drawerTrigger: 'drawerTrigger',
         drawerContents: 'drawerContents',
-        drawerClass: 'drawerClass'
+        drawerClass: 'drawerClass',
+        drawerHandler: 'drawerHandler'
     };
 
     // Directive names are only valid when passed through constructor.

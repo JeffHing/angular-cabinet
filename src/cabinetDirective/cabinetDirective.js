@@ -19,14 +19,17 @@ module.exports = addToModule;
 
 var CabinetConfig = require('./CabinetConfig');
 
-var drawerClassDirective =
-    require('./drawerClassDirective/drawerClassDirective');
+var drawerTriggerDirective =
+    require('./drawerTriggerDirective/drawerTriggerDirective');
 
 var drawerContentsDirective =
     require('./drawerContentsDirective/drawerContentsDirective');
 
-var drawerTriggerDirective =
-    require('./drawerTriggerDirective/drawerTriggerDirective');
+var drawerClassDirective =
+    require('./drawerClassDirective/drawerClassDirective');
+
+var drawerHandlerDirective =
+    require('./drawerHandlerDirective/drawerHandlerDirective');
 
 var DrawerController = require('./DrawerController');
 
@@ -69,6 +72,10 @@ function addToModule(moduleName, options) {
 
     module.directive(directiveNames.drawerClass, ['$parse', function($parse) {
         return drawerClassDirective(directiveNames, $parse);
+    }]);
+
+    module.directive(directiveNames.drawerHandler, ['$parse', function($parse) {
+        return drawerHandlerDirective(directiveNames, $parse);
     }]);
 }
 
@@ -200,8 +207,7 @@ controllerProto.createDrawerController = function(id) {
 controllerProto.openDrawer = function(index, isOpen) {
     var m = this[MODEL];
 
-    // If closing drawer and there's only one drawer
-    // open, leave it open.
+    // Leave one drawer always open.
     if (!isOpen && m.config.oneAlwaysOpen) {
         if (m.openDrawerCount() <= 1) {
             return;
@@ -218,8 +224,10 @@ controllerProto.openDrawer = function(index, isOpen) {
             }
         });
     }
-    m.drawers[index].isOpen = isOpen;
-    m.drawers[index].controller.open(isOpen);
+
+    var currentDrawer = m.drawers[index];
+    currentDrawer.isOpen = isOpen;
+    currentDrawer.controller.open(isOpen);
 };
 
 /*
