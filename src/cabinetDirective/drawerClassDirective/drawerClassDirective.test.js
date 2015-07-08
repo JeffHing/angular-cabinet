@@ -26,8 +26,8 @@ var HTML_MAPPING =
         '<a drawer-trigger href=""></a>' +
         '<div drawer-contents drawer-class="' +
             '{id: \'1\', open: openClass, closed: closedClass}">' +
-        '<a drawer-trigger="1" href=""></a>' +
         '</div>' +
+        '<a drawer-trigger="1" href=""></a>' +
     '</div>';
 
 //--------------------------------------
