@@ -57,7 +57,7 @@ function drawerContentsDirective(directiveNames, elementClass, parse) {
             handler = params[1];
         }
 
-        // Convert numbers to strings.
+        // Convert id to string.
         if (id !== undefined) {
             id = id.toString();
         }
