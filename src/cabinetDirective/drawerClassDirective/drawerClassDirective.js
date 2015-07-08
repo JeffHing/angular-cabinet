@@ -39,9 +39,17 @@ function drawerClassDirective(directiveNames, parse) {
     };
 
     function prelink(scope, element, attrs, cabinetCtrl) {
-        var classes = parse(attrs[directiveNames.drawerClass])(scope);
 
-        var drawerCtrl = cabinetCtrl.getDrawerController(classes.id);
+        // Get classes and drawer id.
+        var classes = parse(attrs[directiveNames.drawerClass])(scope);
+        var id = classes.id;
+
+        // Convert numbers to strings.
+        if (id !== undefined) {
+            id = id.toString();
+        }
+
+        var drawerCtrl = cabinetCtrl.getDrawerController(id);
 
         // Listen for open changes.
         drawerCtrl.addOpenListener(function(isOpened) {

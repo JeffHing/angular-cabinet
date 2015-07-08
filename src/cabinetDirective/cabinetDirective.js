@@ -65,10 +65,10 @@ function addToModule(moduleName, options) {
             config.getElementClass('drawerTrigger'));
     });
 
-    module.directive(directiveNames.drawerContents, function() {
+    module.directive(directiveNames.drawerContents, ['$parse', function($parse) {
         return drawerContentsDirective(directiveNames,
-            config.getElementClass('drawerContents'));
-    });
+            config.getElementClass('drawerContents'), $parse);
+    }]);
 
     module.directive(directiveNames.drawerClass, ['$parse', function($parse) {
         return drawerClassDirective(directiveNames, $parse);
