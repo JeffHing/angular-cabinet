@@ -17,7 +17,7 @@ var HTML =
     '<div cabinet>' +
         '<a drawer-trigger href=""></a>' +
         '<div drawer-contents drawer-class="' +
-            '{open: openClass, closed: closedClass}">' +
+            '[openClass, closedClass]">' +
         '</div>' +
     '</div>';
 
@@ -25,7 +25,7 @@ var HTML_MAPPING =
     '<div cabinet>' +
         '<a drawer-trigger href=""></a>' +
         '<div drawer-contents drawer-class="' +
-            '{id: \'1\', open: openClass, closed: closedClass}">' +
+            '[1, openClass, closedClass]">' +
         '</div>' +
         '<a drawer-trigger="1" href=""></a>' +
     '</div>';

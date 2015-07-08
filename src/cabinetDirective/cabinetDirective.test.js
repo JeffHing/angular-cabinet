@@ -25,7 +25,7 @@ var HTML_TABS =
     '<div tabs=options>' +
         '<a tab-trigger href=""></a>' +
         '<div tab-contents ' +
-            'tab-class="{open: \'my-open\', closed: \'my-closed\'}">' +
+            'tab-class="[\'my-open\', \'my-closed\']">' +
         '</div>' +
         '<a tab-trigger href=""></a>' +
         '<div tab-contents></div>' +

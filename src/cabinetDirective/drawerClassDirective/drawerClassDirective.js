@@ -22,7 +22,10 @@ module.exports = drawerClassDirective;
  * whenever the state of the drawer changes.
  *
  * @example
- *    <div drawer-class='{open: "my-open" , closed: "my-closed"}'></div>
+ *    <div drawer-class='['my-open', 'my-closed']'></div>
+ *
+ * @example
+ *    <div drawer-class="[0, 'my-open', 'my-closed']"></div>
  *
  * @param {string} directiveNames.cabinet
  * @param {string} directiveNames.drawerClass
@@ -41,11 +44,19 @@ function drawerClassDirective(directiveNames, parse) {
     function prelink(scope, element, attrs, cabinetCtrl) {
 
         // Get classes and drawer id.
-        var classes = parse(attrs[directiveNames.drawerClass])(scope);
-        element.addClass(classes.closed);
+        var params = parse(attrs[directiveNames.drawerClass])(scope);
+
+        var id, openClass, closedClass;
+        if (params.length > 2) {
+            id = params.shift();
+        }
+        openClass = params.shift();
+        closedClass = params.shift();
+
+        // Add default class to element.
+        element.addClass(closedClass);
 
         // Convert id to string.
-        var id = classes.id;
         if (id !== undefined) {
             id = id.toString();
         }
@@ -57,11 +68,11 @@ function drawerClassDirective(directiveNames, parse) {
 
             // Replace the element's class.
             if (isOpened) {
-                element.addClass(classes.open);
-                element.removeClass(classes.closed);
+                element.addClass(openClass);
+                element.removeClass(closedClass);
             } else {
-                element.removeClass(classes.open);
-                element.addClass(classes.closed);
+                element.removeClass(openClass);
+                element.addClass(closedClass);
             }
         });
     }
