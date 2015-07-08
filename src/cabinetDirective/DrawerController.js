@@ -49,8 +49,10 @@ var controllerProto = DrawerController.prototype;
 controllerProto.open = function(isOpen) {
     var m = this[MODEL];
 
-    m.isOpen = isOpen;
-    m.notifyOpenListeners(m.isOpen);
+    if (isOpen !== m.isOpen) {
+        m.isOpen = isOpen;
+        m.notifyOpenListeners(m.isOpen);
+    }
 };
 
 /*
