@@ -28,7 +28,8 @@ module.exports = function(moduleName) {
             cabinet: 'tabs',
             drawerTrigger: 'tabTrigger',
             drawerContents: 'tabContents',
-            drawerClass: 'tabClass'
+            drawerClass: 'tabClass',
+            drawerHandler: 'tabHandler'
         }
     });
 };

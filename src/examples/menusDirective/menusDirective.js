@@ -28,7 +28,8 @@ module.exports = function(moduleName) {
             cabinet: 'menus',
             drawerTrigger: 'menuTrigger',
             drawerContents: 'menuContents',
-            drawerClass: 'menuClass'
+            drawerClass: 'menuClass',
+            drawerHandler: 'menuHandler'
         }
     });
 };

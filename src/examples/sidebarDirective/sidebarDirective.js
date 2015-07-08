@@ -26,7 +26,8 @@ module.exports = function(moduleName) {
             cabinet: 'sidebar',
             drawerTrigger: 'sidebarTrigger',
             drawerContents: 'sidebarContents',
-            drawerClass: 'sidebarClass'
+            drawerClass: 'sidebarClass',
+            drawerHandler: 'sidebarHandler'
         }
     });
 };

@@ -26,7 +26,8 @@ module.exports = function(moduleName) {
             cabinet: 'accordion',
             drawerTrigger: 'accordionTrigger',
             drawerContents: 'accordionContents',
-            drawerClass: 'accordionClass'
+            drawerClass: 'accordionClass',
+            drawerHandler: 'accordionHandler'
         }
     });
 };
