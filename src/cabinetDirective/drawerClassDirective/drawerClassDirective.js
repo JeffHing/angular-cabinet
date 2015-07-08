@@ -26,6 +26,7 @@ module.exports = drawerClassDirective;
  *
  * @param {string} directiveNames.cabinet
  * @param {string} directiveNames.drawerClass
+ * @param {object} parse The angular parse service.
  * @return {object} directive
  */
 function drawerClassDirective(directiveNames, parse) {
