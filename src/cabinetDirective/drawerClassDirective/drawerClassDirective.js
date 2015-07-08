@@ -42,9 +42,10 @@ function drawerClassDirective(directiveNames, parse) {
 
         // Get classes and drawer id.
         var classes = parse(attrs[directiveNames.drawerClass])(scope);
-        var id = classes.id;
+        element.addClass(classes.closed);
 
         // Convert numbers to strings.
+        var id = classes.id;
         if (id !== undefined) {
             id = id.toString();
         }

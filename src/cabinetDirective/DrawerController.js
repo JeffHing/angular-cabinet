@@ -155,7 +155,7 @@ function DrawerModel(cabinetCtrl, index, timeout) {
     self.config = {};
 
     // Current open state of drawer.
-    self.isOpen = undefined;
+    self.isOpen = false;
 
     // Listeners to notify when the open state changes.
     self.openListeners = [];

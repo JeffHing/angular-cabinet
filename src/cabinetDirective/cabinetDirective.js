@@ -139,8 +139,6 @@ controllerProto.linkCompleted = function(scope, attrs) {
     var m = this[MODEL];
 
     m.watchOptions(scope, attrs);
-
-    m.notifyOpenState();
 };
 
 /*
@@ -320,21 +318,6 @@ modelProto.watchOptions = function(scope, attrs) {
 modelProto.notifyConfigListeners = function() {
     for (var i = 0; i < this.configListeners.length; i++) {
         this.configListeners[i](this.config);
-    }
-};
-
-/*
- * Notify each drawer of its current open state.
- */
-modelProto.notifyOpenState = function() {
-    for (var i = 0; i < this.drawers.length; i++) {
-        var drawer = this.drawers[i];
-
-        // Notify only if states are different.
-        var isOpen = drawer.controller.isOpen();
-        if (isOpen !== drawer.isOpen) {
-            drawer.controller.open(drawer.isOpen);
-        }
     }
 };
 
