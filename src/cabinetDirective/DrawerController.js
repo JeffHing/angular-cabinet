@@ -92,13 +92,14 @@ controllerProto.disableTimer = function(isDisabled) {
 //
 controllerProto.onMouseDownTrigger = function() {
     var m = this[MODEL];
-    m.isFocusEventIgnored = true;
+    m.mouseDownOpenState = m.isOpen;
+
 };
 
 controllerProto.onMouseUpTrigger = function() {
     var m = this[MODEL];
-    m.requestOpen(!m.isOpen);
-    m.isFocusEventIgnored = false;
+    m.requestOpen(!m.mouseDownOpenState);
+    m.mouseDownOpenState = null;
 };
 
 controllerProto.onMouseEnterTrigger = function() {
@@ -117,7 +118,7 @@ controllerProto.onMouseLeaveTrigger = function() {
 
 controllerProto.onFocusTrigger = function() {
     var m = this[MODEL];
-    if (!m.isFocusEventIgnored) {
+    if (m.mouseDownOpenState === null) {
         m.requestOpen(true);
     }
 };
@@ -166,11 +167,11 @@ function DrawerModel(cabinetCtrl, index, timeout) {
     self.timeout = timeout;
     self.openTimeoutTask = undefined;
 
-    // Clicking on a drawer trigger toggles the open state. However
-    // it also triggers a focus event which will also toggle the open state.
-    // Therefore we need to ignore the focus event resulting from a mouse
-    // click.
-    self.isFocusEventIgnored = false;
+    // Clicking on a drawer trigger also generates a focus event. The focus
+    // event may come before the mouse down if the browser window currently
+    // doesn't have focus. These two states are used to work around this issue.
+    self.requestedOpenState = null;
+    self.mouseDownOpenState = null;
 
     // For unit testing. Angular timer mock inconvenient to use.
     self.isTimerDisabled = false;
@@ -216,6 +217,17 @@ modelProto.notifyOpenListeners = function(isOpen) {
 modelProto.requestOpen = function(isOpen) {
     var self = this;
 
+    // Return immediately if the request is for the same state.
+    if (self.requestedOpenState !== null) {
+        if (self.requestedOpenState === isOpen) {
+            return;
+        }
+    } else if (self.isOpen === isOpen) {
+        return;
+    }
+
+    self.requestedOpenState = isOpen;
+
     // For unit testing.
     if (self.isTimerDisabled) {
         openDrawer();
@@ -231,6 +243,7 @@ modelProto.requestOpen = function(isOpen) {
     );
 
     function openDrawer() {
-        self.cabinetCtrl.openDrawer(self.index, isOpen);
+        self.cabinetCtrl.openDrawer(self.index, self.requestedOpenState);
+        self.requestedOpenState = null;
     }
 };
