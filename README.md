@@ -51,7 +51,7 @@ from a horizontal list of tabs to show the content associated with the tab.
 
 ### Add the Directive
 
-Add a cabinetDirective to the 'app' Angular module, but rename the directive
+Add a cabinetDirective to an Angular module, but rename the directive
 to use tab names:
 
 ```javascript
@@ -69,7 +69,13 @@ cabinetDirective('app', {
 
 ### Add the HTML
 
-Add the tab directives to the HTML. This example will display three tabs:
+Add the tab directives to the HTML. The drawer ids associated with each 
+directive allows the elements to be moved around in any order, but still 
+maintain the correct relationshop. For example, the tab triggers could
+be moved after the tab contents to display tabs at the bottom of the form 
+instead.
+
+This example will display three tabs:
 
 ```html
 <div tabs>
@@ -128,6 +134,11 @@ the 'tab-trigger' class to the element. When the tab is opened, the
     left: 0;
 }
 ```
+
+### Other Examples
+
+That's it. What you can do is really only limited by what you can do using
+CSS.
 
 
 ## Usage
