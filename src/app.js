@@ -13,6 +13,7 @@
 
 require('angular');
 require('ui-router');
+require('./app.css');
 
 var cabinetDirective = require('angular-cabinet-directive');
 
