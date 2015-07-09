@@ -3,7 +3,7 @@
  *
  * MIT License
  *
- * Test object for DrawerContents directive.
+ * Page object for drawerContents directive.
  */
 'use strict';
 
@@ -25,7 +25,7 @@ var HasStyle = require('HasStyle');
 var MODEL = '_drawerContentsPageObject';
 
 //-------------------------------------
-// Test object
+// Page object
 //-------------------------------------
 
 /*

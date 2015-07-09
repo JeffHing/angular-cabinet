@@ -3,7 +3,7 @@
  *
  * MIT License
  *
- * Test object for drawerTrigger directive.
+ * Page object for drawerTrigger directive.
  */
 'use strict';
 
@@ -25,7 +25,7 @@ var HasStyle = require('HasStyle');
 var MODEL = '_drawerHandlePageObject';
 
 //-------------------------------------
-// Test object
+// Page object
 //-------------------------------------
 
 /*

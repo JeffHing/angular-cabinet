@@ -3,7 +3,7 @@
  *
  * MIT License
  *
- * Drawer controller for managing user events.
+ * Drawer controller.
  */
 'use strict';
 

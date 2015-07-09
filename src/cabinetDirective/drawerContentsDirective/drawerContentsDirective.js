@@ -3,7 +3,7 @@
  *
  * MIT License
  *
- * drawerContents directive
+ * drawerContents directive.
  */
 'use strict';
 
@@ -20,11 +20,22 @@ module.exports = drawerContentsDirective;
 /*
  * The drawerContents directive contains the contents of the
  * drawer. It adds the 'drawer-contents-open' class to the element
- * when the drawer is opened. It also adds event handlers to the element
- * so that it can inform the drawer controller of user input.
+ * when the drawer is opened and event handlers to the element
+ * so that it can inform the drawer controller of user input. If a handler
+ * is specified, the handler is called whenver the drawer contents
+ * is opened or closed.
  *
  * @example
  *    <div drawer-contents>I'm the drawer contents</div>
+ *
+ * @example
+ *    <div drawer-contents="id">I'm the drawer contents</div>
+ *
+ * @example
+ *    <div drawer-contents="handler">I'm the drawer contents</div>
+ *
+ * @example
+ *    <div drawer-contents="[id, handler]">I'm the drawer contents</div>
  *
  * @param {string} directiveNames.cabinet
  * @param {string} directiveNames.drawerContents

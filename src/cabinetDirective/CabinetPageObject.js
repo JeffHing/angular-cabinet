@@ -3,7 +3,7 @@
  *
  * MIT License
  *
- * The test object for the cabinet directive.
+ * Page object for the cabinet directive.
  */
 'use strict';
 
@@ -31,7 +31,7 @@ var MODEL = '_cabinetPageObject';
 module.exports = CabinetPageObject;
 
 //-------------------------------------
-// Test object
+// Page object
 //-------------------------------------
 
 /*

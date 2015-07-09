@@ -3,7 +3,7 @@
  *
  * MIT License
  *
- * drawerTrigger directive
+ * drawerTrigger directive.
  */
 'use strict';
 
@@ -20,11 +20,14 @@ module.exports = drawerTriggerDirective;
 /*
  * The drawerTrigger directive triggers the showing and hiding of the
  * drawer contents. It adds the 'drawer-trigger-open' class to the element
- * when the drawer is opened. It also adds event handlers to the element
+ * when the drawer is opened and event handlers to the element
  * so that it can inform the drawer controller of user input.
  *
  * @example
  *    <a drawer-trigger href="">I'm a drawer trigger</a>
+ *
+ * @example
+ *    <a drawer-trigger="id" href="">I'm a drawer trigger</a>
  *
  * @param {string} directivNames.cabinet
  * @param {string} directivNames.drawerTrigger

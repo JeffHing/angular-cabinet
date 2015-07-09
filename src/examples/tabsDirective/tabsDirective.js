@@ -3,7 +3,7 @@
  *
  * MIT License
  *
- * Tabs directive.
+ * tabs directive.
  */
 'use strict';
 

@@ -3,7 +3,7 @@
  *
  * MIT License
  *
- * Accordion directive.
+ * accordion directive.
  */
 'use strict';
 

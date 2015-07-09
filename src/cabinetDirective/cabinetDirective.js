@@ -3,7 +3,7 @@
  *
  * MIT License
  *
- * cabinet directive
+ * cabinet directive.
  */
 'use strict';
 
@@ -88,7 +88,18 @@ function addToModule(moduleName, options) {
  *    <div cabinet>
  *        <a drawer-trigger href="">...<a>
  *        <div drawer-contents>...<div>
+ *        <div drawer-class="['openclass, 'closedclass']">...<div>
  *    </div>
+ *
+ * @example
+ *    <div cabinet="{
+ *        openOnHover: false,
+ *        oneAlwaysOpen: false,
+ *        allowMultipleOpen: false,
+ *        openStates: {
+ *            '1': true
+ *        },
+ *    }">
  *
  * @param {CabinetConfig} config
  */

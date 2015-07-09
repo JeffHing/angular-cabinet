@@ -3,7 +3,7 @@
  *
  * MIT License
  *
- * Menus directive.
+ * menus directive.
  */
 'use strict';
 

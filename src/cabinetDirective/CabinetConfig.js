@@ -34,8 +34,7 @@ function CabinetConfig(options) {
     this.openOnHover = false;
     this.oneAlwaysOpen = false;
     this.allowMultipleOpen = false;
-    this.opened = [];
-    this.closed = [];
+    this.openStates = {};
 
     // The element classes should only be accessed through the
     // elementClass() function. They are initially derived from

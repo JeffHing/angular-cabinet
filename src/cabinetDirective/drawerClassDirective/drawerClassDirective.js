@@ -3,7 +3,7 @@
  *
  * MIT License
  *
- * drawerClass directive
+ * drawerClass directive.
  */
 'use strict';
 
