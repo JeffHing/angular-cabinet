@@ -1,26 +1,41 @@
 <!-- Copyright 2015. Author: Jeffrey Hing. All Rights Reserved. MIT License -->
 
-TODO: Check if handler is called on showing of first tab!!!!!
+# TODO
+* Check if handler is called on showing of first tab
+* Specify which default class names are added to the elements
+* Verify the allowed options are correct
+* Test against IE8
+* Cleanup directive explanations
+* Verify TOC links
+* Checkin Distribution files
 
 # AngularCabinetDirective
 
-CabinetDirective is a directive which can be used to create a 
+AngularCabinetDirective is a set of directives that can be used to create a 
 variety of user interface components that share a simple trait: show
 or hide content when a trigger is invoked.
 Examples include accordions, menus, tabs, navigation sidebars, etc. 
 
-The goal of cabinetDirective is to make it easy for you, a front-end 
-developer, to create your own user interface components rather than use off-the-shelf
-components. By creating your own user interface components, you can easily 
-adapt your components (or create new ones) to meet the demands of changing user 
-interface requirements. As such, CabinetDirective does not provide a UI 
-style, but rather provides the structure and behaviors needed to implement a 
-component. You provide the CSS.
+AngularCabinetDirective is modeled after the structure of a cabinet of drawers 
+which has the following properties:
 
-CabinetDirective is modeled on the concept of a cabinet of drawers. Content
-to be shown is contained within a drawer, drawers are contained
-within a cabinet. An open drawer shows the content. A closed drawer 
-hides the content.
+* A cabinet contains one or more drawers.
+* A drawer contains the content to be presented.
+* An open drawer shows the content. 
+* A closed drawer hides the content. 
+
+Applying CSS to this general structure can emulate many existing user interface 
+components, and allows for the creation of many others.
+
+One of the goals of AngularCabinetDirective is to make it easy for you, a front-end 
+developer, to create your own user interface components,
+rather than use off-the-shelf components. By creating your 
+own user interface components, you can easily adapt your components (or create 
+new ones) to meet the demands of changing user 
+interface requirements. As such, AngularCabinetDirective does not provide a UI 
+style, but rather provides the structure and behaviors needed to implement a 
+cabinet-like component. It is up to you to provide the CSS.
+
 
 
 ## Table of Contents
@@ -30,11 +45,11 @@ hides the content.
 - [Example](#example)
 - [Examples List](#examples-list)
 - [Usage](#usage)
+    - [Factory Method](#factory-method)
     - [cabinet Directive](#cabinet-directive)
     - [drawerTrigger Directive](#drawerTrigger-directive)
     - [drawerContents Directive](#drawerContents-directive)
     - [drawerClass Directive](#drawerClass-directive)
-    - [Factory Method](#factory-method)
    
 ## Features
 
@@ -64,7 +79,7 @@ to select from a horizontal list of tabs.
 
 ### 1. Add the Tab Directives
 
-Add the directives to an Angular module using directive names that
+Add the directives to an Angular module, using directive names that
 reflect the purpose of the user interface component. In this case, the 
 default directive names are renamed to use tab names:
 
@@ -324,8 +339,8 @@ The following options can be passed into the cabinet directive:
 
 ### drawerTrigger Directive
 
-The drawerTrigger directive triggers the opening or closing of the 
-drawer contents. It is usually applied to an anchor or button element to 
+The drawerTrigger directive toggles the opening and closing of the 
+drawer. It is usually applied to an anchor or button element to 
 ensure that keyboard navigation works properly, but it can be applied
 to any element.
 
