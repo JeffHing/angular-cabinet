@@ -172,6 +172,80 @@ angular-cabinet-directive.
 
 ## Usage
 
+### Factory Method
+
+The `cabinetDirective()` factory method allows you to add a cabinet directive and
+its drawer directives to any Angular module.
+
+To add the directives to an Angular module, call `cabinetDirective()` with
+the name of the Angular module, and any options:
+
+```javascript
+cabinetDirective('app', options);
+```
+
+The options object can consist of any of the following properties:
+
+```javascript
+var options = {
+    openOnHover: <boolean>,
+    oneAlwaysOpen: <boolean>,
+    allowMultipleOpen: <boolean>,
+    openStates: {
+        <string>: <boolean>
+    },
+    directiveNames: {
+        cabinet: <string>,
+        drawerTrigger: <string>,
+        drawerContents: <string>,
+        drawerClass: <string>
+    }
+};
+```
+
+#### Option Definitions:
+
+<dl>
+    <dt>
+    openOnHover
+    </dt>
+    <dd>
+    True to open the drawer when the mouse pointer hovers over the 
+    drawer trigger.
+    </dd>
+    
+    <dt>
+    oneAlwaysOpen
+    </dt>
+    <dd>
+    True to ensure one drawer is always open. By default, it opens the first drawer 
+    on startup.
+    </dd>
+    
+    <dt>
+    allowMutlipleOpen
+    </dt>
+    <dd>
+    True to allow multiple drawers to be open at the same time.
+    </dd>
+    
+    <dt>
+    openStates
+    </dt>
+    <dd>
+    Allows you to specify which drawers should be open. The key is the
+    drawer id, and the value should be true.
+    </dd>
+    
+    <dt>
+    directiveNames
+    </dt>
+    <dd>
+    Allows you to rename the directives when they are added to the module. The
+    key is the default directive name, and the value is the new directive name.
+    </dd>
+</dl>
+
 ### cabinet Directive
 
 The cabinet directive contains the drawer directives. It manages
@@ -190,12 +264,11 @@ The following options can be passed into the cabinet directive:
 
 ```html
 <div cabinet="{
-    openOnHover: false,
-    oneAlwaysOpen: false,
-    allowMultipleOpen: true,
+    openOnHover: <boolean>,
+    oneAlwaysOpen: <boolean>,
+    allowMultipleOpen: <boolean>
     openStates: {
-        'myDrawer': true
-        'myOtherDrawer': false
+        <string>: <boolean>
     }
 }">
 ```
@@ -223,8 +296,7 @@ The following options can be passed into the cabinet directive:
     allowMutlipleOpen
     </dt>
     <dd>
-    True to allow multiple drawers to be open at the same time. Otherwise allow
-    only one drawer to be open at a time.
+    True to allow multiple drawers to be open at the same time. 
     </dd>
     
     <dt>
@@ -344,77 +416,3 @@ number is automatically converted to a string.
 If no drawer id is is assigned, the drawerClass directive associates itself 
 with the preceding drawerTrigger directive.
 
-### Factory Method
-
-The `cabinetDirective()` method allows you to add a cabinet directive and
-the associated drawer directives to any Angular module.
-
-To add the directives to an Angular module, call `cabinetDirective()` with
-the name of the Angular module, and any options:
-
-```javascript
-cabinetDirective('app', options);
-```
-
-The options object can consist of any of the following properties:
-
-```javascript
-var options = {
-    openOnHover: <boolean>,
-    oneAlwaysOpen: <boolean>,
-    allowMultipleOpen: <boolean>,
-    openStates: {
-        <string>: <boolean>
-    },
-    directiveNames: {
-        cabinet: <string>,
-        drawerTrigger: <string>,
-        drawerContents: <string>,
-        drawerClass: <string>
-    }
-};
-```
-
-#### Option Definitions:
-
-<dl>
-    <dt>
-    openOnHover
-    </dt>
-    <dd>
-    True to open the drawer when the mouse pointer hovers over the 
-    drawer trigger.
-    </dd>
-    
-    <dt>
-    oneAlwaysOpen
-    </dt>
-    <dd>
-    True to ensure one drawer is always open. By default, it opens the first drawer 
-    on startup.
-    </dd>
-    
-    <dt>
-    allowMutlipleOpen
-    </dt>
-    <dd>
-    True to allow multiple drawers to be open at the same time. Otherwise allow
-    only one drawer to be open at a time.
-    </dd>
-    
-    <dt>
-    openStates
-    </dt>
-    <dd>
-    Allows you to specify which drawers should be open. The key is the
-    drawer id, and the value should be true.
-    </dd>
-    
-    <dt>
-    directveNames
-    </dt>
-    <dd>
-    Allows you to rename the directives when they are added to the module. The
-    key is the existing directive name, the value is the new directive name.
-    </dd>
-</dl>
