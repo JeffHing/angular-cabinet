@@ -1,19 +1,21 @@
 <!-- Copyright 2015. Author: Jeffrey Hing. All Rights Reserved. MIT License -->
 
+TODO: Check if handler is called on showing of first tab!!!!!
+
 # AngularCabinetDirective
 
-CabinetDirective is a directive which can be used to easily create a wide 
+CabinetDirective is a directive which can be used to create a 
 variety of user interface components that share a simple trait: show
 content when a trigger is invoked.
-Examples include menus, tabs, navigation sidebars, etc. 
+Examples include accordions, menus, tabs, navigation sidebars, etc. 
 
-The motiviation behind cabinetDirective is to allow, you, as a front-end developer,
-to be nimble in the face of ever-changing user interface requirements.
-By creating your own user interface components, rather than using off-the-shelf
-components, you can easily adapt your component (or create new ones) whenever 
-the need requires. As such, CabinetDirective does not provide a
-UI look-and-feel, but rather provides the structure and 
-behaviors needed to implement a component. You provide the CSS.
+The goal of cabinetDirective is to make it easy for front-end 
+developers to create their own user interface components rather than use off-the-shelf
+components. By creating their own components, front-end developers can easily 
+adapt their components (or create new ones) in response to ever-changing user 
+interface requirements. As such, CabinetDirective does not provide a UI 
+style, but rather provides the structure and behaviors needed to implement a 
+component. The front-end developer provides the CSS.
 
 CabinetDirective is modeled on the concept of a cabinet of drawers. Content
 to be shown is contained within a drawer, drawers are contained
@@ -29,6 +31,8 @@ hides the content.
    
 ## Features
 
+* Simplifies creation of user interface components.
+* Provides a consistent API across multiple components
 * Compatible with CommonJS, AMD, and non-module build environments.
 
 ## Installation
@@ -47,12 +51,14 @@ var cabinetDirective = require("angular-cabinet-directive");
 
 The easist way to understand how cabinetDirective works is to walk 
 through a quick example of creating a "tabs" directive which allows the user to select
-from a horizontal list of tabs to show the content associated with the tab.
+from a horizontal list of tabs to show the content associated with each tab.
 
-### Add the Directive
+### 1. Add the Directives
 
-Add a cabinetDirective to an Angular module, but rename the directive
-to use tab names:
+Add the cabinet directives to an Angular module. When adding the directives,
+you typically want to rename the directives to reflect the purpose of the
+user interface component. In this case, the directive names are renamed to 
+use tab names:
 
 ```javascript
 cabinetDirective('app', {
@@ -67,15 +73,15 @@ cabinetDirective('app', {
 });
 ```    
 
-### Add the HTML
+### 2. Add the HTML
 
-Add the tab directives to the HTML. The drawer ids associated with each 
-directive allows the elements to be moved around in any order, but still 
-maintain the correct relationshop. For example, the tab triggers could
-be moved after the tab contents to display tabs at the bottom of the form 
-instead.
+Add the HTML with the directives. The optional drawer ids associated with the 
+directives allows the elements to be moved around in any order but still 
+maintain the correct relationship between trigger and content. For example, 
+the tab triggers could be moved after the tab contents to display tabs at the 
+bottom of the form instead.
 
-This example will display three tabs:
+This displays three tabs:
 
 ```html
 <div tabs>
@@ -95,12 +101,13 @@ This example will display three tabs:
 </div>
 ```
 
-### Add the CSS
+### 3. Add the CSS
 
-By default, every directive automatically adds a class to its element based 
+Add the CSS for the classes associated with each element. To make it easy to 
+apply your CSS, every directive automatically adds a class to its element based 
 upon the directive's name. For example, the 'tab-trigger' directive adds
-the 'tab-trigger' class to the element. When the tab is opened, the
-'tab-trigger-open' class is added to the element.
+the 'tab-trigger' class to the element. When the tab is open, the
+directive also adds the 'tab-trigger-open' class to the element.
 
 ```css
 .tab-trigger {
@@ -135,31 +142,172 @@ the 'tab-trigger' class to the element. When the tab is opened, the
 }
 ```
 
-### Other Examples
+### You're Done
 
-That's it. What you can do is really only limited by what you can do using
-CSS.
+That's it. What you can implement is really only limited by what CSS provides.
 
 
 ## Usage
 
-### Directives
+### cabinet Directive
 
-#### cabinet
-```html
-```
+The cabinet directive contains the drawer directives. It manages
+which drawers can be open based upon the option settings.
 
-#### drawerTrigger
 ```html
-```
-#### drawerContents
-```html
-```
-#### drawerClass
-```html
+<div cabinet>
+    <div drawer-trigger></div>
+    <div drawer-contents></div>
+    <div drawer-class></div>
+</div>
+
 ```
 
-### Adding the Directive
+The following options can be passed into the cabinet directive:
+
+```html
+<div cabinet="{
+    openOnHover: false,
+    oneAlwaysOpen: false,
+    allowMultipleOpen: true,
+    openStates: {
+        'myDrawer': true
+        'myOtherDrawer': false
+    }
+}">
+```
+
+#### Option Definitions:
+
+<dl>
+    <dt>
+    openOnHover
+    </dt>
+    <dd>
+    True to open the drawer when the mouse pointer hovers over the 
+    drawer trigger.
+    </dd>
+    
+    <dt>
+    oneAlwaysOpen
+    </dt>
+    <dd>
+    True to ensure one drawer is always open. By default, it opens the first drawer 
+    on startup.
+    </dd>
+    
+    <dt>
+    allowMutlipleOpen
+    </dt>
+    <dd>
+    True to allow multiple drawers to be open at the same time. Otherwise allow
+    only one drawer to be open at a time.
+    </dd>
+    
+    <dt>
+    openStates
+    </dt>
+    <dd>
+    Allows you to specify which drawers to open or close. The key is the
+    drawer id, and the value is a boolean indicating the open state of the 
+    drawer.
+    </dd>
+</dl>
+
+### drawerTrigger Directive
+
+The drawerTrigger directive triggers the opening or closing of the 
+drawer contents. It is usually applied to an anchor or button element to 
+ensure that keyboard navigation works properly, but it can be applied
+to any element.
+
+```html
+<a drawer-trigger href=""></a>
+
+```
+
+A drawer id can be assigned to the directive to allow other directives 
+to associate themselves with this specific trigger. The drawer id can be 
+any string or number. A number is automatically converted to a string.
+
+```html
+<a drawer-trigger="0" href=""></a>
+```
+
+It's legal to assign multiple drawerTrigger directives the same drawer id:
+
+```html
+<a drawer-trigger="0" href="">trigger A</a>
+<a drawer-trigger="0" href="">trigger B</a>
+```
+
+### drawerContents Directive
+
+The drawerContents directive shows or hides its contents as indicated by
+the the associated drawer trigger.
+
+```html
+<div drawer-contents></div>
+```
+A drawer id can be assigned to the directive to associate it with a 
+drawerTrigger directive. The drawer id can be any string or number. A
+number is automatically converted to a string.
+
+```html
+<div drawer-contents="0"></div>
+```
+
+If no drawer id is is assigned, the drawerContents directive associates itself 
+with the preceding drawerTrigger directive.
+
+You can assign multiple drawerContent directives the same drawer id:
+
+```html
+<div drawer-contents="0">contents A</div>
+<div drawer-contents="0">contents B</div>
+```
+
+To be notified when the contents of a drawer is shown or hidden, pass in a handler
+function to the drawerContents directive:
+
+```javascript```
+angular.module('app', []).controller('MyController', function() {
+    this.myHandler = function(state) {
+        if (state === 'closed') {
+            ...    
+            // I'm not ready to be closed.
+            return false;
+        }
+        ...
+    }
+});
+```
+
+```html
+<div drawer-contents="ctrl.myHandler" 
+     ng-controller="MyController as ctrl">...</div>
+
+```
+
+The handler function will be passed an open state of either 'open' or 'closed'.
+You can prevent the drawer from being closed by returning the value
+`false` from the handler function.
+
+If you need to specify both a drawer id and a handler function, 
+use array notation:
+
+```html
+<div drawer-contents="[0, ctrl.myHandler]"></div>
+```
+
+
+### drawerClass Directive
+
+```html
+
+```
+
+### The Factory Method
 
 To add a cabinetDirective directive to an Angular module, call `cabinetDirective()` with
 the name of the Angular module, and any options:
