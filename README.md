@@ -9,13 +9,13 @@ variety of user interface components that share a simple trait: show
 content when a trigger is invoked.
 Examples include accordions, menus, tabs, navigation sidebars, etc. 
 
-The goal of cabinetDirective is to make it easy for front-end 
-developers to create their own user interface components rather than use off-the-shelf
-components. By creating their own components, front-end developers can easily 
-adapt their components (or create new ones) in response to ever-changing user 
+The goal of cabinetDirective is to make it easy for you, the front-end 
+developer, to create your own user interface components rather than use off-the-shelf
+components. By creating your own components, you can easily 
+adapt your components (or create new ones) in response to ever-changing user 
 interface requirements. As such, CabinetDirective does not provide a UI 
 style, but rather provides the structure and behaviors needed to implement a 
-component. The front-end developer provides the CSS.
+component. You provide the CSS.
 
 CabinetDirective is modeled on the concept of a cabinet of drawers. Content
 to be shown is contained within a drawer, drawers are contained
@@ -51,7 +51,7 @@ var cabinetDirective = require("angular-cabinet-directive");
 
 The easist way to understand how cabinetDirective works is to walk 
 through a quick example of creating a "tabs" directive which allows the user to select
-from a horizontal list of tabs to show the content associated with each tab.
+from a horizontal list of tabs.
 
 ### 1. Add the Directives
 
@@ -142,9 +142,10 @@ directive also adds the 'tab-trigger-open' class to the element.
 }
 ```
 
-### You're Done
+That's it. You're done. What you can implement is limited by CSS and
+your imagination.
 
-That's it. What you can implement is really only limited by what CSS provides.
+### Examples List
 
 
 ## Usage
@@ -227,8 +228,9 @@ to any element.
 ```
 
 A drawer id can be assigned to the directive to allow other directives 
-to associate themselves with this specific trigger. The drawer id can be 
-any string or number. A number is automatically converted to a string.
+to associate themselves with this specific drawerTrigger directive. 
+The drawer id can be any string or number. A number is automatically 
+converted to a string.
 
 ```html
 <a drawer-trigger="0" href=""></a>
@@ -250,7 +252,7 @@ the the associated drawer trigger.
 <div drawer-contents></div>
 ```
 A drawer id can be assigned to the directive to associate it with a 
-drawerTrigger directive. The drawer id can be any string or number. A
+specific drawerTrigger directive. The drawer id can be any string or number. A
 number is automatically converted to a string.
 
 ```html
@@ -300,20 +302,36 @@ use array notation:
 <div drawer-contents="[0, ctrl.myHandler]"></div>
 ```
 
-
 ### drawerClass Directive
 
+The drawerClass directive assigns a particular class to the element depending
+upon if the drawer is opened or closed.
+
 ```html
+<div drawer-class="['myOpenClass', 'myClosedClass']"></div>
 
 ```
+A drawer id can be assigned to the directive to associate it with a 
+specific drawerTrigger directive. The drawer id can be any string or number. A
+number is automatically converted to a string.
+
+```html
+<div drawer-class="[0, 'myOpenClass', 'myClosedClass']"></div>
+```
+
+If no drawer id is is assigned, the drawerClass directive associates itself 
+with the preceding drawerTrigger directive.
 
 ### The Factory Method
 
-To add a cabinetDirective directive to an Angular module, call `cabinetDirective()` with
+The `cabinetDirective()` method allows you to add a cabinet directive and
+the associated drawer directives to any Angular module.
+
+To add the directives to an Angular module, call `cabinetDirective()` with
 the name of the Angular module, and any options:
 
 ```javascript
-    cabinetDirective('app', options);
+cabinetDirective('app', options);
 ```
 
 ### Directive Options
@@ -321,68 +339,62 @@ the name of the Angular module, and any options:
 The options object can consist of any of the following properties:
 
 ```javascript
-    var options = {
-        openOnHover: false,
-        oneAlwaysOpen: false,
-        allowMultipleOpen: false,
-        openStates: {},
-        directiveNames: {
-            cabinet: '...',
-            drawerTrigger: '...',
-            drawerContents: '...',
-            drawerClass: '...'
-        }
-    };
-```
-
-#### openOnHover
-
-True to open the drawer when the mouse pointer hovers over the drawer trigger.
-
-#### oneAlwaysOpen
-
-True to ensure one drawer is always open. By default, it opens the first drawer 
-on startup.
-
-#### allowMultipleOpen
-
-True to allow multiple drawers to be open at the same time. Otherwise allow
-only one drawer to be open at a time.
-
-#### openStates
-
-Specify whether one or more drawers should be opened by default. The drawer
-is identified by a drawer id, and the open state should be true.
-
-```javscript
+var options = {
+    openOnHover: <boolean>,
+    oneAlwaysOpen: <boolean>,
+    allowMultipleOpen: <boolean>,
     openStates: {
-        'myDrawerId': true
+        <string>: <boolean>
+    },
+    directiveNames: {
+        cabinet: <string>,
+        drawerTrigger: <string>,
+        drawerContents: <string>,
+        drawerClass: <string>
     }
-```
-#### directiveNames
-
-### HTML Structure
-
-#### Natural Mapping
-
-#### Forced Mapping
-
-```html
-<div tabs>
-    <a tab-trigger="0" href="">Tab 1</a>
-    <a tab-trigger="1" href="">Tab 2</a>
-    <a tab-trigger="2" href="">Tab 3</a>
-
-    <div tab-contents="0">
-        Lorem ipsum dolor sit amet...
-    </div>
-    <div tab-contents="1">
-        Duis aute irure dolor in...
-    </div>
-    <div tab-contents="2">
-        Sed ut perspiciatis unde...
-    </div>
-</div>
+};
 ```
 
+#### Option Definitions:
 
+<dl>
+    <dt>
+    openOnHover
+    </dt>
+    <dd>
+    True to open the drawer when the mouse pointer hovers over the 
+    drawer trigger.
+    </dd>
+    
+    <dt>
+    oneAlwaysOpen
+    </dt>
+    <dd>
+    True to ensure one drawer is always open. By default, it opens the first drawer 
+    on startup.
+    </dd>
+    
+    <dt>
+    allowMutlipleOpen
+    </dt>
+    <dd>
+    True to allow multiple drawers to be open at the same time. Otherwise allow
+    only one drawer to be open at a time.
+    </dd>
+    
+    <dt>
+    openStates
+    </dt>
+    <dd>
+    Allows you to specify which drawers should be open. The key is the
+    drawer id, and the value should be true.
+    </dd>
+    
+    <dt>
+    directveNames
+    </dt>
+    <dd>
+    Allows you to rename the directives when they are added to the module. The
+    key is the existing directive name, the value is the new directive name.
+    </dd>
+</dl>
