@@ -6,13 +6,13 @@ TODO: Check if handler is called on showing of first tab!!!!!
 
 CabinetDirective is a directive which can be used to create a 
 variety of user interface components that share a simple trait: show
-content when a trigger is invoked.
+or hide content when a trigger is invoked.
 Examples include accordions, menus, tabs, navigation sidebars, etc. 
 
 The goal of cabinetDirective is to make it easy for you, the front-end 
 developer, to create your own user interface components rather than use off-the-shelf
-components. By creating your own components, you can easily 
-adapt your components (or create new ones) in response to ever-changing user 
+components. By creating your own user interface components, you can easily 
+adapt your components (or create new ones) to meet the demands of changing user 
 interface requirements. As such, CabinetDirective does not provide a UI 
 style, but rather provides the structure and behaviors needed to implement a 
 component. You provide the CSS.
@@ -27,12 +27,19 @@ hides the content.
 
 - [Features](#features)
 - [Installation](#installation)
+- [Example](#example)
+- [Examples List](#examples-list)
 - [Usage](#usage)
+    - [cabinet Directive](#cabinet-directive)
+    - [drawerTrigger Directive](#drawerTrigger-directive)
+    - [drawerContents Directive](#drawerContents-directive)
+    - [drawerClass Directive](#drawerClass-directive)
+    - [Factory Method](#factory-method)
    
 ## Features
 
-* Simplifies creation of user interface components.
-* Provides a consistent API across multiple components
+* Simplifies creation of user interface components that show or hide content.
+* Provides a consistent API across multiple user interface components
 * Compatible with CommonJS, AMD, and non-module build environments.
 
 ## Installation
@@ -47,20 +54,19 @@ To require the package:
 var cabinetDirective = require("angular-cabinet-directive");
 ```     
 
-## A Quick Example
+## Example
 
 The easist way to understand how cabinetDirective works is to walk 
 through a quick example of creating a "tabs" directive which allows the user to select
 from a horizontal list of tabs.
 
-![alt tag](https://raw.github.com/JeffHing/angular-cabinet-directive/master/examples/images/tabs.png)
+![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-directive/master/src/examples/images/tabs.png)
 
-### 1. Add the Directives
+### 1. Add the Tab Directives
 
-Add the cabinet directives to an Angular module. When adding the directives,
-you typically want to rename the directives to reflect the purpose of the
-user interface component. In this case, the directive names are renamed to 
-use tab names:
+When adding the directives to an Angular module, you typically want to name 
+the directives to reflect the purpose of the user interface component. 
+In this case, the default directive names are renamed to use tab names:
 
 ```javascript
 cabinetDirective('app', {
@@ -75,15 +81,13 @@ cabinetDirective('app', {
 });
 ```    
 
-### 2. Add the HTML
+### 2. Create the HTML Structure
 
-Add the HTML with the directives. The optional drawer ids associated with the 
-directives allows the elements to be moved around in any order but still 
-maintain the correct relationship between trigger and content. For example, 
-the tab triggers could be moved after the tab contents to display tabs at the 
-bottom of the form instead.
+How the HTML is structured depends upon the layout of the particular user 
+interface component and the limits of CSS.
 
-This displays three tabs:
+For tabs that appear at the top of the content, we need to specify the
+tabTrigger directives before the tabContents directives.
 
 ```html
 <div tabs>
@@ -103,13 +107,17 @@ This displays three tabs:
 </div>
 ```
 
-### 3. Add the CSS
+The optional drawer ids associated with the directives allows the elements to 
+be moved around in any order but still maintain the correct relationship between
+trigger and content.
 
-Add the CSS for the classes associated with each element. To make it easy to 
-apply your CSS, every directive automatically adds a class to its element based 
-upon the directive's name. For example, the 'tab-trigger' directive adds
-the 'tab-trigger' class to the element. When the tab is open, the
-directive also adds the 'tab-trigger-open' class to the element.
+### 3. Create the CSS
+
+To make it easy to create the CSS rules, every directive (except drawerClass)
+automatically adds a class to its element based upon the directive's name. 
+For example, by default, the tabTrigger directive adds the 'tab-trigger' 
+class to the element. When the tab is open, the directive adds the 
+'tab-trigger-open' class to the element.
 
 ```css
 .tab-trigger {
@@ -144,10 +152,22 @@ directive also adds the 'tab-trigger-open' class to the element.
 }
 ```
 
-That's it. You're done. What you can implement is limited by CSS and
-your imagination.
+That's it. You're done.
 
-### Examples List
+## Examples List
+
+What you can implement is limited by what can be achieved through CSS. 
+Here are the examples provided in the GitHub project for 
+angular-cabinet-directive.
+
+![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-directive/master/src/examples/images/accordion.png)
+
+![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-directive/master/src/examples/images/menus.png)
+
+![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-directive/master/src/examples/images/sidebar.png)
+
+![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-directive/master/src/examples/images/tabs.png)
+
 
 
 ## Usage
@@ -324,7 +344,7 @@ number is automatically converted to a string.
 If no drawer id is is assigned, the drawerClass directive associates itself 
 with the preceding drawerTrigger directive.
 
-### The Factory Method
+### Factory Method
 
 The `cabinetDirective()` method allows you to add a cabinet directive and
 the associated drawer directives to any Angular module.
@@ -335,8 +355,6 @@ the name of the Angular module, and any options:
 ```javascript
 cabinetDirective('app', options);
 ```
-
-### Directive Options
 
 The options object can consist of any of the following properties:
 
