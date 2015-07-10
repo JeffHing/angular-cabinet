@@ -9,7 +9,7 @@ variety of user interface components that share a simple trait: show
 or hide content when a trigger is invoked.
 Examples include accordions, menus, tabs, navigation sidebars, etc. 
 
-The goal of cabinetDirective is to make it easy for you, the front-end 
+The goal of cabinetDirective is to make it easy for you, a front-end 
 developer, to create your own user interface components rather than use off-the-shelf
 components. By creating your own user interface components, you can easily 
 adapt your components (or create new ones) to meet the demands of changing user 
@@ -57,16 +57,16 @@ var cabinetDirective = require("angular-cabinet-directive");
 ## Example
 
 The easist way to understand how cabinetDirective works is to walk 
-through a quick example of creating a "tabs" directive which allows the user to select
-from a horizontal list of tabs.
+through a quick example of creating a "tabs" directive which allows the user 
+to select from a horizontal list of tabs.
 
 ![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-directive/master/src/examples/images/tabs.png)
 
 ### 1. Add the Tab Directives
 
-When adding the directives to an Angular module, you typically want to name 
-the directives to reflect the purpose of the user interface component. 
-In this case, the default directive names are renamed to use tab names:
+Add the directives to an Angular module using directive names that
+reflect the purpose of the user interface component. In this case, the 
+default directive names are renamed to use tab names:
 
 ```javascript
 cabinetDirective('app', {
@@ -83,8 +83,8 @@ cabinetDirective('app', {
 
 ### 2. Create the HTML Structure
 
-How the HTML is structured depends upon the layout of the particular user 
-interface component and the limits of CSS.
+Structure the HTML based upon the layout of the particular user 
+interface component and the demands of CSS.
 
 For tabs that appear at the top of the content, we need to specify the
 tabTrigger directives before the tabContents directives.
@@ -113,7 +113,7 @@ trigger and content.
 
 ### 3. Create the CSS
 
-To make it easy to create the CSS rules, every directive (except drawerClass)
+Create the CSS using the default class names. Every directive (except drawerClass)
 automatically adds a class to its element based upon the directive's name. 
 For example, by default, the tabTrigger directive adds the 'tab-trigger' 
 class to the element. When the tab is open, the directive adds the 
@@ -156,19 +156,32 @@ That's it. You're done.
 
 ## Examples List
 
-What you can implement is limited by what can be achieved through CSS. 
 Here are the examples provided in the GitHub project for 
 angular-cabinet-directive.
 
+### Accordion
+
 ![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-directive/master/src/examples/images/accordion.png)
+
+[Source code](https://github.com/JeffHing/angular-cabinet-directive/tree/master/src/examples/accordionDirective)
+
+### Menus
 
 ![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-directive/master/src/examples/images/menus.png)
 
+[Source code](https://github.com/JeffHing/angular-cabinet-directive/tree/master/src/examples/menusDirective)
+
+### Sidebar
+
 ![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-directive/master/src/examples/images/sidebar.png)
+
+[Source code](https://github.com/JeffHing/angular-cabinet-directive/tree/master/src/examples/sidebarDirective)
+
+### Tabs
 
 ![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-directive/master/src/examples/images/tabs.png)
 
-
+[Source code](https://github.com/JeffHing/angular-cabinet-directive/tree/master/src/examples/tabsDirective)
 
 ## Usage
 
@@ -416,3 +429,13 @@ number is automatically converted to a string.
 If no drawer id is is assigned, the drawerClass directive associates itself 
 with the preceding drawerTrigger directive.
 
+An example of using the drawerClass directive is in the
+[accordion](https://github.com/JeffHing/angular-cabinet-directive/tree/master/src/examples/accordionDirective).
+It uses the drawerClass directive to point the Font Awesome chevron icon right 
+or down depending upon the current open state:
+
+```html
+ <i class="fa" accordion-class="[
+            'fa-chevron-down',
+            'fa-chevron-right']"></i>
+```
