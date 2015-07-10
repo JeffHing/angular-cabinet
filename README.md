@@ -53,6 +53,8 @@ The easist way to understand how cabinetDirective works is to walk
 through a quick example of creating a "tabs" directive which allows the user to select
 from a horizontal list of tabs.
 
+![alt tag](https://raw.github.com/JeffHing/angular-cabinet-directive/master/examples/images/tabs.png)
+
 ### 1. Add the Directives
 
 Add the cabinet directives to an Angular module. When adding the directives,
