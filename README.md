@@ -1,18 +1,9 @@
 <!-- Copyright 2015. Author: Jeffrey Hing. All Rights Reserved. MIT License -->
 
-# TODO
-* Check if handler is called on showing of first tab
-* Specify which default class names are added to the elements
-* Verify the allowed options are correct
-* Test against IE8
-* Cleanup directive explanations
-* Verify TOC links
-* Checkin Distribution files
-
 # AngularCabinetDirective
 
 AngularCabinetDirective is a set of directives that can be used to create a 
-variety of user interface components that share a simple trait: show
+wide variety of user interface components that share a simple trait: show
 or hide content when a trigger is invoked.
 Examples include accordions, menus, tabs, navigation sidebars, etc. 
 
@@ -20,21 +11,21 @@ AngularCabinetDirective is modeled after the structure of a cabinet of drawers
 which has the following properties:
 
 * A cabinet contains one or more drawers.
-* A drawer contains the content to be presented.
+* A drawer contains content.
 * An open drawer shows the content. 
 * A closed drawer hides the content. 
 
-Applying CSS to this general structure can emulate many existing user interface 
+Applying CSS to this structure can emulate many existing user interface 
 components, and allows for the creation of many others.
 
-One of the goals of AngularCabinetDirective is to make it easy for you, a front-end 
-developer, to create your own user interface components,
+A goal of AngularCabinetDirective is to make it easy for you, a front-end 
+developer, to create your own user interface components
 rather than use off-the-shelf components. By creating your 
 own user interface components, you can easily adapt your components (or create 
 new ones) to meet the demands of changing user 
 interface requirements. As such, AngularCabinetDirective does not provide a UI 
 style, but rather provides the structure and behaviors needed to implement a 
-cabinet-like component. It is up to you to provide the CSS.
+cabinet-like component. It's entirely up to you what CSS rules are applied.
 
 
 
@@ -43,13 +34,13 @@ cabinet-like component. It is up to you to provide the CSS.
 - [Features](#features)
 - [Installation](#installation)
 - [Example](#example)
-- [Examples List](#examples-list)
+- [Provided Examples](#provided-examples)
 - [Usage](#usage)
     - [Factory Method](#factory-method)
-    - [cabinet Directive](#cabinet-directive)
-    - [drawerTrigger Directive](#drawerTrigger-directive)
-    - [drawerContents Directive](#drawerContents-directive)
-    - [drawerClass Directive](#drawerClass-directive)
+    - [Cabinet Directive](#cabinet-directive)
+    - [DrawerTrigger Directive](#drawerTrigger-directive)
+    - [DrawerContents Directive](#drawerContents-directive)
+    - [DrawerClass Directive](#drawerClass-directive)
    
 ## Features
 
@@ -71,17 +62,17 @@ var cabinetDirective = require("angular-cabinet-directive");
 
 ## Example
 
-The easist way to understand how cabinetDirective works is to walk 
+The easist way to understand how AngularCabinetDirective works is to walk 
 through a quick example of creating a "tabs" directive which allows the user 
 to select from a horizontal list of tabs.
 
 ![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-directive/master/src/examples/images/tabs.png)
 
-### 1. Add the Tab Directives
+### 1. Add the Directives
 
-Add the directives to an Angular module, using directive names that
-reflect the purpose of the user interface component. In this case, the 
-default directive names are renamed to use tab names:
+First, add the directives from AngularCabinetDirective to an Angular module.
+The directive names should reflect the purpose of the user interface component.
+In this case, the  default directive names are renamed to use tab names:
 
 ```javascript
 cabinetDirective('app', {
@@ -98,7 +89,7 @@ cabinetDirective('app', {
 
 ### 2. Create the HTML Structure
 
-Structure the HTML based upon the layout of the particular user 
+Next, structure the HTML based on the layout of the particular user 
 interface component and the demands of CSS.
 
 For tabs that appear at the top of the content, we need to specify the
@@ -128,11 +119,11 @@ trigger and content.
 
 ### 3. Create the CSS
 
-Create the CSS using the default class names. Every directive (except drawerClass)
-automatically adds a class to its element based upon the directive's name. 
-For example, by default, the tabTrigger directive adds the 'tab-trigger' 
-class to the element. When the tab is open, the directive adds the 
-'tab-trigger-open' class to the element.
+Lastly, create the CSS rules using the default class names. Every directive
+(except drawerClass) automatically adds a class to its element based upon the
+directive's name. For example, by default, the tabTrigger directive adds the 
+'tab-trigger' class to the element. When the tab is open, the directive adds 
+the 'tab-trigger-open' class to the element.
 
 ```css
 .tab-trigger {
@@ -169,10 +160,12 @@ class to the element. When the tab is open, the directive adds the
 
 That's it. You're done.
 
-## Examples List
+## Provided Examples
 
-Here are the examples provided in the GitHub project for 
-angular-cabinet-directive.
+Here are the
+[examples](https://github.com/JeffHing/angular-cabinet-directive/tree/master/src/examples)
+provided in the
+[AngularCabinetDirective](https://github.com/JeffHing/angular-cabinet-directive/tree/master/src/examples) GitHub project.
 
 ### Accordion
 
@@ -202,8 +195,8 @@ angular-cabinet-directive.
 
 ### Factory Method
 
-The `cabinetDirective()` factory method allows you to add a cabinet directive and
-its drawer directives to any Angular module.
+The `cabinetDirective()` factory method adds a cabinet directive and
+the drawer directives to any Angular module.
 
 To add the directives to an Angular module, call `cabinetDirective()` with
 the name of the Angular module, and any options:
@@ -230,6 +223,9 @@ var options = {
     }
 };
 ```
+
+These options (except directiveNames) can be overridden by each usage
+of the cabinet directive. See [Cabinet Directive](cabinet-directive).
 
 #### Option Definitions:
 
@@ -274,10 +270,13 @@ var options = {
     </dd>
 </dl>
 
-### cabinet Directive
+### Cabinet Directive
 
-The cabinet directive contains the drawer directives. It manages
-which drawers can be open based upon the option settings.
+The cabinetDirective identifies the element as a cabinet which contains
+one or more drawer directives. It is responsible for determining which
+drawers should be opened or closed based upon the drawers' open states and
+user specified policy options. For applying CSS rules, it adds the 'cabinet' 
+class to the element.
 
 ```html
 <div cabinet>
@@ -337,10 +336,15 @@ The following options can be passed into the cabinet directive:
     </dd>
 </dl>
 
-### drawerTrigger Directive
+### DrawerTrigger Directive
 
-The drawerTrigger directive toggles the opening and closing of the 
-drawer. It is usually applied to an anchor or button element to 
+The drawerTrigger directive toggles the opening and closing of the
+drawer. It adds mouse and focus event handlers to the element
+to know when the directive has been triggered. For applying CSS rules,
+it adds a 'drawer-trigger' class to the element, and a
+'drawer-trigger-open' class to the element when the drawer is opened.
+
+The drawerTrigger directive is usually applied to an anchor or button element to 
 ensure that keyboard navigation works properly, but it can be applied
 to any element.
 
@@ -348,51 +352,54 @@ to any element.
 <a drawer-trigger href=""></a>
 
 ```
-
-A drawer id can be assigned to the directive to allow other directives 
-to associate themselves with this specific drawerTrigger directive. 
-The drawer id can be any string or number. A number is automatically 
-converted to a string.
+A drawer id can be assigned to the directive to associate it with a specific drawer. Directives that share the same drawer id, share the open state of that drawer. The drawer id can be any string or number. A number
+is automatically converted to a string.
 
 ```html
 <a drawer-trigger="0" href=""></a>
 ```
 
-It's legal to assign multiple drawerTrigger directives the same drawer id:
+A drawer can have multiple triggers by assigning the same drawer id to the
+directives.
 
 ```html
 <a drawer-trigger="0" href="">trigger A</a>
 <a drawer-trigger="0" href="">trigger B</a>
 ```
 
-### drawerContents Directive
+### DrawerContents Directive
 
-The drawerContents directive shows or hides its contents as indicated by
-the the associated drawer trigger.
+The drawerContents directive contains the contents of the drawer.
+For applying CSS rules, it adds a 'drawer-contents' class to the element,
+and a 'drawer-contents-open' class to the element when the drawer 
+is opened.
 
 ```html
 <div drawer-contents></div>
 ```
 A drawer id can be assigned to the directive to associate it with a 
-specific drawerTrigger directive. The drawer id can be any string or number. A
-number is automatically converted to a string.
+specific drawer. Directives that share the same drawer id, share the
+open state of that drawer. The drawer id can be any string or number. A number
+is automatically converted to a string.
 
 ```html
 <div drawer-contents="0"></div>
 ```
 
-If no drawer id is is assigned, the drawerContents directive associates itself 
-with the preceding drawerTrigger directive.
-
-You can assign multiple drawerContent directives the same drawer id:
+A drawer can have multiple contents by assigning the drawerContents directives 
+the same drawer id:
 
 ```html
 <div drawer-contents="0">contents A</div>
 <div drawer-contents="0">contents B</div>
 ```
+If no drawer id is assigned, the drawerContents directive associates itself 
+with the drawer of the preceding drawerTrigger directive.
 
 To be notified when the contents of a drawer is shown or hidden, pass in a handler
-function to the drawerContents directive:
+function to the drawerContents directive. The handler function will be passed 
+an open state of either 'open' or 'closed'. You can prevent the drawer from 
+being closed by returning the value `false` from the handler function.
 
 ```javascript```
 angular.module('app', []).controller('MyController', function() {
@@ -413,10 +420,6 @@ angular.module('app', []).controller('MyController', function() {
 
 ```
 
-The handler function will be passed an open state of either 'open' or 'closed'.
-You can prevent the drawer from being closed by returning the value
-`false` from the handler function.
-
 If you need to specify both a drawer id and a handler function, 
 use array notation:
 
@@ -424,30 +427,31 @@ use array notation:
 <div drawer-contents="[0, ctrl.myHandler]"></div>
 ```
 
-### drawerClass Directive
+### DrawerClass Directive
 
-The drawerClass directive assigns a particular class to the element depending
-upon if the drawer is opened or closed.
+The drawerClass directive assigns a particular class to the element whenever
+the open state of the drawer changes.
 
 ```html
 <div drawer-class="['myOpenClass', 'myClosedClass']"></div>
 
 ```
-A drawer id can be assigned to the directive to associate it with a 
-specific drawerTrigger directive. The drawer id can be any string or number. A
-number is automatically converted to a string.
+A drawer id can be assigned to the directive to associate it with a specific
+drawer. Directives that share the same drawer id, share the
+open state of that drawer. The drawer id can be any string or number. A number
+is automatically converted to a string.
 
 ```html
 <div drawer-class="[0, 'myOpenClass', 'myClosedClass']"></div>
 ```
 
-If no drawer id is is assigned, the drawerClass directive associates itself 
-with the preceding drawerTrigger directive.
+If no drawer id is assigned, the drawerClass directive associates itself 
+with the drawer of the preceding drawerTrigger directive.
 
 An example of using the drawerClass directive is in the
 [accordion](https://github.com/JeffHing/angular-cabinet-directive/tree/master/src/examples/accordionDirective).
-It uses the drawerClass directive to point the Font Awesome chevron icon right 
-or down depending upon the current open state:
+It uses the drawerClass directive to change the Font Awesome chevron icon
+depending upon the current open state of the drawer:
 
 ```html
  <i class="fa" accordion-class="[
