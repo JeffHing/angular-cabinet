@@ -13,6 +13,10 @@
 
 var path = require('path');
 var common = require('./webpack.common.js');
+var ip = require('ip');
+
+// Set to true to access dev server from another machine.
+var isServerPublic = false;
 
 //-------------------------------------
 // Module exports
@@ -21,6 +25,7 @@ var common = require('./webpack.common.js');
 module.exports = {
 
     devServer: {
+        host: isServerPublic ? ip.address() : undefined,
         contentBase: 'src/',
         noInfo: true,
         inline: true
