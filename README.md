@@ -164,7 +164,7 @@ That's it. You're done.
 
 Here are the
 [examples](https://github.com/JeffHing/angular-cabinet-directive/tree/master/src/examples)
-provided in the
+provided by the
 [AngularCabinetDirective](https://github.com/JeffHing/angular-cabinet-directive/tree/master/src/examples) GitHub project.
 
 ### Accordion
@@ -224,8 +224,8 @@ var options = {
 };
 ```
 
-These options (except directiveNames) can be overridden by each usage
-of the cabinet directive. See [Cabinet Directive](cabinet-directive).
+These options (except directiveNames) can be overridden by options passed
+directly into the cabinet directive. See [Cabinet Directive](cabinet-directive).
 
 #### Option Definitions:
 
@@ -257,7 +257,7 @@ of the cabinet directive. See [Cabinet Directive](cabinet-directive).
     openStates
     </dt>
     <dd>
-    Allows you to specify which drawers should be open. The key is the
+    Allows you to specify which drawers should initally be open. The key is the
     drawer id, and the value should be true.
     </dd>
     
@@ -266,7 +266,8 @@ of the cabinet directive. See [Cabinet Directive](cabinet-directive).
     </dt>
     <dd>
     Allows you to rename the directives when they are added to the module. The
-    key is the default directive name, and the value is the new directive name.
+    key of the object is the default directive name, and the value is the new
+    directive name.
     </dd>
 </dl>
 
@@ -287,7 +288,8 @@ class to the element.
 
 ```
 
-The following options can be passed into the cabinet directive:
+The following options can be passed into the cabinet directive, and can
+be dynamically updated:
 
 ```html
 <div cabinet="{
@@ -297,7 +299,7 @@ The following options can be passed into the cabinet directive:
     openStates: {
         <string>: <boolean>
     }
-}">
+}">...</div>
 ```
 
 #### Option Definitions:
@@ -330,9 +332,9 @@ The following options can be passed into the cabinet directive:
     openStates
     </dt>
     <dd>
-    Allows you to specify which drawers to open or close. The key is the
-    drawer id, and the value is a boolean indicating the open state of the 
-    drawer.
+    Allows you to specify which drawers to open or close. The key of the
+    object is the drawer id, and the value is a boolean indicating the open 
+    state of the drawer.
     </dd>
 </dl>
 
@@ -352,6 +354,9 @@ to any element.
 <a drawer-trigger href=""></a>
 
 ```
+
+#### Drawer Id
+
 A drawer id can be assigned to the directive to associate it with a specific drawer. Directives that share the same drawer id, share the open state of that drawer. The drawer id can be any string or number. A number
 is automatically converted to a string.
 
@@ -360,7 +365,7 @@ is automatically converted to a string.
 ```
 
 A drawer can have multiple triggers by assigning the same drawer id to the
-directives.
+drawerTrigger directives.
 
 ```html
 <a drawer-trigger="0" href="">trigger A</a>
@@ -377,6 +382,9 @@ is opened.
 ```html
 <div drawer-contents></div>
 ```
+
+#### Drawer Id
+
 A drawer id can be assigned to the directive to associate it with a 
 specific drawer. Directives that share the same drawer id, share the
 open state of that drawer. The drawer id can be any string or number. A number
@@ -396,10 +404,13 @@ the same drawer id:
 If no drawer id is assigned, the drawerContents directive associates itself 
 with the drawer of the preceding drawerTrigger directive.
 
-To be notified when the contents of a drawer is shown or hidden, pass in a handler
-function to the drawerContents directive. The handler function will be passed 
-an open state of either 'open' or 'closed'. You can prevent the drawer from 
-being closed by returning the value `false` from the handler function.
+#### Handler
+
+To be notified when the contents of a drawer is shown or hidden, pass in a 
+handler function to the drawerContents directive. The handler function will
+be passed an open state of either 'open' or 'closed'. You can prevent the 
+drawer from  being closed by returning the value `false` from the handler
+function.
 
 ```javascript```
 angular.module('app', []).controller('MyController', function() {
@@ -436,6 +447,9 @@ the open state of the drawer changes.
 <div drawer-class="['myOpenClass', 'myClosedClass']"></div>
 
 ```
+
+#### Drawer Id
+
 A drawer id can be assigned to the directive to associate it with a specific
 drawer. Directives that share the same drawer id, share the
 open state of that drawer. The drawer id can be any string or number. A number
@@ -447,6 +461,8 @@ is automatically converted to a string.
 
 If no drawer id is assigned, the drawerClass directive associates itself 
 with the drawer of the preceding drawerTrigger directive.
+
+#### Example
 
 An example of using the drawerClass directive is in the
 [accordion](https://github.com/JeffHing/angular-cabinet-directive/tree/master/src/examples/accordionDirective).
