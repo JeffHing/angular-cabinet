@@ -72,10 +72,8 @@ var proto = CabinetConfig.prototype;
  * Copy valid options into config.
  *
  * @param {object} options
- * @param {boolean} [isArrayRef]
- *    True to copy reference for arrays rather than copy.
  */
-proto.copyOptions = function(options, isArrayRef) {
+proto.copyOptions = function(options) {
     var i, key;
 
     var booleanKeys = ['openOnHover', 'oneAlwaysOpen', 'allowMultipleOpen'];
@@ -86,16 +84,8 @@ proto.copyOptions = function(options, isArrayRef) {
         }
     }
 
-    var arrayKeys = ['opened', 'closed'];
-    for (i = 0; i < arrayKeys.length; i++) {
-        key = arrayKeys[i];
-        if (options[key] !== undefined) {
-            this[key] = isArrayRef ? options[key] : options[key].splice(0);
-        }
-    }
-
-    if (options.elementClasses !== undefined) {
-        angular.extend(this.elementClasses, options.elementClasses);
+    if (options.openStates !== undefined) {
+        this.openStates = angular.extend({}, options.openStates);
     }
 };
 
