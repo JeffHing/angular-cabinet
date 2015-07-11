@@ -3,11 +3,11 @@
 # AngularCabinetDirective
 
 AngularCabinetDirective is a set of directives that can be used to create a 
-wide variety of user interface components that share a simple trait: show
+variety of user interface components that share a simple trait: show
 or hide content when a trigger is invoked.
 Examples include accordions, menus, tabs, navigation sidebars, etc. 
 
-AngularCabinetDirective is modeled after the structure of a cabinet of drawers 
+AngularCabinetDirective is modeled after the structure of a cabinet of drawers,
 which has the following properties:
 
 * A cabinet contains one or more drawers.
@@ -18,14 +18,14 @@ which has the following properties:
 Applying CSS to this structure can emulate many existing user interface 
 components, and allows for the creation of many others.
 
-A goal of AngularCabinetDirective is to make it easy for you, a front-end 
-developer, to create your own user interface components
+A goal of AngularCabinetDirective is to make it easy for you
+to create your own user interface components
 rather than use off-the-shelf components. By creating your 
 own user interface components, you can easily adapt your components (or create 
 new ones) to meet the demands of changing user 
 interface requirements. As such, AngularCabinetDirective does not provide a UI 
 style, but rather provides the structure and behaviors needed to implement a 
-cabinet-like component. It's entirely up to you what CSS rules are applied.
+cabinet-like component. It's entirely up to you what CSS rules are applied!
 
 
 
@@ -45,7 +45,7 @@ cabinet-like component. It's entirely up to you what CSS rules are applied.
 ## Features
 
 * Simplifies creation of user interface components that show or hide content.
-* Provides a consistent API across multiple user interface components
+* Provides a consistent API across multiple user interface components.
 * Compatible with CommonJS, AMD, and non-module build environments.
 
 ## Installation
@@ -62,7 +62,7 @@ var cabinetDirective = require("angular-cabinet-directive");
 
 ## Example
 
-The easist way to understand how AngularCabinetDirective works is to walk 
+The easist way to understand AngularCabinetDirective is to walk 
 through a quick example of creating a "tabs" directive which allows the user 
 to select from a horizontal list of tabs.
 
@@ -89,7 +89,7 @@ cabinetDirective('app', {
 
 ### 2. Create the HTML Structure
 
-Next, structure the HTML based on the layout of the particular user 
+Next, structure the HTML based upon the layout of the user 
 interface component and the demands of CSS.
 
 For tabs that appear at the top of the content, we need to specify the
