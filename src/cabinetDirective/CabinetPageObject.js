@@ -37,12 +37,13 @@ module.exports = CabinetPageObject;
 /*
  * @constructor
  */
-function CabinetPageObject(html, scopeProperties, options) {
+function CabinetPageObject(html, scopeProperties, factoryOptions) {
+
     var m = this[MODEL] = {};
 
     // Add cabinet directives to module.
     angular.module('testApp', []);
-    cabinetDirective('testApp', options);
+    cabinetDirective('testApp', factoryOptions);
 
     // Create test context.
     var testContext = new AngularTestContext('testApp');
@@ -54,7 +55,7 @@ function CabinetPageObject(html, scopeProperties, options) {
     //
     // Adjust element selectors according to the directive names.
     //
-    var config = new CabinetConfig(options);
+    var config = new CabinetConfig(factoryOptions);
     var directiveNames = config.directiveNames;
     var triggerSelector = '[' +
         config.snakeCase(directiveNames.drawerTrigger) + ']';
