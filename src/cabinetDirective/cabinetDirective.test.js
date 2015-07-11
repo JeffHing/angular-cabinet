@@ -45,6 +45,18 @@ describe('cabinet directive:', function() {
         });
     });
 
+    describe('passing in options', function() {
+
+        it('should still apply the default factory options', function() {
+            var cabinet = new Cabinet(HTML, {
+            }, {
+                oneAlwaysOpen: true
+            });
+            var trigger0 = cabinet.getTrigger(0);
+            expect(trigger0.isOpen()).toBe(true);
+        });
+    });
+
     describe('enabling option to allow multiple open drawers', function() {
 
         var cabinet = new Cabinet(HTML, {
@@ -249,30 +261,9 @@ describe('cabinet directive:', function() {
 //-------------------------------------
 describe('cabinet directive: addToModule:', function() {
 
-    describe('renaming element classes', function() {
-
-        var options = {
-            elementClasses: {
-                cabinet: 'menus',
-                drawerTrigger: 'menu-handle',
-                drawerContents: 'menu-contents'
-            }
-        };
-
-        it('should have renamed element classes', function() {
-            var cabinet = new Cabinet(HTML, null, options);
-            var trigger = cabinet.getTrigger(0);
-            var contents = cabinet.getContents(0);
-
-            expect(cabinet.hasClass('menus')).toBe(true);
-            expect(trigger.hasClass('menu-handle')).toBe(true);
-            expect(contents.hasClass('menu-contents')).toBe(true);
-        });
-    });
-
     describe('renaming directives', function() {
 
-        var options = {
+        var factoryOptions = {
             directiveNames: {
                 cabinet: 'tabs',
                 drawerTrigger: 'tabTrigger',
@@ -284,7 +275,7 @@ describe('cabinet directive: addToModule:', function() {
         var cabinet, trigger, contents;
 
         beforeEach(function() {
-            cabinet = new Cabinet(HTML_TABS, null, options);
+            cabinet = new Cabinet(HTML_TABS, null, factoryOptions);
             trigger = cabinet.getTrigger(0);
             contents = cabinet.getContents(0);
         });
@@ -299,6 +290,25 @@ describe('cabinet directive: addToModule:', function() {
             expect(contents.hasClass('my-closed')).toBe(true);
             trigger.mouseClick();
             expect(contents.hasClass('my-open')).toBe(true);
+        });
+    });
+
+    describe('using openStates', function() {
+
+        var factoryOptions = {
+            openStates: {
+                '1': true
+            }
+        };
+
+        var cabinet = new Cabinet(HTML, null, factoryOptions);
+
+        var trigger0 = cabinet.getTrigger(0);
+        var trigger1 = cabinet.getTrigger(1);
+
+        it('should have opened drawer 1', function() {
+            expect(trigger0.isOpen()).toBe(false);
+            expect(trigger1.isOpen()).toBe(true);
         });
     });
 });
