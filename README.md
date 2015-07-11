@@ -38,9 +38,9 @@ cabinet-like component. It's entirely up to you what CSS rules are applied.
 - [Usage](#usage)
     - [Factory Method](#factory-method)
     - [Cabinet Directive](#cabinet-directive)
-    - [DrawerTrigger Directive](#drawerTrigger-directive)
-    - [DrawerContents Directive](#drawerContents-directive)
-    - [DrawerClass Directive](#drawerClass-directive)
+    - [DrawerTrigger Directive](#drawertrigger-directive)
+    - [DrawerContents Directive](#drawercontents-directive)
+    - [DrawerClass Directive](#drawerclass-directive)
    
 ## Features
 
