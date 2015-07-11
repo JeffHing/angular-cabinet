@@ -18,10 +18,15 @@ module.exports = drawerTriggerDirective;
 //--------------------------------------
 
 /*
- * The drawerTrigger directive triggers the showing and hiding of the
- * drawer contents. It adds the 'drawer-trigger-open' class to the element
- * when the drawer is opened and event handlers to the element
- * so that it can inform the drawer controller of user input.
+ * The drawerTrigger directive toggles the opening and closing of the
+ * drawer. It adds mouse and focus event handlers to the element
+ * to know when the directive has been triggerred. For applying CSS rules,
+ * it adds a 'drawer-trigger' class to the element and also adds a
+ * 'drawer-trigger-open' class to the element when the drawer is opened.
+ *
+ * The drawerTrigger directive is usually applied to an anchor or button element
+ * to ensure that keyboard navigation works properly, but it can be applied
+ * to any element.
  *
  * @example
  *    <a drawer-trigger href="">I'm a drawer trigger</a>

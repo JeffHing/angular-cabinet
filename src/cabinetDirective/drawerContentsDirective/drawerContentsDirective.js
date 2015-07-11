@@ -19,11 +19,12 @@ module.exports = drawerContentsDirective;
 
 /*
  * The drawerContents directive contains the contents of the
- * drawer. It adds the 'drawer-contents-open' class to the element
- * when the drawer is opened and event handlers to the element
- * so that it can inform the drawer controller of user input. If a handler
- * is specified, the handler is called whenver the drawer contents
- * is opened or closed.
+ * drawer. For applying CSS rules, it adds the 'drawer-contents'
+ * class to the element. When the drawer is opened, it also adds
+ * the 'drawer-contents-open' class to the element.
+ *
+ * If a handler is specified, the handler is called whenver the
+ * drawer is opened or closed.
  *
  * @example
  *    <div drawer-contents>I'm the drawer contents</div>

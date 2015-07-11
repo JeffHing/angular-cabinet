@@ -18,8 +18,9 @@ module.exports = drawerClassDirective;
 //--------------------------------------
 
 /*
- * The drawerClassDirective dynamically updates the element's classes
- * whenever the state of the drawer changes.
+ * The drawerClass directive assigns a particular class to the element whenever
+ * the open state of the drawer changes.
+ *
  *
  * @example
  *    <div drawer-class='['my-open', 'my-closed']'></div>
