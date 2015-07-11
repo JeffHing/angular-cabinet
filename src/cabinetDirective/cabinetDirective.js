@@ -79,8 +79,9 @@ function addToModule(moduleName, options) {
 /*
  * The cabinetDirective identifies the element as a cabinet which contains
  * one or more drawer directives. It is responsible for determining which
- * drawers should be opened or closed based upon the drawer directive states
- * and the user specified policy options.
+ * drawers should be opened or closed based upon the drawers' open states and
+ * user specified policy options. For applying CSS rules, it adds the 'cabinet'
+ * class to the element.
  *
  * @constructor
  *
@@ -263,11 +264,10 @@ modelProto.watchOptions = function(scope, attrs) {
 
     function processOptions(options, oldOptions) {
 
-        if (!options) {
-            return;
-        }
-
         var isFirstWatch = options === oldOptions;
+
+        options = options ? options : {};
+        oldOptions = oldOptions ? oldOptions : {};
 
         var openStatesChanged = isFirstWatch ||
             (options.openStates !== oldOptions.openStates);
@@ -275,20 +275,17 @@ modelProto.watchOptions = function(scope, attrs) {
         var oneAlwaysOpenChanged = isFirstWatch ||
             (options.oneAlwaysOpen !== oldOptions.oneAlwaysOpen);
 
-        // Ensure that these options are applied which may affect
-        // how the next options are applied.
-        self.config.copyOptions(options, true);
+        // Update config with new options.
+        self.config.copyOptions(options);
 
         // Open/close the specified drawers.
         if (openStatesChanged) {
-            if (options.openStates) {
-                self.openDrawersById(options.openStates, true);
-            }
+            self.openDrawersById(self.config.openStates, true);
         }
 
         // Ensure at least one drawer is opened.
         if (oneAlwaysOpenChanged) {
-            if (options.oneAlwaysOpen) {
+            if (self.config.oneAlwaysOpen) {
                 if (self.openDrawerCount() === 0) {
                     self.openDrawer(0, true);
                 }
