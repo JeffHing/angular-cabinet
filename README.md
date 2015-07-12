@@ -223,8 +223,8 @@ var options = {
 };
 ```
 
-These options (except directiveNames) can be overridden by options passed
-directly into the cabinet directive. 
+These options (except directiveNames) can be overridden by the options passed
+into the cabinet directive. 
 See [Cabinet Directive](#cabinet-directive).
 
 #### Option Definitions:
@@ -274,9 +274,9 @@ See [Cabinet Directive](#cabinet-directive).
 ### Cabinet Directive
 
 The cabinetDirective identifies the element as a cabinet which contains
-one or more drawer directives. It is responsible for determining which
-drawers should be opened or closed based upon the drawers' open states and
-applied user options. For applying CSS rules, it adds the 'cabinet' 
+one or more drawer directives. It is responsible for coordinating which
+drawers should be opened or closed based upon the open states of the drawers
+and the applied user options. For applying CSS rules, it adds the 'cabinet' 
 class to the element.
 
 ```html
@@ -364,8 +364,7 @@ is automatically converted to a string.
 <a drawer-trigger="0" href=""></a>
 ```
 
-A drawer can have multiple triggers by assigning the drawerTrigger
-directives the same drawer id.
+A drawer can have multiple triggers by assigning the same drawer id.
 
 ```html
 <a drawer-trigger="0" href="">trigger A</a>
@@ -394,8 +393,7 @@ is automatically converted to a string.
 <div drawer-contents="0"></div>
 ```
 
-A drawer can have multiple contents by assigning the drawerContents directives 
-the same drawer id:
+A drawer can have multiple contents by assigning the same drawer id.
 
 ```html
 <div drawer-contents="0">contents A</div>
