@@ -163,7 +163,8 @@ That's it. You're done.
 Here are the
 [examples](https://github.com/JeffHing/angular-cabinet/tree/master/src/examples)
 that are available in
-[AngularCabinet's](https://github.com/JeffHing/angular-cabinet/tree/master/src/examples) GitHub project.
+[AngularCabinet's](https://github.com/JeffHing/angular-cabinet) GitHub 
+project.
 
 ### Accordion
 
