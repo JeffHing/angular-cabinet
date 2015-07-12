@@ -2,10 +2,18 @@
 
 # AngularCabinet
 
-AngularCabinet is a set of directives that can be used to create a 
-variety of user interface components that share a simple trait: show
+AngularCabinet is a set of directives that simplifies the creation of 
+a variety of user interface components that share a simple trait: show
 or hide content when a trigger is invoked.
 Examples include accordions, menus, tabs, navigation sidebars, etc. 
+
+By making it easy for you to create your own user interface components
+rather than use off-the-shelf components, you can easily adapt your 
+components (or create  new ones) to meet the demands of changing user 
+interface requirements. As such, AngularCabinet does not provide a UI 
+style, but rather provides the structure and behaviors needed to 
+implement a component. It's entirely up to you what CSS rules are 
+applied!
 
 AngularCabinet is modeled after the structure of a cabinet of drawers,
 which has the following properties:
@@ -17,17 +25,6 @@ which has the following properties:
 
 Applying CSS to this structure can emulate many existing user interface 
 components, and allows for the creation of many others.
-
-A goal of AngularCabinet is to make it easy for you
-to create your own user interface components
-rather than use off-the-shelf components. By creating your 
-own user interface components, you can easily adapt your components (or create 
-new ones) to meet the demands of changing user 
-interface requirements. As such, AngularCabinet does not provide a UI 
-style, but rather provides the structure and behaviors needed to implement a 
-cabinet-like component. It's entirely up to you what CSS rules are applied!
-
-
 
 ## Table of Contents
 
