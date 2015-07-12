@@ -87,7 +87,7 @@ cabinetDirective('app', {
 
 ### 2. Create the HTML Structure
 
-Next, structure the HTML based upon the layout of the user 
+Next, create the HTML structure based upon the layout of the user 
 interface component and the demands of CSS.
 
 For tabs that appear at the top of the content, we need to specify the
