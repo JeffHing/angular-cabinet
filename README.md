@@ -196,10 +196,10 @@ provided by the
 
 ### Factory Method
 
-The `cabinetDirective()` factory method adds a cabinet directive and
-the drawer directives to any Angular module.
+The `cabinetDirective()` method adds the cabinet directive and
+the drawer directives to an Angular module.
 
-To add the directives to an Angular module, call `cabinetDirective()` with
+To add the directives, call `cabinetDirective()` with
 the name of the Angular module, and any options:
 
 ```javascript
@@ -259,8 +259,8 @@ See [Cabinet Directive](#cabinet-directive).
     openStates
     </dt>
     <dd>
-    Allows you to specify which drawers should initally be open. The key is the
-    drawer id, and the value should be true.
+    Allows you to specify which drawers should initally be open. The key 
+    of the object is the drawer id, and the value should be true.
     </dd>
     
     <dt>
@@ -278,7 +278,7 @@ See [Cabinet Directive](#cabinet-directive).
 The cabinetDirective identifies the element as a cabinet which contains
 one or more drawer directives. It is responsible for determining which
 drawers should be opened or closed based upon the drawers' open states and
-user specified policy options. For applying CSS rules, it adds the 'cabinet' 
+applied user options. For applying CSS rules, it adds the 'cabinet' 
 class to the element.
 
 ```html
@@ -290,8 +290,8 @@ class to the element.
 
 ```
 
-The following options can be passed into the cabinet directive, and can
-be dynamically updated:
+The following options can be passed into the cabinet directive (and can
+be dynamically updated):
 
 ```html
 <div cabinet="{
@@ -343,7 +343,7 @@ be dynamically updated:
 ### DrawerTrigger Directive
 
 The drawerTrigger directive toggles the opening and closing of the
-drawer. It adds mouse and focus event handlers to the element
+drawer. It adds mouse and focus handlers to the element
 to know when the directive has been triggered. For applying CSS rules,
 it adds a 'drawer-trigger' class to the element, and a
 'drawer-trigger-open' class to the element when the drawer is opened.
@@ -366,8 +366,8 @@ is automatically converted to a string.
 <a drawer-trigger="0" href=""></a>
 ```
 
-A drawer can have multiple triggers by assigning the same drawer id to the
-drawerTrigger directives.
+A drawer can have multiple triggers by assigning the drawerTrigger
+directives the same drawer id.
 
 ```html
 <a drawer-trigger="0" href="">trigger A</a>
@@ -442,12 +442,22 @@ use array notation:
 
 ### DrawerClass Directive
 
-The drawerClass directive assigns a particular class to the element whenever
+The drawerClass directive assigns a particular class to an element whenever
 the open state of the drawer changes.
 
 ```html
 <div drawer-class="['myOpenClass', 'myClosedClass']"></div>
 
+```
+An example of using the drawerClass directive is in the
+[accordion](https://github.com/JeffHing/angular-cabinet/tree/master/src/examples/accordionDirective).
+It uses the drawerClass directive to change the Font Awesome chevron icon
+depending upon the current open state of the drawer:
+
+```html
+ <i class="fa" accordion-class="[
+            'fa-chevron-down',
+            'fa-chevron-right']"></i>
 ```
 
 #### Drawer Id
@@ -463,16 +473,3 @@ is automatically converted to a string.
 
 If no drawer id is assigned, the drawerClass directive associates itself 
 with the drawer of the preceding drawerTrigger directive.
-
-#### Example
-
-An example of using the drawerClass directive is in the
-[accordion](https://github.com/JeffHing/angular-cabinet/tree/master/src/examples/accordionDirective).
-It uses the drawerClass directive to change the Font Awesome chevron icon
-depending upon the current open state of the drawer:
-
-```html
- <i class="fa" accordion-class="[
-            'fa-chevron-down',
-            'fa-chevron-right']"></i>
-```

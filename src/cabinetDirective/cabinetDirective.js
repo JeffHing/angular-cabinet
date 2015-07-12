@@ -80,7 +80,7 @@ function addToModule(moduleName, options) {
  * The cabinetDirective identifies the element as a cabinet which contains
  * one or more drawer directives. It is responsible for determining which
  * drawers should be opened or closed based upon the drawers' open states and
- * user specified policy options. For applying CSS rules, it adds the 'cabinet'
+ * the applied user options. For applying CSS rules, it adds the 'cabinet'
  * class to the element.
  *
  * @constructor
