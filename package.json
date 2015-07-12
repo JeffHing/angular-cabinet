@@ -4,8 +4,8 @@
     "version": "0.1.0",
     "description": "Simplifies the creation of user interface components that show or hide content when a trigger is invoked.",
     "keywords": [
-        "directive",
-        "ui", "widget", "component",
+        "angular", "directive",
+        "ui", "widget", "component", "interface",
         "accordion", "menus", "navigation", "sidebar", "tabs"
     ],
     "homepage": "https://github.com/JeffHing/angular-cabinet",
