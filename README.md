@@ -225,7 +225,8 @@ var options = {
 ```
 
 These options (except directiveNames) can be overridden by options passed
-directly into the cabinet directive. See [Cabinet Directive](cabinet-directive).
+directly into the cabinet directive. 
+See [Cabinet Directive](#cabinet-directive).
 
 #### Option Definitions:
 
@@ -247,7 +248,7 @@ directly into the cabinet directive. See [Cabinet Directive](cabinet-directive).
     </dd>
     
     <dt>
-    allowMutlipleOpen
+    allowMultipleOpen
     </dt>
     <dd>
     True to allow multiple drawers to be open at the same time.
@@ -322,7 +323,7 @@ be dynamically updated:
     </dd>
     
     <dt>
-    allowMutlipleOpen
+    allowMultipleOpen
     </dt>
     <dd>
     True to allow multiple drawers to be open at the same time. 
