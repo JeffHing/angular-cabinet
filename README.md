@@ -364,7 +364,7 @@ is automatically converted to a string.
 <a drawer-trigger="0" href=""></a>
 ```
 
-A drawer can have multiple triggers by assigning the same drawer id.
+Multiple drawerTrigger directives can be assigned to the same drawer.
 
 ```html
 <a drawer-trigger="0" href="">trigger A</a>
@@ -393,7 +393,7 @@ is automatically converted to a string.
 <div drawer-contents="0"></div>
 ```
 
-A drawer can have multiple contents by assigning the same drawer id.
+Multiple drawerContents directives can be assigned to the same drawer.
 
 ```html
 <div drawer-contents="0">contents A</div>
