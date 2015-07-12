@@ -14,7 +14,7 @@
 var extend = require('extend-this');
 var HasStyle = require('HasStyle');
 var AngularTestContext = require('angular-test-context');
-var cabinetDirective = require('angular-cabinet-directive');
+var cabinetDirective = require('angular-cabinet');
 var CabinetConfig = require('./CabinetConfig');
 var DrawerTriggerPageObject =
     require('./drawerTriggerDirective/DrawerTriggerPageObject');

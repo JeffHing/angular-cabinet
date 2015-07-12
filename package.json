@@ -1,13 +1,14 @@
 {
-    "name": "angular-cabinet-directive",
+    "name": "angular-cabinet",
     "main": "./src/cabinetDirective/cabinetDirective.js",
     "version": "0.1.0",
     "description": "",
     "keywords": [
-        "angular",
-        "directive"
+        "directive",
+        "ui", "widget", "component",
+        "accordion", "menus", "navigation", "sidebar", "tabs"
     ],
-    "homepage": "https://github.com/JeffHing/angular-cabinet-directive",
+    "homepage": "https://github.com/JeffHing/angular-cabinet",
     "license": "MIT",
     "author": {
         "name": "Jeffrey Hing",
@@ -15,7 +16,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/JeffHing/angular-cabinet-directive.git"
+        "url": "https://github.com/JeffHing/angular-cabinet.git"
     },
     "dependencies": {},
     "devDependencies": {

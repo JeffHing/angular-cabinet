@@ -63,7 +63,7 @@ module.exports = function(sourceFile, loaders) {
             },
             resolve: {
                 alias: {
-                    'angular-cabinet-directive': path.join(
+                    'angular-cabinet': path.join(
                         __dirname, sourceFile)
                 },
                 fallback: [
