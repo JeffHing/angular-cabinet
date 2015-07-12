@@ -357,7 +357,9 @@ to any element.
 
 #### Drawer Id
 
-A drawer id can be assigned to the directive to associate it with a specific drawer. Directives that share the same drawer id, share the open state of that drawer. The drawer id can be any string or number. A number
+A drawer id can be specified to assign the directive to a 
+specific drawer. Directives that are assigned to the same drawer, share the
+open state of that drawer. The drawer id can be any string or number. A number
 is automatically converted to a string.
 
 ```html
@@ -384,8 +386,8 @@ is opened.
 
 #### Drawer Id
 
-A drawer id can be assigned to the directive to associate it with a 
-specific drawer. Directives that share the same drawer id, share the
+A drawer id can be specified to assign the directive to a 
+specific drawer. Directives that are assigned to the same drawer, share the
 open state of that drawer. The drawer id can be any string or number. A number
 is automatically converted to a string.
 
@@ -458,8 +460,8 @@ to point right or down, depending upon the open state of the drawer:
 
 #### Drawer Id
 
-A drawer id can be assigned to the directive to associate it with a specific
-drawer. Directives that share the same drawer id, share the
+A drawer id can be specified to assign the directive to a 
+specific drawer. Directives that are assigned to the same drawer, share the
 open state of that drawer. The drawer id can be any string or number. A number
 is automatically converted to a string.
 
