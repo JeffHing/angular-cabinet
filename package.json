@@ -19,7 +19,7 @@
     },
     "dependencies": {},
     "devDependencies": {
-        "angular": "^1.4.1",
+        "angular": "1.2.x",
         "angular-test-context": "^0.1.4",
         "css-loader": "^0.15.1",
         "csslint": "^0.10.0",
@@ -29,6 +29,7 @@
         "extend": "^3.0.0",
         "extend-this": "^0.1.2",
         "html-loader": "^0.3.0",
+        "ip": "^0.3.3",
         "jquery": "^2.1.4",
         "karma": "^0.12.31",
         "karma-cli": "0.0.4",
