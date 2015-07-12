@@ -366,12 +366,9 @@ is automatically converted to a string.
 <a drawer-trigger="0" href=""></a>
 ```
 
-Multiple drawerTrigger directives can be assigned to the same drawer.
+If no drawer id is specified, it implictly indicates the start of a new drawer.
 
-```html
-<a drawer-trigger="0" href="">trigger A</a>
-<a drawer-trigger="0" href="">trigger B</a>
-```
+Multiple drawerTrigger directives can be assigned to the same drawer.
 
 ### DrawerContents Directive
 
@@ -394,15 +391,10 @@ is automatically converted to a string.
 ```html
 <div drawer-contents="0"></div>
 ```
+If no drawer id is specified, the drawerContents directive assigns itself 
+to the drawer of the preceding drawerTrigger directive.
 
 Multiple drawerContents directives can be assigned to the same drawer.
-
-```html
-<div drawer-contents="0">contents A</div>
-<div drawer-contents="0">contents B</div>
-```
-If no drawer id is assigned, the drawerContents directive associates itself 
-with the drawer of the preceding drawerTrigger directive.
 
 #### Handler
 
@@ -469,5 +461,7 @@ is automatically converted to a string.
 <div drawer-class="[0, 'myOpenClass', 'myClosedClass']"></div>
 ```
 
-If no drawer id is assigned, the drawerClass directive associates itself 
-with the drawer of the preceding drawerTrigger directive.
+If no drawer id is specified, the drawerClass directive assigns itself 
+to the drawer of the preceding drawerTrigger directive.
+
+Multiple drawerClass directives can be assigned to the same drawer.
