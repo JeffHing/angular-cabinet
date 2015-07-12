@@ -206,7 +206,7 @@ the name of the Angular module, and any options:
 cabinetDirective('app', options);
 ```
 
-The options object can consist of any of the following properties:
+The options can consist of any of the following properties:
 
 ```javascript
 var options = {
@@ -452,7 +452,7 @@ the open state of the drawer changes.
 An example of using the drawerClass directive is in the
 [accordion](https://github.com/JeffHing/angular-cabinet/tree/master/src/examples/accordionDirective).
 It uses the drawerClass directive to change the Font Awesome chevron icon
-depending upon the current open state of the drawer:
+to point right or down, depending upon the open state of the drawer:
 
 ```html
  <i class="fa" accordion-class="[
