@@ -162,8 +162,8 @@ That's it. You're done.
 
 Here are the
 [examples](https://github.com/JeffHing/angular-cabinet/tree/master/src/examples)
-provided by the
-[AngularCabinet](https://github.com/JeffHing/angular-cabinet/tree/master/src/examples) GitHub project.
+that are available in
+[AngularCabinet's](https://github.com/JeffHing/angular-cabinet/tree/master/src/examples) GitHub project.
 
 ### Accordion
 
