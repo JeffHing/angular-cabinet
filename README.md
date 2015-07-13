@@ -250,7 +250,7 @@ be dynamically updated):
 <div cabinet="{
     openOnHover: <boolean>,
     oneAlwaysOpen: <boolean>,
-    allowMultipleOpen: <boolean>
+    allowMultipleOpen: <boolean>,
     openStates: {
         <string>: <boolean>
     }
