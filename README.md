@@ -229,47 +229,30 @@ See [Cabinet Directive](#cabinet-directive).
 
 #### Option Definitions:
 
-<dl>
-    <dt>
-    openOnHover
-    </dt>
-    <dd>
-    True to open the drawer when the mouse pointer hovers over the 
-    drawer trigger.
-    </dd>
+##### openOnHover
+
+True to open the drawer when the mouse pointer hovers over the 
+drawer trigger.
     
-    <dt>
-    oneAlwaysOpen
-    </dt>
-    <dd>
-    True to ensure one drawer is always open. By default, it opens the first drawer 
-    on startup.
-    </dd>
+##### oneAlwaysOpen
+
+True to ensure one drawer is always open. By default, it opens the first drawer 
+on startup.
+
+##### allowMultipleOpen
+
+True to allow multiple drawers to be open at the same time.
     
-    <dt>
-    allowMultipleOpen
-    </dt>
-    <dd>
-    True to allow multiple drawers to be open at the same time.
-    </dd>
-    
-    <dt>
-    openStates
-    </dt>
-    <dd>
-    Allows you to specify which drawers should initally be open. The key 
-    of the object is the drawer id, and the value should be true.
-    </dd>
-    
-    <dt>
-    directiveNames
-    </dt>
-    <dd>
-    Allows you to rename the directives when they are added to the module. The
-    key of the object is the default directive name, and the value is the new
-    directive name.
-    </dd>
-</dl>
+##### openStates
+
+Allows you to specify which drawers should initally be open. The key 
+of the object is the drawer id, and the value should be true.
+
+##### directiveNames
+
+Allows you to rename the directives when they are added to the module. The
+key of the object is the default directive name, and the value is the new
+directive name.
 
 ### Cabinet Directive
 
@@ -304,39 +287,25 @@ be dynamically updated):
 
 #### Option Definitions:
 
-<dl>
-    <dt>
-    openOnHover
-    </dt>
-    <dd>
-    True to open the drawer when the mouse pointer hovers over the 
-    drawer trigger.
-    </dd>
+##### openOnHover
+
+True to open the drawer when the mouse pointer hovers over the 
+drawer trigger.
     
-    <dt>
-    oneAlwaysOpen
-    </dt>
-    <dd>
-    True to ensure one drawer is always open. By default, it opens the first drawer 
-    on startup.
-    </dd>
+##### oneAlwaysOpen
+
+True to ensure one drawer is always open. By default, it opens the first drawer 
+on startup.
     
-    <dt>
-    allowMultipleOpen
-    </dt>
-    <dd>
-    True to allow multiple drawers to be open at the same time. 
-    </dd>
+##### allowMultipleOpen
+
+True to allow multiple drawers to be open at the same time. 
     
-    <dt>
-    openStates
-    </dt>
-    <dd>
-    Allows you to specify which drawers to open or close. The key of the
-    object is the drawer id, and the value is a boolean indicating the open 
-    state of the drawer.
-    </dd>
-</dl>
+##### openStates
+Allows you to specify which drawers to open or close. The key of the
+object is the drawer id, and the value is a boolean indicating the open 
+state of the drawer.
+
 
 ### DrawerTrigger Directive
 
@@ -404,7 +373,7 @@ be passed an open state of either 'open' or 'closed'. You can prevent the
 drawer from  being closed by returning the value `false` from the handler
 function.
 
-```javascript```
+```javascript
 angular.module('app', []).controller('MyController', function() {
     this.myHandler = function(state) {
         if (state === 'closed') {
