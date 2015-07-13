@@ -227,28 +227,28 @@ These options (except directiveNames) can be overridden by the options passed
 into the cabinet directive. 
 See [Cabinet Directive](#cabinet-directive).
 
-#### Option Definitions:
+#### Option Definitions
 
-##### openOnHover
+**openOnHover**
 
 True to open the drawer when the mouse pointer hovers over the 
 drawer trigger.
     
-##### oneAlwaysOpen
+**oneAlwaysOpen**
 
 True to ensure one drawer is always open. By default, it opens the first drawer 
 on startup.
 
-##### allowMultipleOpen
+**allowMultipleOpen**
 
 True to allow multiple drawers to be open at the same time.
     
-##### openStates
+**openStates**
 
 Allows you to specify which drawers should initally be open. The key 
 of the object is the drawer id, and the value should be true.
 
-##### directiveNames
+**directiveNames**
 
 Allows you to rename the directives when they are added to the module. The
 key of the object is the default directive name, and the value is the new
@@ -285,27 +285,26 @@ be dynamically updated):
 }">...</div>
 ```
 
-#### Option Definitions:
+#### Option Definitions
 
-##### openOnHover
+**openOnHover**
 
 True to open the drawer when the mouse pointer hovers over the 
 drawer trigger.
     
-##### oneAlwaysOpen
+**oneAlwaysOpen**
 
 True to ensure one drawer is always open. By default, it opens the first drawer 
 on startup.
     
-##### allowMultipleOpen
+**allowMultipleOpen**
 
 True to allow multiple drawers to be open at the same time. 
     
-##### openStates
+**openStates**
 Allows you to specify which drawers to open or close. The key of the
 object is the drawer id, and the value is a boolean indicating the open 
 state of the drawer.
-
 
 ### DrawerTrigger Directive
 
