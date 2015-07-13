@@ -194,20 +194,14 @@ project.
 
 ### Factory Method
 
-The `cabinetDirective()` method adds the cabinet directive and
-the drawer directives to an Angular module.
+The `cabinetDirective()` method adds the AngularCabinet directives to an
+Angular module.
 
 To add the directives, call `cabinetDirective()` with
 the name of the Angular module, and any options:
 
 ```javascript
-cabinetDirective('app', options);
-```
-
-The options can consist of any of the following properties:
-
-```javascript
-var options = {
+cabinetDirective('app', {
     openOnHover: <boolean>,
     oneAlwaysOpen: <boolean>,
     allowMultipleOpen: <boolean>,
@@ -220,39 +214,17 @@ var options = {
         drawerContents: <string>,
         drawerClass: <string>
     }
-};
+});
 ```
+#### Option Descriptions
 
-These options (except directiveNames) can be overridden by the options passed
-into the cabinet directive. 
-See [Cabinet Directive](#cabinet-directive).
-
-#### Option Definitions
-
-**openOnHover**
-
-True to open the drawer when the mouse pointer hovers over the 
-drawer trigger.
-    
-**oneAlwaysOpen**
-
-True to ensure one drawer is always open. By default, it opens the first drawer 
-on startup.
-
-**allowMultipleOpen**
-
-True to allow multiple drawers to be open at the same time.
-    
-**openStates**
-
-Allows you to specify which drawers should initally be open. The key 
-of the object is the drawer id, and the value should be true.
-
-**directiveNames**
-
-Allows you to rename the directives when they are added to the module. The
-key of the object is the default directive name, and the value is the new
-directive name.
+Option | Description
+- | -
+**openOnHover** | True to open the drawer when the mouse pointer hovers over the  drawer trigger.
+**oneAlwaysOpen** | True to ensure one drawer is always open. By default, it opens the first drawer on startup.
+**allowMultipleOpen** | True to allow multiple drawers to be open at the same time. 
+**openStates** | Allows you to specify which drawers should initally be open. The key of the object is the drawer id, and the value should be true.
+**directiveNames** | Allows you to rename the directives when they are added to the module. The key of the object is the default directive name, and the value is the new directive name.
 
 ### Cabinet Directive
 
@@ -285,26 +257,17 @@ be dynamically updated):
 }">...</div>
 ```
 
-#### Option Definitions
+#### Option Descriptions
 
-**openOnHover**
+Option | Description
+- | -
+**openOnHover** | True to open the drawer when the mouse pointer hovers over the  drawer trigger.
+**oneAlwaysOpen** | True to ensure one drawer is always open. By default, it opens the first drawer on startup.
+**allowMultipleOpen** | True to allow multiple drawers to be open at the same time. 
+**openStates** | Allows you to specify which drawers to open or close. The key of the object is the drawer id, and the value is a boolean indicating the open state of the drawer.
 
-True to open the drawer when the mouse pointer hovers over the 
-drawer trigger.
-    
-**oneAlwaysOpen**
-
-True to ensure one drawer is always open. By default, it opens the first drawer 
-on startup.
-    
-**allowMultipleOpen**
-
-True to allow multiple drawers to be open at the same time. 
-    
-**openStates**
-Allows you to specify which drawers to open or close. The key of the
-object is the drawer id, and the value is a boolean indicating the open 
-state of the drawer.
+These options will override the options passed into the `cabinetDirective()` 
+factory method.
 
 ### DrawerTrigger Directive
 
