@@ -218,13 +218,13 @@ cabinetDirective('app', {
 ```
 #### Option Descriptions
 
-Option | Description
-- | -
-**openOnHover** | True to open the drawer when the mouse pointer hovers over the  drawer trigger.
-**oneAlwaysOpen** | True to ensure one drawer is always open. By default, it opens the first drawer on startup.
-**allowMultipleOpen** | True to allow multiple drawers to be open at the same time. 
-**openStates** | Allows you to specify which drawers should initally be open. The key of the object is the drawer id, and the value should be true.
-**directiveNames** | Allows you to rename the directives when they are added to the module. The key of the object is the default directive name, and the value is the new directive name.
+Option            | Description                                       | Default
+----------------- | ------------------------------------------------- | -------
+openOnHover       | True to open the drawer when the mouse pointer hovers over the drawer trigger. | false
+oneAlwaysOpen     | True to ensure one drawer is always open. By default, it opens the first drawer on startup. | false
+allowMultipleOpen | True to allow multiple drawers to be open at the same time. | false
+openStates        | Allows you to specify which drawers to initally open. The key of the object is the drawer id, and the value is true. | {}
+directiveNames    | Allows you to rename the directives when they are added to the module. The key of the object is the default directive name, and the value is the new directive name. | {}
 
 ### Cabinet Directive
 
@@ -259,12 +259,12 @@ be dynamically updated):
 
 #### Option Descriptions
 
-Option | Description
-- | -
-**openOnHover** | True to open the drawer when the mouse pointer hovers over the  drawer trigger.
-**oneAlwaysOpen** | True to ensure one drawer is always open. By default, it opens the first drawer on startup.
-**allowMultipleOpen** | True to allow multiple drawers to be open at the same time. 
-**openStates** | Allows you to specify which drawers to open or close. The key of the object is the drawer id, and the value is a boolean indicating the open state of the drawer.
+Option            | Description                                       | Default
+----------------- | ------------------------------------------------- | -------
+openOnHover       | True to open the drawer when the mouse pointer hovers over the drawer trigger. | false
+oneAlwaysOpen     | True to ensure one drawer is always open. By default, it opens the first drawer on startup. | false
+allowMultipleOpen | True to allow multiple drawers to be open at the same time. | false
+openStates        | Allows you to specify which drawers to open or close.  The key of the object is the drawer id, and the value is a boolean indicating the open state of the drawer. | {}
 
 These options will override the options passed into the `cabinetDirective()` 
 factory method.
