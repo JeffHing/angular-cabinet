@@ -1,5 +1,8 @@
+### 0.1.3 (2015-07-02)
+* README updates.
+
 ### 0.1.2 (2015-07-02)
-* Make README updates.
+* README updates.
 
 ### 0.1.1 (2015-07-02)
 * Make README compatible with NPM.
