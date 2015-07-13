@@ -1,7 +1,7 @@
 {
   "name": "angular-cabinet",
   "main": "./src/cabinetDirective/cabinetDirective.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Simplifies the creation of user interface components that show or hide content when a trigger is invoked.",
   "keywords": [
     "angular",
