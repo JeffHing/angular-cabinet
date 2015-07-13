@@ -27,7 +27,12 @@ var TEST_UTILITIES_DIR = 'src/testUtilities';
  */
 module.exports = function(sourceFile, loaders) {
 
+    var allLoaders = [];
     var testFilesPattern = path.join(TEST_UTILITIES_DIR, 'allTests.js');
+
+    if (loaders) {
+        allLoaders.concat(loaders);
+    }
 
     // Return a new instance each time.
     var conf = {
@@ -59,7 +64,7 @@ module.exports = function(sourceFile, loaders) {
 
         webpack: {
             module: {
-                loaders: loaders
+                loaders: allLoaders
             },
             resolve: {
                 alias: {
