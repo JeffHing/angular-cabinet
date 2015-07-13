@@ -68,7 +68,7 @@ module.exports = function(sourceFile, loaders) {
             },
             resolve: {
                 alias: {
-                    'angular-cabinet': path.join(
+                    'angular-cabinet-ui': path.join(
                         __dirname, sourceFile)
                 },
                 fallback: [

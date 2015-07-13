@@ -1,8 +1,8 @@
 <!-- Copyright 2015. Author: Jeffrey Hing. All Rights Reserved. MIT License -->
 
-# AngularCabinet
+# AngularCabinetUI
 
-AngularCabinet is a set of directives that simplifies the creation of 
+AngularCabinetUI is a set of directives that simplifies the creation of 
 a variety of user interface components that share a simple trait: show
 or hide content when a trigger is invoked.
 Examples include accordions, menus, tabs, navigation sidebars, etc. 
@@ -10,12 +10,12 @@ Examples include accordions, menus, tabs, navigation sidebars, etc.
 By making it easy for you to create your own user interface components
 rather than use off-the-shelf components, you can easily adapt your 
 components (or create  new ones) to meet the demands of changing user 
-interface requirements. As such, AngularCabinet does not provide a UI 
+interface requirements. As such, AngularCabinetUI does not provide a UI 
 style, but rather provides the structure and behaviors needed to 
 implement a component. It's entirely up to you what CSS rules are 
 applied!
 
-AngularCabinet is modeled after the structure of a cabinet of drawers,
+AngularCabinetUI is modeled after the structure of a cabinet of drawers,
 which has the following properties:
 
 * A cabinet contains one or more drawers.
@@ -50,25 +50,25 @@ components, and allows for the creation of many others.
 
 To install the package:
 
-    npm install angular-cabinet
+    npm install angular-cabinet-ui
     
 To require the package:    
 
 ```javascript
-var cabinetDirective = require("angular-cabinet");
+var cabinetDirective = require("angular-cabinet-ui");
 ```     
 
 ## Example
 
-The easist way to understand AngularCabinet is to walk 
+The easist way to understand AngularCabinetUI is to walk 
 through a quick example of creating a "tabs" directive which allows the user 
 to select from a horizontal list of tabs.
 
-![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet/master/src/examples/images/tabs.png)
+![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/src/examples/images/tabs.png)
 
 ### 1. Add the Directives
 
-First, add the directives from AngularCabinet to an Angular module.
+First, add the directives from AngularCabinetUI to an Angular module.
 The directive names should reflect the purpose of the user interface component.
 In this case, the  default directive names are renamed to use tab names:
 
@@ -161,40 +161,40 @@ That's it. You're done.
 ## Provided Examples
 
 Here are the
-[examples](https://github.com/JeffHing/angular-cabinet/tree/master/src/examples)
+[examples](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples)
 that are available in
-[AngularCabinet's](https://github.com/JeffHing/angular-cabinet) GitHub 
+[AngularCabinetUI's](https://github.com/JeffHing/angular-cabinet-ui) GitHub 
 project.
 
 ### Accordion
 
-![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet/master/src/examples/images/accordion.png)
+![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/src/examples/images/accordion.png)
 
-[Source code](https://github.com/JeffHing/angular-cabinet/tree/master/src/examples/accordionDirective)
+[Source code](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/accordionDirective)
 
 ### Menus
 
-![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet/master/src/examples/images/menus.png)
+![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/src/examples/images/menus.png)
 
-[Source code](https://github.com/JeffHing/angular-cabinet/tree/master/src/examples/menusDirective)
+[Source code](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/menusDirective)
 
 ### Sidebar
 
-![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet/master/src/examples/images/sidebar.png)
+![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/src/examples/images/sidebar.png)
 
-[Source code](https://github.com/JeffHing/angular-cabinet/tree/master/src/examples/sidebarDirective)
+[Source code](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/sidebarDirective)
 
 ### Tabs
 
-![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet/master/src/examples/images/tabs.png)
+![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/src/examples/images/tabs.png)
 
-[Source code](https://github.com/JeffHing/angular-cabinet/tree/master/src/examples/tabsDirective)
+[Source code](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/tabsDirective)
 
 ## Usage
 
 ### Factory Method
 
-The `cabinetDirective()` method adds the AngularCabinet directives to an
+The `cabinetDirective()` method adds the AngularCabinetUI directives to an
 Angular module.
 
 To add the directives, call `cabinetDirective()` with
@@ -373,7 +373,7 @@ the open state of the drawer changes.
 
 ```
 An example of using the drawerClass directive is in the
-[accordion](https://github.com/JeffHing/angular-cabinet/tree/master/src/examples/accordionDirective).
+[accordion](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/accordionDirective).
 It uses the drawerClass directive to change the Font Awesome chevron icon
 to point right or down, depending upon the open state of the drawer:
 

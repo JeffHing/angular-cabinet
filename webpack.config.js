@@ -49,7 +49,7 @@ module.exports = {
 
     resolve: {
         alias: {
-            'angular-cabinet': path.join(__dirname,
+            'angular-cabinet-ui': path.join(__dirname,
                 common.CABINET_DIRECTIVE_SOURCE)
         }
     }

@@ -11,7 +11,7 @@
 // Module dependencies and variables
 //--------------------------------------
 
-var cabinetDirective = require('angular-cabinet');
+var cabinetDirective = require('angular-cabinet-ui');
 
 require('./tabsDirective.css');
 

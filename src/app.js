@@ -15,7 +15,7 @@ require('angular');
 require('ui-router');
 require('./app.css');
 
-var cabinetDirective = require('angular-cabinet');
+var cabinetDirective = require('angular-cabinet-ui');
 
 var examplesHtml = require('./examples/examples.html');
 var accordionDirective = require('./examples/accordionDirective/accordionDirective');

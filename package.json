@@ -1,5 +1,5 @@
 {
-  "name": "angular-cabinet",
+  "name": "angular-cabinet-ui",
   "main": "./src/cabinetDirective/cabinetDirective.js",
   "version": "0.1.4",
   "description": "Simplifies the creation of user interface components that show or hide content when a trigger is invoked.",
@@ -16,7 +16,7 @@
     "sidebar",
     "tabs"
   ],
-  "homepage": "https://github.com/JeffHing/angular-cabinet",
+  "homepage": "https://github.com/JeffHing/angular-cabinet-ui",
   "license": "MIT",
   "author": {
     "name": "Jeffrey Hing",
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/JeffHing/angular-cabinet.git"
+    "url": "https://github.com/JeffHing/angular-cabinet-ui.git"
   },
   "dependencies": {},
   "devDependencies": {
