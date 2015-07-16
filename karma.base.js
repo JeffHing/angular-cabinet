@@ -3,7 +3,7 @@
  *
  * MIT License
  *
- * Common karma configuration values.
+ * Karma base configuration.
  */
 'use strict';
 
@@ -13,6 +13,7 @@
 
 var path = require('path');
 var karmaWebpackPlugin = require('karma-webpack');
+var webpackBase = require('./webpack.base');
 
 // Additional functions needed for testing.
 var TEST_UTILITIES_DIR = 'src/testUtilities';
@@ -67,10 +68,7 @@ module.exports = function(sourceFile, loaders) {
                 loaders: allLoaders
             },
             resolve: {
-                alias: {
-                    'angular-cabinet-ui': path.join(
-                        __dirname, sourceFile)
-                },
+                alias: {},
                 fallback: [
                     TEST_UTILITIES_DIR
                 ]
@@ -82,6 +80,9 @@ module.exports = function(sourceFile, loaders) {
         }
 
     };
+
+    conf.webpack.resolve.alias[webpackBase.library.projectName] =
+        path.join(__dirname, webpackBase.library.sourceFile);
 
     conf.preprocessors[testFilesPattern] = ['webpack'];
 
