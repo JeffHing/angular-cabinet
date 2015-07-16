@@ -82,7 +82,7 @@ module.exports = function(sourceFile, loaders) {
     };
 
     conf.webpack.resolve.alias[webpackBase.library.projectName] =
-        path.join(__dirname, webpackBase.library.sourceFile);
+        path.join(__dirname, sourceFile);
 
     conf.preprocessors[testFilesPattern] = ['webpack'];
 
