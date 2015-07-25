@@ -21,31 +21,29 @@ var cleanDistCmd = new CommandQueue().sync('rimraf dist', 'mkdir dist');
 //
 
 // Test source file.
-var testCmd = 'karma start --single-run';
+var testCmd = 'karma start --single-run --#kdev';
 
 // Test source file and watch for changes.
-var testWatchCmd = 'karma start';
+var testWatchCmd = 'karma start --#kdev';
 
 // Test distribution file.
-var testDistCmd = 'karma start karma.dist.conf.js --single-run';
+var testDistCmd = 'karma start --single-run --#kdist';
 
 // Test minimized distribution file.
-var testDistMinCmd = 'karma start karma.distMin.conf.js --single-run';
+var testDistMinCmd = 'karma start --single-run --#kdistMin';
 
 //
 // Compile commands
 //
 
 // Create distribution file.
-var webpackDistCmd =
-    'webpack --progress --config webpack.dist.config.js';
+var webpackDistCmd = 'webpack --progress --#wdist';
 
 // Create minified distribution file.
-var webpackDistMinCmd =
-    'webpack -p --progress --config webpack.distMin.config.js';
+var webpackDistMinCmd = 'webpack -p --progress --#wdistMin';
 
 // Run webpack dev server and watch for changes.
-var webpackWatchCmd = 'webpack-dev-server --hot';
+var webpackWatchCmd = 'webpack-dev-server --hot --#wdev';
 
 //-------------------------------------
 // Run build commands

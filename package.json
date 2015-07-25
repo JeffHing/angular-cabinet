@@ -46,6 +46,7 @@
     "karma-jasmine": "^0.3.5",
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-webpack": "^1.5.1",
+    "minimist": "^1.1.2",
     "parallelshell": "^1.2.0",
     "path": "^0.11.14",
     "phantomjs-polyfill": "0.0.1",
