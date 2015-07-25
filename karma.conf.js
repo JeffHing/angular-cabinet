@@ -25,7 +25,7 @@ var TEST_UTILITIES_DIR = 'src/testUtilities';
  * @param {string} sourceFile The source file to test
  * @param {array} loaders An array of loaders to apply to the source file.
  */
-var createConf = function(sourceFile, loaders) {
+function createConf(sourceFile, loaders) {
 
     var allLoaders = [];
     var testFilesPattern = path.join(TEST_UTILITIES_DIR, 'allTests.js');
@@ -87,7 +87,7 @@ var createConf = function(sourceFile, loaders) {
     conf.preprocessors[testFilesPattern] = ['webpack'];
 
     return conf;
-};
+}
 
 //-------------------------------------
 // Module exports

@@ -68,7 +68,7 @@ var library = {
 /*
  * Creates a webpack development configuration.
  */
-var devConfig = function() {
+function createDevConfig() {
 
     var config = {
 
@@ -104,14 +104,14 @@ var devConfig = function() {
         path.join(__dirname, library.sourceFile);
 
     return config;
-};
+}
 
 /*
  * Creates a webpack distribution configuration.
  *
  * @param {string} libraryName
  */
-var distConfig = function(libraryName) {
+function createDistConfig(libraryName) {
 
     return {
         entry: library.sourceFile,
@@ -131,20 +131,20 @@ var distConfig = function(libraryName) {
             path: 'dist/'
         }
     };
-};
+}
 
 //-------------------------------------
 // Module exports
 //-------------------------------------
 
 if (flags['#wdist']) {
-    module.exports = distConfig(library.filename);
+    module.exports = createDistConfig(library.filename);
 
 } else if (flags['#wdistMin']) {
-    module.exports = distConfig(library.filenameMin);
+    module.exports = createDistConfig(library.filenameMin);
 
 } else if (flags['#wdev']) {
-    module.exports = devConfig();
+    module.exports = createDevConfig();
 
 } else {
     module.exports = {
