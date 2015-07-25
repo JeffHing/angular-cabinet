@@ -13,11 +13,11 @@
 
 var CommandQueue = require('command-queue');
 
-// Clean distribution.
+// Clean distribution command.
 var cleanDistCmd = new CommandQueue().sync('rimraf dist', 'mkdir dist');
 
 //
-// Run tests
+// Test commands
 //
 
 // Test source file.
@@ -33,7 +33,7 @@ var testDistCmd = 'karma start karma.dist.conf.js --single-run';
 var testDistMinCmd = 'karma start karma.distMin.conf.js --single-run';
 
 //
-// Compile
+// Compile commands
 //
 
 // Create distribution file.
@@ -46,7 +46,6 @@ var webpackDistMinCmd =
 
 // Run webpack dev server and watch for changes.
 var webpackWatchCmd = 'webpack-dev-server --hot';
-
 
 //-------------------------------------
 // Run build commands
