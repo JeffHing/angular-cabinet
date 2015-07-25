@@ -148,6 +148,7 @@ if (flags['#wdist']) {
 
 } else {
     module.exports = {
-        library: library
+        library: library,
+        loaders: loaders
     };
 }
