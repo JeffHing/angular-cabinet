@@ -93,6 +93,7 @@ function createConf(sourceFile, loaders) {
 // Module exports
 //-------------------------------------
 if (flags['#kdist']) {
+    // Test distribution file.
     module.exports = function(config) {
         config.set(createConf(
             'dist/' + webpackConfig.library.filename
@@ -100,6 +101,7 @@ if (flags['#kdist']) {
     };
 
 } else if (flags['#kdistMin']) {
+    // Test minimized distribution file.
     module.exports = function(config) {
         config.set(createConf(
             'dist/' + webpackConfig.library.filenameMin
@@ -107,6 +109,7 @@ if (flags['#kdist']) {
     };
 
 } else if (flags['#kdev']) {
+    // Test source file.
     module.exports = function(config) {
         config.set(createConf(
             webpackConfig.library.sourceFile,
