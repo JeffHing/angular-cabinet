@@ -2,12 +2,12 @@
     "env": {
         "browser": true,
         "jasmine": true,
+        "jquery": true,
         "node": true
     },
     
     "globals": {
-        "angular": false,
-        "$": false
+        "angular": false
     },
     
     "rules": {
@@ -88,7 +88,7 @@
         "no-void": 2,
         "no-warning-comments": 2,
         "no-with": 2,
-        "radix": 2,
+        "radix": 0,
         "vars-on-top": 0,
         "wrap-iife": [2, "inside"],
         "yoda": 2,
