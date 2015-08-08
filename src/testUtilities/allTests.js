@@ -5,8 +5,9 @@
  *
  * Load all tests ending in '.test.js' in a single bundle.
  */
+'use strict';
+
 (function() {
-    'use strict';
     var testsContext = require.context('..', true, /\.test\.js$/);
     testsContext.keys().forEach(testsContext);
 

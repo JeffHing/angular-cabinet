@@ -25,7 +25,7 @@ var MODEL = '_hasMouseInput';
 // HasMouseInput class
 //-------------------------------------
 
-/**
+/*
  * @constructor
  */
 function HasMouseInput(element) {

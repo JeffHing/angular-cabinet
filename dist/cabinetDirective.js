@@ -224,12 +224,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var drawer = m.getDrawerById(id);
 	    if (drawer) {
 	        controller = drawer.controller;
+	    } else if (id) {
+	        controller = this.createDrawerController(id);
 	    } else {
-	        if (id) {
-	            controller = this.createDrawerController(id);
-	        } else {
-	            controller = m.drawers[m.drawers.length - 1].controller;
-	        }
+	        controller = m.drawers[m.drawers.length - 1].controller;
 	    }
 	    return controller;
 	};
