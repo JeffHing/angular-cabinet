@@ -1,3 +1,7 @@
+### 0.1.6 (2015-08-13)
+* README updates.
+* Normalize webpack and karma configurations across projects.
+
 ### 0.1.5 (2015-07-13)
 * Change project name to angular-cabinet-ui.
 
