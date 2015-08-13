@@ -194,11 +194,11 @@ project.
 
 ### Factory Method
 
-The `cabinetDirective()` method adds the AngularCabinetUI directives to an
-Angular module.
+The `cabinetDirective()` factory method adds the AngularCabinetUI 
+directives to an Angular module.
 
 To add the directives, call `cabinetDirective()` with
-the name of the Angular module, and any options:
+the name of the Angular module, and the options:
 
 ```javascript
 cabinetDirective('app', {
@@ -228,19 +228,14 @@ directiveNames    | Allows you to rename the directives when they are added to t
 
 ### Cabinet Directive
 
-The cabinetDirective identifies the element as a cabinet which contains
+The cabinet directive identifies the element as a cabinet which contains
 one or more drawer directives. It is responsible for coordinating which
 drawers should be opened or closed based upon the open states of the drawers
 and the applied options. For applying CSS rules, it adds the 'cabinet' 
 class to the element.
 
 ```html
-<div cabinet>
-    <div drawer-trigger></div>
-    <div drawer-contents></div>
-    <div drawer-class></div>
-</div>
-
+<div cabinet>...</div> 
 ```
 
 The following options can be passed into the cabinet directive:
@@ -256,8 +251,8 @@ The following options can be passed into the cabinet directive:
 }">...</div>
 ```
 
-The cabinetDirective watches for changes in the options, allowing for
-dynamic updating of the options.
+The cabinet directive watches for changes in the options, which allows for the
+options to be dynamically updated.
 
 #### Option Descriptions
 
@@ -270,6 +265,13 @@ openStates        | Allows you to specify which drawers to open or close.  The k
 
 These options will override the options passed into the `cabinetDirective()` 
 factory method.
+
+### Drawer Id
+
+A drawer id can be assigned to the drawer directives described below. The drawer 
+id can be any string or number. A number is automatically converted to a string.
+Directives that are assigned the same drawer id, share and affect the open 
+state of the same drawer.
 
 ### DrawerTrigger Directive
 
@@ -288,12 +290,7 @@ to any element.
 
 ```
 
-#### Drawer Id
-
-A drawer id can be specified to assign the directive to a 
-specific drawer. Directives that are assigned to the same drawer, share the
-open state of that drawer. The drawer id can be any string or number. A number
-is automatically converted to a string.
+To assign a drawer id to the directive:
 
 ```html
 <a drawer-trigger="0" href=""></a>
@@ -314,12 +311,7 @@ is opened.
 <div drawer-contents></div>
 ```
 
-#### Drawer Id
-
-A drawer id can be specified to assign the directive to a 
-specific drawer. Directives that are assigned to the same drawer, share the
-open state of that drawer. The drawer id can be any string or number. A number
-is automatically converted to a string.
+To assign a drawer id to the directive:
 
 ```html
 <div drawer-contents="0"></div>
@@ -333,9 +325,15 @@ Multiple drawerContents directives can be assigned to the same drawer.
 
 To be notified when the contents of a drawer is shown or hidden, pass in a 
 handler function to the drawerContents directive. The handler function will
-be passed an open state of either 'open' or 'closed'. You can prevent the 
-drawer from  being closed by returning the value `false` from the handler
-function.
+be passed an open state of either 'open' or 'closed'. 
+
+```html
+<div drawer-contents="ctrl.myHandler">...</div>
+
+```
+
+You can prevent the drawer from  being closed by returning the value 
+`false` from the handler function.
 
 ```javascript
 angular.module('app', []).controller('MyController', function() {
@@ -348,12 +346,6 @@ angular.module('app', []).controller('MyController', function() {
         ...
     }
 });
-```
-
-```html
-<div drawer-contents="ctrl.myHandler" 
-     ng-controller="MyController as ctrl">...</div>
-
 ```
 
 If you need to specify both a drawer id and a handler function, 
@@ -383,12 +375,7 @@ to point right or down, depending upon the open state of the drawer:
             'fa-chevron-right']"></i>
 ```
 
-#### Drawer Id
-
-A drawer id can be specified to assign the directive to a 
-specific drawer. Directives that are assigned to the same drawer, share the
-open state of that drawer. The drawer id can be any string or number. A number
-is automatically converted to a string.
+To assign a drawer id to the directive:
 
 ```html
 <div drawer-class="[0, 'myOpenClass', 'myClosedClass']"></div>
