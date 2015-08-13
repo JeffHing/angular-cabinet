@@ -235,7 +235,13 @@ and the applied options. For applying CSS rules, it adds the 'cabinet'
 class to the element.
 
 ```html
-<div cabinet>...</div> 
+<div cabinet>
+    ...
+    <a drawer-trigger href=""></a>
+    <div drawer-contents></div>
+    <div drawer-class></div>
+    ...
+</div>
 ```
 
 The following options can be passed into the cabinet directive:
