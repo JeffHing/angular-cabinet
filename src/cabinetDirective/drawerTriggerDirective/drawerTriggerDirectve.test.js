@@ -80,14 +80,23 @@ describe('drawerTrigger directive:', function() {
         });
     });
 
-    describe('focusing on drawer trigger', function() {
+    describe('Enter keypress on drawer trigger', function() {
 
         it('should open the drawer', function() {
             expect(trigger0.isOpen()).toBe(false);
             expect(contents0.isOpen()).toBe(false);
-            trigger0.focus();
+            trigger0.keyPressEnter();
             expect(trigger0.isOpen()).toBe(true);
             expect(contents0.isOpen()).toBe(true);
+        });
+
+        it('should close the drawer', function() {
+            expect(trigger0.isOpen()).toBe(false);
+            expect(contents0.isOpen()).toBe(false);
+            trigger0.keyPressEnter();
+            trigger0.keyPressEnter();
+            expect(trigger0.isOpen()).toBe(false);
+            expect(contents0.isOpen()).toBe(false);
         });
     });
 });

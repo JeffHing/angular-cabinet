@@ -101,12 +101,12 @@ function drawerContentsDirective(directiveNames, elementClass, parse) {
         //
         // Send events to controller.
         //
-        element.bind('mouseenter', function(event) {
-            drawerCtrl.onMouseEnterContents(event);
+        element.bind('mouseenter', function() {
+            drawerCtrl.onMouseEnterContents();
         });
 
-        element.bind('mouseleave', function(event) {
-            drawerCtrl.onMouseLeaveContents(event);
+        element.bind('mouseleave', function() {
+            drawerCtrl.onMouseLeaveContents();
         });
     }
 }

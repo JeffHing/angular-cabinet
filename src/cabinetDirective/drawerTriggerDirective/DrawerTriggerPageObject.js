@@ -18,7 +18,7 @@ module.exports = DrawerTriggerPageObject;
 //-------------------------------------
 
 var extend = require('extend-this');
-var HasMouseInput = require('HasMouseInput');
+var HasInput = require('HasInput');
 var HasStyle = require('HasStyle');
 
 // Private model name.
@@ -44,7 +44,7 @@ function DrawerTriggerPageObject(element, directiveName) {
 
     // Mixins
     extend(this)
-        .withCall(HasMouseInput, element)
+        .withCall(HasInput, element)
         .withCall(HasStyle, element);
 }
 
@@ -81,5 +81,5 @@ proto.disableTimer = function(isDisabled) {
 
 // Mixins
 extend(proto)
-    .with(HasMouseInput.prototype)
+    .with(HasInput.prototype)
     .with(HasStyle.prototype);

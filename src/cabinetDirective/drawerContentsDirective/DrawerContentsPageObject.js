@@ -18,7 +18,7 @@ module.exports = DrawerContentsPageObject;
 //-------------------------------------
 
 var extend = require('extend-this');
-var HasMouseInput = require('HasMouseInput');
+var HasInput = require('HasInput');
 var HasStyle = require('HasStyle');
 
 // Private model name.
@@ -40,7 +40,7 @@ function DrawerContentsPageObject(element) {
 
     // Mixins
     extend(this)
-        .withCall(HasMouseInput, element)
+        .withCall(HasInput, element)
         .withCall(HasStyle, element);
 }
 
@@ -66,5 +66,5 @@ proto.isOpen = function() {
 
 // Mixins
 extend(proto)
-    .with(HasMouseInput.prototype)
+    .with(HasInput.prototype)
     .with(HasStyle.prototype);

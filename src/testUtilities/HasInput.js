@@ -37,9 +37,8 @@ function HasMouseInput(element) {
 var proto = HasMouseInput.prototype;
 
 proto.mouseClick = function() {
-    this.mouseDown();
-    this.focus();
-    this.mouseUp();
+    var m = this[MODEL];
+    m.element.trigger('click');
 };
 
 proto.mouseEnter = function() {
@@ -52,17 +51,23 @@ proto.mouseLeave = function() {
     m.element.trigger('mouseleave');
 };
 
-proto.mouseDown = function() {
-    var m = this[MODEL];
-    m.element.trigger('mousedown');
-};
-
-proto.mouseUp = function() {
-    var m = this[MODEL];
-    m.element.trigger('mouseup');
-};
-
 proto.focus = function() {
     var m = this[MODEL];
     m.element.triggerHandler('focus');
+};
+
+proto.keyPress = function(char) {
+    var m = this[MODEL];
+    m.element.trigger({
+        type: 'keypress',
+        which: char.charCodeAt(0)
+    });
+};
+
+proto.keyPressEnter = function() {
+    var m = this[MODEL];
+    m.element.trigger({
+        type: 'keypress',
+        which: 13
+    });
 };

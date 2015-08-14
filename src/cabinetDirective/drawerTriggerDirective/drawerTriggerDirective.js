@@ -82,24 +82,22 @@ function drawerTriggerDirective(directiveNames, elementClass) {
         //
         // Send events to drawer controller.
         //
-        element.bind('mouseenter', function(event) {
-            drawerCtrl.onMouseEnterTrigger(event);
+        element.bind('mouseenter', function() {
+            drawerCtrl.onMouseEnterTrigger();
         });
 
-        element.bind('mouseleave', function(event) {
-            drawerCtrl.onMouseLeaveTrigger(event);
+        element.bind('mouseleave', function() {
+            drawerCtrl.onMouseLeaveTrigger();
         });
 
-        element.bind('mousedown', function(event) {
-            drawerCtrl.onMouseDownTrigger(event);
+        element.bind('click', function() {
+            drawerCtrl.onMouseClick();
         });
 
-        element.bind('mouseup', function(event) {
-            drawerCtrl.onMouseUpTrigger(event);
-        });
-
-        element.bind('focus', function(event) {
-            drawerCtrl.onFocusTrigger(event);
+        element.bind('keydown keypress', function(event) {
+            if (event.which === 13) {
+                drawerCtrl.onMouseClick();
+            }
         });
     }
 }

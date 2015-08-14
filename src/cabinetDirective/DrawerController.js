@@ -90,16 +90,9 @@ controllerProto.disableTimer = function(isDisabled) {
 //
 // Handle events from trigger directive.
 //
-controllerProto.onMouseDownTrigger = function() {
+controllerProto.onMouseClick = function() {
     var m = this[MODEL];
-    m.mouseDownOpenState = m.isOpen;
-
-};
-
-controllerProto.onMouseUpTrigger = function() {
-    var m = this[MODEL];
-    m.requestOpen(!m.mouseDownOpenState);
-    m.mouseDownOpenState = null;
+    m.requestOpen(!m.isOpen);
 };
 
 controllerProto.onMouseEnterTrigger = function() {
@@ -113,13 +106,6 @@ controllerProto.onMouseLeaveTrigger = function() {
     var m = this[MODEL];
     if (m.config.openOnHover) {
         m.requestOpen(false);
-    }
-};
-
-controllerProto.onFocusTrigger = function() {
-    var m = this[MODEL];
-    if (m.mouseDownOpenState === null) {
-        m.requestOpen(true);
     }
 };
 
@@ -166,12 +152,7 @@ function DrawerModel(cabinetCtrl, index, timeout) {
     // Handle spurious open state changes.
     self.timeout = timeout;
     self.openTimeoutTask = undefined;
-
-    // Clicking on a drawer trigger also generates a focus event. The focus
-    // event may come before the mouse down if the browser window currently
-    // doesn't have focus. These two states are used to work around this issue.
     self.requestedOpenState = null;
-    self.mouseDownOpenState = null;
 
     // For unit testing. Angular timer mock inconvenient to use.
     self.isTimerDisabled = false;

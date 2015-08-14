@@ -685,24 +685,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	        //
 	        // Send events to drawer controller.
 	        //
-	        element.bind('mouseenter', function(event) {
-	            drawerCtrl.onMouseEnterTrigger(event);
+	        element.bind('mouseenter', function() {
+	            drawerCtrl.onMouseEnterTrigger();
 	        });
 
-	        element.bind('mouseleave', function(event) {
-	            drawerCtrl.onMouseLeaveTrigger(event);
+	        element.bind('mouseleave', function() {
+	            drawerCtrl.onMouseLeaveTrigger();
 	        });
 
-	        element.bind('mousedown', function(event) {
-	            drawerCtrl.onMouseDownTrigger(event);
+	        element.bind('click', function() {
+	            drawerCtrl.onMouseClick();
 	        });
 
-	        element.bind('mouseup', function(event) {
-	            drawerCtrl.onMouseUpTrigger(event);
-	        });
-
-	        element.bind('focus', function(event) {
-	            drawerCtrl.onFocusTrigger(event);
+	        element.bind('keydown keypress', function(event) {
+	            if (event.which === 13) {
+	                drawerCtrl.onMouseClick();
+	            }
 	        });
 	    }
 	}
@@ -815,12 +813,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        //
 	        // Send events to controller.
 	        //
-	        element.bind('mouseenter', function(event) {
-	            drawerCtrl.onMouseEnterContents(event);
+	        element.bind('mouseenter', function() {
+	            drawerCtrl.onMouseEnterContents();
 	        });
 
-	        element.bind('mouseleave', function(event) {
-	            drawerCtrl.onMouseLeaveContents(event);
+	        element.bind('mouseleave', function() {
+	            drawerCtrl.onMouseLeaveContents();
 	        });
 	    }
 	}
@@ -1008,16 +1006,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	//
 	// Handle events from trigger directive.
 	//
-	controllerProto.onMouseDownTrigger = function() {
+	controllerProto.onMouseClick = function() {
 	    var m = this[MODEL];
-	    m.mouseDownOpenState = m.isOpen;
-
-	};
-
-	controllerProto.onMouseUpTrigger = function() {
-	    var m = this[MODEL];
-	    m.requestOpen(!m.mouseDownOpenState);
-	    m.mouseDownOpenState = null;
+	    m.requestOpen(!m.isOpen);
 	};
 
 	controllerProto.onMouseEnterTrigger = function() {
@@ -1031,13 +1022,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var m = this[MODEL];
 	    if (m.config.openOnHover) {
 	        m.requestOpen(false);
-	    }
-	};
-
-	controllerProto.onFocusTrigger = function() {
-	    var m = this[MODEL];
-	    if (m.mouseDownOpenState === null) {
-	        m.requestOpen(true);
 	    }
 	};
 
@@ -1084,12 +1068,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // Handle spurious open state changes.
 	    self.timeout = timeout;
 	    self.openTimeoutTask = undefined;
-
-	    // Clicking on a drawer trigger also generates a focus event. The focus
-	    // event may come before the mouse down if the browser window currently
-	    // doesn't have focus. These two states are used to work around this issue.
 	    self.requestedOpenState = null;
-	    self.mouseDownOpenState = null;
 
 	    // For unit testing. Angular timer mock inconvenient to use.
 	    self.isTimerDisabled = false;
