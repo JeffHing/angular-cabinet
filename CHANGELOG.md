@@ -1,3 +1,6 @@
+### 0.1.7 (2015-08-14)
+* Don't use focus to open drawer. Rather toggle open state on Enter keypress.
+
 ### 0.1.6 (2015-08-13)
 * README updates.
 * Normalize webpack and karma configurations across projects.
