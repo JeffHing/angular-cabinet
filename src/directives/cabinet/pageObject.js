@@ -15,11 +15,9 @@ var extend = require('extend-this');
 var HasStyle = require('HasStyle');
 var AngularTestContext = require('angular-test-context');
 var cabinetDirective = require('angular-cabinet-ui');
-var CabinetConfig = require('./CabinetConfig');
-var DrawerTriggerPageObject =
-    require('./drawerTriggerDirective/DrawerTriggerPageObject');
-var DrawerContentsPageObject =
-    require('./drawerContentsDirective/DrawerContentsPageObject');
+var CabinetConfig = require('./directiveConfig');
+var DrawerTriggerPageObject = require('./drawerTrigger/pageObject');
+var DrawerContentsPageObject = require('./drawerContents/pageObject');
 
 // Private model name.
 var MODEL = '_cabinetPageObject';

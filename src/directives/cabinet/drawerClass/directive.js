@@ -8,7 +8,7 @@
 'use strict';
 
 //--------------------------------------
-// Module exports
+// Exports
 //--------------------------------------
 
 module.exports = drawerClassDirective;

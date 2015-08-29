@@ -17,21 +17,16 @@ module.exports = addToModule;
 // Module dependencies and variables
 //-------------------------------------
 
-var CabinetConfig = require('./CabinetConfig');
+var CabinetConfig = require('./directiveConfig');
 
-var drawerTriggerDirective =
-    require('./drawerTriggerDirective/drawerTriggerDirective');
+var drawerTriggerDirective = require('./drawerTrigger/directive');
+var drawerContentsDirective = require('./drawerContents/directive');
+var drawerClassDirective = require('./drawerClass/directive');
 
-var drawerContentsDirective =
-    require('./drawerContentsDirective/drawerContentsDirective');
-
-var drawerClassDirective =
-    require('./drawerClassDirective/drawerClassDirective');
-
-var DrawerController = require('./DrawerController');
+var DrawerController = require('./drawerController');
 
 // Private model name.
-var MODEL = '_model';
+var MODEL = '_cabinetDirective';
 
 //-------------------------------------
 // factory method

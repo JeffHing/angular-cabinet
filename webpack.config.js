@@ -57,7 +57,7 @@ var library = {
     filenameMin: 'cabinetDirective.min.js',
 
     // Path to library source.
-    sourceFile: './src/cabinetDirective/cabinetDirective.js',
+    sourceFile: './src/directives/cabinet/directive.js',
 
     // Loaders to load the library source.
     sourceLoaders: [

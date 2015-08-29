@@ -8,13 +8,7 @@
 'use strict';
 
 //-------------------------------------
-// Module exports
-//-------------------------------------
-
-module.exports = DrawerContentsPageObject;
-
-//-------------------------------------
-// Module dependencies and variables
+// Dependencies and variables
 //-------------------------------------
 
 var extend = require('extend-this');
@@ -23,6 +17,12 @@ var HasStyle = require('HasStyle');
 
 // Private model name.
 var MODEL = '_drawerContentsPageObject';
+
+//-------------------------------------
+// Exports
+//-------------------------------------
+
+module.exports = DrawerContentsPageObject;
 
 //-------------------------------------
 // Page object

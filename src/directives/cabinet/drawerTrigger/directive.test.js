@@ -11,7 +11,7 @@
 // Module dependencies and variables
 //-------------------------------------
 
-var Cabinet = require('../CabinetPageObject');
+var Cabinet = require('../pageObject');
 
 var HTML =
     '<div cabinet>' +
