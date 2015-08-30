@@ -168,28 +168,28 @@ project.
 
 ![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/readmeAssets/accordion.png)
 
-* [Directive](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/accordion)
+* [Directive](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/directives/examples/accordion)
 * [HTML](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/views/examples/accordion/view.html)
 
 ### Menus
 
 ![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/readmeAssets/menus.png)
 
-* [Directive](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/menus)
+* [Directive](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/directives/examples/menus)
 * [HTML](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/views/examples/menus/view.html)
 
 ### Sidebar
 
 ![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/readmeAssets/sidebar.png)
 
-* [Directive](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/sidebar)
+* [Directive](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/directives/examples/sidebar)
 * [HTML](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/views/examples/sidebar/view.html)
 
 ### Tabs
 
 ![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/readmeAssets/tabs.png)
 
-* [Directive](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/tabs)
+* [Directive](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/directives/examples/tabs)
 * [HTML](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/views/examples/tabs/view.html)
 
 ## Usage
