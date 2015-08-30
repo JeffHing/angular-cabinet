@@ -8,62 +8,54 @@
 'use strict';
 
 //-------------------------------------
-// Module dependencies and variables
+// Initialize Angular
 //-------------------------------------
 
 require('angular');
 require('ui-router');
+
+angular.module('app', ['ui.router']);
+
+//-------------------------------------
+// Initialize core UI
+//-------------------------------------
+
 require('./app.css');
 
-var cabinetDirective = require('angular-cabinet-ui');
+require('angular-cabinet-ui')('app');
 
-var examplesHtml = require('./examples/examples.html');
-var accordionDirective = require('./examples/accordionDirective/accordionDirective');
-var accordionHtml = require('./examples/accordionDirective/accordion.html');
-var menusDirective = require('./examples/menusDirective/menusDirective');
-var menusHtml = require('./examples/menusDirective/menus.html');
-var sidebarDirective = require('./examples/sidebarDirective/sidebarDirective');
-var sidebarHtml = require('./examples/sidebarDirective/sidebar.html');
-var tabsDirective = require('./examples/tabsDirective/tabsDirective');
-var tabsHtml = require('./examples/tabsDirective/tabs.html');
+require('./directives/examples/accordion/directive')('app');
+require('./directives/examples/menus/directive')('app');
+require('./directives/examples/sidebar/directive')('app');
+require('./directives/examples/tabs/directive')('app');
 
 //-------------------------------------
-// Entry point
+// Initialize routes
 //-------------------------------------
 
-angular.module('app', ['ui.router'])
-
-// Configure router.
-.config(function($stateProvider, $urlRouterProvider) {
+angular.module('app').config(function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-        .state('examples', {
+        .state('shell', {
             url: '/',
-            template: examplesHtml
+            template: require('./views/shell/view.html')
         })
-        .state('examples.accordion', {
+        .state('shell.accordion', {
             url: 'accordion',
-            template: accordionHtml
+            template: require('./views/examples/accordion/view.html')
         })
-        .state('examples.menus', {
+        .state('shell.menus', {
             url: 'menus',
-            template: menusHtml
+            template: require('./views/examples/menus/view.html')
         })
-        .state('examples.sidebar', {
+        .state('shell.sidebar', {
             url: 'sidebar',
-            template: sidebarHtml
+            template: require('./views/examples/sidebar/view.html')
         })
-        .state('examples.tabs', {
+        .state('shell.tabs', {
             url: 'tabs',
-            template: tabsHtml
+            template: require('./views/examples/tabs/view.html')
         });
 });
-
-// Add directives to module.
-cabinetDirective('app');
-accordionDirective('app');
-menusDirective('app');
-sidebarDirective('app');
-tabsDirective('app');

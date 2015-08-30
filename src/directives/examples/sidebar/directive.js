@@ -8,15 +8,15 @@
 'use strict';
 
 //--------------------------------------
-// Module dependencies and variables
+// Dependencies and variables
 //--------------------------------------
 
 var cabinetDirective = require('angular-cabinet-ui');
 
-require('./sidebarDirective.css');
+require('./directive.css');
 
 //--------------------------------------
-// Module exports
+// Exports
 //--------------------------------------
 
 module.exports = function(moduleName) {

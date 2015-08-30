@@ -3,7 +3,7 @@
  *
  * MIT License
  *
- * Page object for the cabinet directive.
+ * Page object for cabinet directive.
  */
 'use strict';
 

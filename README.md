@@ -64,7 +64,7 @@ The easist way to understand AngularCabinetUI is to walk
 through a quick example of creating a "tabs" directive which allows the user 
 to select from a horizontal list of tabs.
 
-![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/src/examples/images/tabs.png)
+![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/assets/tabs.png)
 
 ### 1. Add the Directives
 
@@ -168,27 +168,31 @@ project.
 
 ### Accordion
 
-![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/src/examples/images/accordion.png)
+![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/readmeAssets/accordion.png)
 
-[Source code](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/accordionDirective)
+* [Directive](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/accordion)
+* [HTML](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/views/examples/accordion/view.html)
 
 ### Menus
 
-![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/src/examples/images/menus.png)
+![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/readmeAssets/menus.png)
 
-[Source code](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/menusDirective)
+* [Directive](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/menus)
+* [HTML](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/views/examples/menus/view.html)
 
 ### Sidebar
 
-![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/src/examples/images/sidebar.png)
+![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/readmeAssets/sidebar.png)
 
-[Source code](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/sidebarDirective)
+* [Directive](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/sidebar)
+* [HTML](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/views/examples/sidebar/view.html)
 
 ### Tabs
 
-![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/src/examples/images/tabs.png)
+![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/readmeAssets/tabs.png)
 
-[Source code](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/tabsDirective)
+* [Directive](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples/tabs)
+* [HTML](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/views/examples/tabs/view.html)
 
 ## Usage
 

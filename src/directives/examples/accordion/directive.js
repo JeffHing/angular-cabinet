@@ -13,7 +13,7 @@
 
 var cabinetDirective = require('angular-cabinet-ui');
 
-require('./accordionDirective.css');
+require('./directive.css');
 
 //--------------------------------------
 // Module exports

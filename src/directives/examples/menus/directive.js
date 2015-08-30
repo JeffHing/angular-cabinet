@@ -3,32 +3,32 @@
  *
  * MIT License
  *
- * tabs directive.
+ * menus directive.
  */
 'use strict';
 
 //--------------------------------------
-// Module dependencies and variables
+// Dependencies and variables
 //--------------------------------------
 
 var cabinetDirective = require('angular-cabinet-ui');
 
-require('./tabsDirective.css');
+require('./directive.css');
 
 //--------------------------------------
-// Module exports
+// Exports
 //--------------------------------------
 
 module.exports = function(moduleName) {
 
     cabinetDirective(moduleName, {
-        oneAlwaysOpen: true,
+        openOnHover: true,
 
         directiveNames: {
-            cabinet: 'tabs',
-            drawerTrigger: 'tabTrigger',
-            drawerContents: 'tabContents',
-            drawerClass: 'tabClass'
+            cabinet: 'menus',
+            drawerTrigger: 'menuTrigger',
+            drawerContents: 'menuContents',
+            drawerClass: 'menuClass'
         }
     });
 };
