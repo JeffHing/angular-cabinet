@@ -237,8 +237,8 @@ openOnHover       | True to open the drawer when the mouse pointer hovers over t
 oneAlwaysOpen     | True to ensure one drawer is always open. By default, it opens the first drawer on startup. | false
 allowMultipleOpen | True to allow multiple drawers to be open at the same time. | false
 openStates        | Allows you to specify which drawers to initally open. The key of the object is the drawer id, and the value is true. | {}
-directiveNames    | Allows you to rename the directives when they are added to the module. The key of the object is the default directive name, and the value is the new directive name. | {}
-directiveClasses  | Allows you to choose the CSS classes assigned to the directives when they are added to the module. The key of the object is the default directive name, and the value is the CSS class name. | {}
+directiveNames    | Allows you to rename the directives. The key of the object is the default directive name, and the value is the new directive name. | {}
+directiveClasses  | Allows you to choose the CSS classes assigned to the directives. The key of the object is the default directive name, and the value is the CSS class name. | {}
 
 ### Cabinet Directive
 
