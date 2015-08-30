@@ -26,12 +26,6 @@ which has the following properties:
 Applying CSS to this structure can emulate many existing user interface 
 components, and allows for the creation of many others.
 
-## Changes
-
-* 0.1.8 - Add capability to specify the CSS class names used by the directives.
-See [Factory Method](#factory-method) options.
-
-
 ## Table of Contents
 
 - [Features](#features)
