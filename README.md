@@ -26,6 +26,12 @@ which has the following properties:
 Applying CSS to this structure can emulate many existing user interface 
 components, and allows for the creation of many others.
 
+## Changes
+
+* 0.1.8 - Add capability to specify the CSS class names used by the directives.
+See [Factory Method](#factory-method) options.
+
+
 ## Table of Contents
 
 - [Features](#features)
@@ -216,6 +222,11 @@ cabinetDirective('app', {
         drawerContents: <string>,
         drawerClass: <string>
     }
+    directiveClasses: {
+        cabinet: <string>,
+        drawerTrigger: <string>,
+        drawerContents: <string>
+    }
 });
 ```
 #### Option Descriptions
@@ -227,6 +238,7 @@ oneAlwaysOpen     | True to ensure one drawer is always open. By default, it ope
 allowMultipleOpen | True to allow multiple drawers to be open at the same time. | false
 openStates        | Allows you to specify which drawers to initally open. The key of the object is the drawer id, and the value is true. | {}
 directiveNames    | Allows you to rename the directives when they are added to the module. The key of the object is the default directive name, and the value is the new directive name. | {}
+directiveClasses  | Allows you to choose the CSS classes assigned to the directives when they are added to the module. The key of the object is the default directive name, and the value is the CSS class name. | {}
 
 ### Cabinet Directive
 
