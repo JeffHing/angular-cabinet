@@ -8,7 +8,7 @@
 'use strict';
 
 //-------------------------------------
-// Module dependencies and variables
+// Dependencies and variables
 //-------------------------------------
 
 var flags = require('minimist')(process.argv.slice(2));
@@ -134,7 +134,7 @@ function createDistConfig(libraryName) {
 }
 
 //-------------------------------------
-// Module exports
+// Exports
 //-------------------------------------
 
 if (flags['#wdist']) {

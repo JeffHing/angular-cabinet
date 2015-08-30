@@ -8,7 +8,7 @@
 'use strict';
 
 //-------------------------------------
-// Module dependencies and variables
+// Dependencies and variables
 //-------------------------------------
 
 var CommandQueue = require('command-queue');

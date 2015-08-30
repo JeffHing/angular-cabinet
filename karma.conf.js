@@ -8,7 +8,7 @@
 'use strict';
 
 //-------------------------------------
-// Module dependencies and variables
+// Dependencies and variables
 //-------------------------------------
 
 var flags = require('minimist')(process.argv.slice(2));
@@ -90,7 +90,7 @@ function createConf(sourceFile, loaders) {
 }
 
 //-------------------------------------
-// Module exports
+// Exports
 //-------------------------------------
 if (flags['#kdist']) {
     // Test distribution file.
