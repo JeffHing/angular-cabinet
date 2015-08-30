@@ -64,7 +64,7 @@ The easist way to understand AngularCabinetUI is to walk
 through a quick example of creating a "tabs" directive which allows the user 
 to select from a horizontal list of tabs.
 
-![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/assets/tabs.png)
+![alt tag](https://raw.githubusercontent.com/JeffHing/angular-cabinet-ui/master/readmeAssets/tabs.png)
 
 ### 1. Add the Directives
 
@@ -160,9 +160,7 @@ That's it. You're done.
 
 ## Provided Examples
 
-Here are the
-[examples](https://github.com/JeffHing/angular-cabinet-ui/tree/master/src/examples)
-that are available in
+Here are the examples that are available in
 [AngularCabinetUI's](https://github.com/JeffHing/angular-cabinet-ui) GitHub 
 project.
 
