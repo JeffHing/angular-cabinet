@@ -15,20 +15,20 @@ var Cabinet = require('./pageObject');
 
 var HTML =
     '<div cabinet=options>' +
-        '<a drawer-trigger="0" href=""></a>' +
-        '<div drawer-contents></div>' +
-        '<a drawer-trigger="1" href=""></a>' +
-        '<div drawer-contents></div>' +
+    '<a drawer-trigger="0" href=""></a>' +
+    '<div drawer-contents></div>' +
+    '<a drawer-trigger="1" href=""></a>' +
+    '<div drawer-contents></div>' +
     '</div>';
 
 var HTML_TABS =
     '<div tabs=options>' +
-        '<a tab-trigger href=""></a>' +
-        '<div tab-contents ' +
-            'tab-class="[\'my-open\', \'my-closed\']">' +
-        '</div>' +
-        '<a tab-trigger href=""></a>' +
-        '<div tab-contents></div>' +
+    '<a tab-trigger href=""></a>' +
+    '<div tab-contents ' +
+    'tab-class="[\'my-open\', \'my-closed\']">' +
+    '</div>' +
+    '<a tab-trigger href=""></a>' +
+    '<div tab-contents></div>' +
     '</div>';
 
 //-------------------------------------
@@ -48,8 +48,7 @@ describe('cabinet directive:', function() {
     describe('passing in options', function() {
 
         it('should still apply the default factory options', function() {
-            var cabinet = new Cabinet(HTML, {
-            }, {
+            var cabinet = new Cabinet(HTML, {}, {
                 oneAlwaysOpen: true
             });
             var trigger0 = cabinet.getTrigger(0);
@@ -290,6 +289,37 @@ describe('cabinet directive: addToModule:', function() {
             expect(contents.hasClass('my-closed')).toBe(true);
             trigger.mouseClick();
             expect(contents.hasClass('my-open')).toBe(true);
+        });
+    });
+
+    describe('renaming directive classes', function() {
+
+        var factoryOptions = {
+            directiveNames: {
+                cabinet: 'tabs',
+                drawerTrigger: 'tabTrigger',
+                drawerContents: 'tabContents',
+                drawerClass: 'tabClass'
+            },
+            directiveClasses: {
+                cabinet: 'foobar',
+                drawerTrigger: 'foobar-trigger',
+                drawerContents: 'foobar-contents'
+            }
+        };
+
+        var cabinet, trigger, contents;
+
+        beforeEach(function() {
+            cabinet = new Cabinet(HTML_TABS, null, factoryOptions);
+            trigger = cabinet.getTrigger(0);
+            contents = cabinet.getContents(0);
+        });
+
+        it('should have renamed element classes', function() {
+            expect(cabinet.hasClass('foobar')).toBe(true);
+            expect(trigger.hasClass('foobar-trigger')).toBe(true);
+            expect(contents.hasClass('foobar-contents')).toBe(true);
         });
     });
 

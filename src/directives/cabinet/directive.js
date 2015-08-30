@@ -54,12 +54,12 @@ function addToModule(moduleName, options) {
 
     module.directive(directiveNames.drawerTrigger, function() {
         return drawerTriggerDirective(directiveNames,
-            config.getElementClass('drawerTrigger'));
+            config.getDirectiveClass('drawerTrigger'));
     });
 
     module.directive(directiveNames.drawerContents, ['$parse', function($parse) {
         return drawerContentsDirective(directiveNames,
-            config.getElementClass('drawerContents'), $parse);
+            config.getDirectiveClass('drawerContents'), $parse);
     }]);
 
     module.directive(directiveNames.drawerClass, ['$parse', function($parse) {
@@ -118,7 +118,7 @@ function cabinetDirective(config) {
     function link(scope, element, attrs, controller) {
 
         // Add default class
-        element.addClass(config.getElementClass('cabinet'));
+        element.addClass(config.getDirectiveClass('cabinet'));
 
         controller.linkCompleted(scope, attrs);
     }

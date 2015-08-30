@@ -36,10 +36,10 @@ function CabinetConfig(options) {
     this.allowMultipleOpen = false;
     this.openStates = {};
 
-    // The element classes should only be accessed through the
-    // elementClass() function. They are initially derived from
+    // The directive classes should only be accessed through the
+    // getDirectiveClass() function. They are initially derived from
     // the directive names using camelcase to snakecase conversion.
-    this.elementClasses = {};
+    this.directiveClasses = {};
 
     // The directive names should not be modified after
     // the directives are created.
@@ -55,10 +55,19 @@ function CabinetConfig(options) {
         angular.extend(this.directiveNames, options.directiveNames);
     }
 
-    // Create element classes from directive names.
+    // Get directive classes from directive names or options.
+    var hasDirectiveClasses = options && options.directiveClasses;
     for (var key in this.directiveNames) {
         var directiveName = this.directiveNames[key];
-        this.elementClasses[directiveName] = this.snakeCase(directiveName);
+        var directiveClass;
+
+        if (hasDirectiveClasses && options.directiveClasses[key]) {
+            directiveClass = options.directiveClasses[key];
+
+        } else {
+            directiveClass = this.snakeCase(directiveName);
+        }
+        this.directiveClasses[directiveName] = directiveClass;
     }
 
     if (options) {
@@ -95,27 +104,9 @@ proto.copyOptions = function(options) {
  * @param {string} directiveName Use original directive names only.
  * @return {string}
  */
-proto.getElementClass = function(directiveName) {
+proto.getDirectiveClass = function(directiveName) {
     var optDirectiveName = this.directiveNames[directiveName];
-    return this.elementClasses[optDirectiveName];
-};
-
-/*
- * Replaces the directive element's class with the config's
- * element class.
- *
- * @param {string} directiveName Use original directive names only.
- * @param {string} element The directive element.
- * @return {string} classToReplace The element class to replace
- */
-proto.replaceElementClass = function(directiveName, element, classToReplace) {
-    var newClass = this.elementClass(directiveName);
-
-    if (newClass !== classToReplace) {
-        element.removeClass(classToReplace);
-        element.addClass(newClass);
-    }
-    return newClass;
+    return this.directiveClasses[optDirectiveName];
 };
 
 /*
