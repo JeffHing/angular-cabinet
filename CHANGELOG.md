@@ -1,3 +1,6 @@
+### 0.1.8 (2015-08-29)
+* Add capability to choose CSS class names assigned to directives.
+
 ### 0.1.7 (2015-08-14)
 * Don't use focus to open drawer. Rather toggle open state on Enter keypress.
 

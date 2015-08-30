@@ -2,7 +2,7 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define(factory);
+		define([], factory);
 	else if(typeof exports === 'object')
 		exports["cabinetDirective"] = factory();
 	else
@@ -64,30 +64,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	//-------------------------------------
-	// Module exports
-	//-------------------------------------
-
-	module.exports = addToModule;
-
-	//-------------------------------------
-	// Module dependencies and variables
+	// Dependencies and variables
 	//-------------------------------------
 
 	var CabinetConfig = __webpack_require__(1);
 
-	var drawerTriggerDirective =
-	    __webpack_require__(2);
-
-	var drawerContentsDirective =
-	    __webpack_require__(3);
-
-	var drawerClassDirective =
-	    __webpack_require__(4);
+	var drawerTriggerDirective = __webpack_require__(2);
+	var drawerContentsDirective = __webpack_require__(3);
+	var drawerClassDirective = __webpack_require__(4);
 
 	var DrawerController = __webpack_require__(5);
 
 	// Private model name.
-	var MODEL = '_model';
+	var MODEL = '_cabinetDirective';
+
+	//-------------------------------------
+	// Exports
+	//-------------------------------------
+
+	module.exports = addToModule;
 
 	//-------------------------------------
 	// factory method
@@ -115,12 +110,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    module.directive(directiveNames.drawerTrigger, function() {
 	        return drawerTriggerDirective(directiveNames,
-	            config.getElementClass('drawerTrigger'));
+	            config.getDirectiveClass('drawerTrigger'));
 	    });
 
 	    module.directive(directiveNames.drawerContents, ['$parse', function($parse) {
 	        return drawerContentsDirective(directiveNames,
-	            config.getElementClass('drawerContents'), $parse);
+	            config.getDirectiveClass('drawerContents'), $parse);
 	    }]);
 
 	    module.directive(directiveNames.drawerClass, ['$parse', function($parse) {
@@ -179,7 +174,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function link(scope, element, attrs, controller) {
 
 	        // Add default class
-	        element.addClass(config.getElementClass('cabinet'));
+	        element.addClass(config.getDirectiveClass('cabinet'));
 
 	        controller.linkCompleted(scope, attrs);
 	    }
@@ -473,16 +468,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	//-------------------------------------
-	// Module exports
-	//-------------------------------------
-
-	module.exports = CabinetConfig;
-
-	//-------------------------------------
-	// Module dependencies and variables
+	// Dependencies and variables
 	//-------------------------------------
 
 	var SNAKE_CASE_REGEXP = /[A-Z]/g;
+
+	//-------------------------------------
+	// Exports
+	//-------------------------------------
+
+	module.exports = CabinetConfig;
 
 	//-------------------------------------
 	// Configuration object
@@ -501,10 +496,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.allowMultipleOpen = false;
 	    this.openStates = {};
 
-	    // The element classes should only be accessed through the
-	    // elementClass() function. They are initially derived from
+	    // The directive classes should only be accessed through the
+	    // getDirectiveClass() function. They are initially derived from
 	    // the directive names using camelcase to snakecase conversion.
-	    this.elementClasses = {};
+	    this.directiveClasses = {};
 
 	    // The directive names should not be modified after
 	    // the directives are created.
@@ -520,10 +515,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        angular.extend(this.directiveNames, options.directiveNames);
 	    }
 
-	    // Create element classes from directive names.
+	    // Get directive classes from directive names or options.
+	    var hasDirectiveClasses = options && options.directiveClasses;
 	    for (var key in this.directiveNames) {
 	        var directiveName = this.directiveNames[key];
-	        this.elementClasses[directiveName] = this.snakeCase(directiveName);
+	        var directiveClass;
+
+	        if (hasDirectiveClasses && options.directiveClasses[key]) {
+	            directiveClass = options.directiveClasses[key];
+
+	        } else {
+	            directiveClass = this.snakeCase(directiveName);
+	        }
+	        this.directiveClasses[directiveName] = directiveClass;
 	    }
 
 	    if (options) {
@@ -560,27 +564,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {string} directiveName Use original directive names only.
 	 * @return {string}
 	 */
-	proto.getElementClass = function(directiveName) {
+	proto.getDirectiveClass = function(directiveName) {
 	    var optDirectiveName = this.directiveNames[directiveName];
-	    return this.elementClasses[optDirectiveName];
-	};
-
-	/*
-	 * Replaces the directive element's class with the config's
-	 * element class.
-	 *
-	 * @param {string} directiveName Use original directive names only.
-	 * @param {string} element The directive element.
-	 * @return {string} classToReplace The element class to replace
-	 */
-	proto.replaceElementClass = function(directiveName, element, classToReplace) {
-	    var newClass = this.elementClass(directiveName);
-
-	    if (newClass !== classToReplace) {
-	        element.removeClass(classToReplace);
-	        element.addClass(newClass);
-	    }
-	    return newClass;
+	    return this.directiveClasses[optDirectiveName];
 	};
 
 	/*
@@ -611,7 +597,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	//--------------------------------------
-	// Module exports
+	// Exports
 	//--------------------------------------
 
 	module.exports = drawerTriggerDirective;
@@ -720,7 +706,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	//--------------------------------------
-	// Module exports
+	// Exports
 	//--------------------------------------
 
 	module.exports = drawerContentsDirective;
@@ -838,7 +824,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	//--------------------------------------
-	// Module exports
+	// Exports
 	//--------------------------------------
 
 	module.exports = drawerClassDirective;
@@ -924,17 +910,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	//-------------------------------------
-	// Module exports
-	//-------------------------------------
-
-	module.exports = DrawerController;
-
-	//-------------------------------------
-	// Module dependencies and variables
+	// Dependencies and variables
 	//-------------------------------------
 
 	// Private model name.
 	var MODEL = '_drawerController';
+
+	//-------------------------------------
+	// Exports
+	//-------------------------------------
+
+	module.exports = DrawerController;
 
 	//-------------------------------------
 	// Controller
