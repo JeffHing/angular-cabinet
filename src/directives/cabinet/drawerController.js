@@ -8,17 +8,17 @@
 'use strict';
 
 //-------------------------------------
-// Module exports
-//-------------------------------------
-
-module.exports = DrawerController;
-
-//-------------------------------------
-// Module dependencies and variables
+// Dependencies and variables
 //-------------------------------------
 
 // Private model name.
 var MODEL = '_drawerController';
+
+//-------------------------------------
+// Exports
+//-------------------------------------
+
+module.exports = DrawerController;
 
 //-------------------------------------
 // Controller

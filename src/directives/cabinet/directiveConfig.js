@@ -8,16 +8,16 @@
 'use strict';
 
 //-------------------------------------
-// Module exports
-//-------------------------------------
-
-module.exports = CabinetConfig;
-
-//-------------------------------------
-// Module dependencies and variables
+// Dependencies and variables
 //-------------------------------------
 
 var SNAKE_CASE_REGEXP = /[A-Z]/g;
+
+//-------------------------------------
+// Exports
+//-------------------------------------
+
+module.exports = CabinetConfig;
 
 //-------------------------------------
 // Configuration object

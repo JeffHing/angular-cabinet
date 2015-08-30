@@ -8,13 +8,7 @@
 'use strict';
 
 //-------------------------------------
-// Module exports
-//-------------------------------------
-
-module.exports = addToModule;
-
-//-------------------------------------
-// Module dependencies and variables
+// Dependencies and variables
 //-------------------------------------
 
 var CabinetConfig = require('./directiveConfig');
@@ -27,6 +21,12 @@ var DrawerController = require('./drawerController');
 
 // Private model name.
 var MODEL = '_cabinetDirective';
+
+//-------------------------------------
+// Exports
+//-------------------------------------
+
+module.exports = addToModule;
 
 //-------------------------------------
 // factory method

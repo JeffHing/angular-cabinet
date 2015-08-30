@@ -8,13 +8,7 @@
 'use strict';
 
 //-------------------------------------
-// Module exports
-//-------------------------------------
-
-module.exports = DrawerTriggerPageObject;
-
-//-------------------------------------
-// Module dependencies and variables
+// Dependencies and variables
 //-------------------------------------
 
 var extend = require('extend-this');
@@ -23,6 +17,12 @@ var HasStyle = require('HasStyle');
 
 // Private model name.
 var MODEL = '_drawerHandlePageObject';
+
+//-------------------------------------
+// Exports
+//-------------------------------------
+
+module.exports = DrawerTriggerPageObject;
 
 //-------------------------------------
 // Page object

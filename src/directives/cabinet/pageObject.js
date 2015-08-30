@@ -8,7 +8,7 @@
 'use strict';
 
 //-------------------------------------
-// Module dependencies and variables
+// Dependencies and variables
 //-------------------------------------
 
 var extend = require('extend-this');
@@ -23,7 +23,7 @@ var DrawerContentsPageObject = require('./drawerContents/pageObject');
 var MODEL = '_cabinetPageObject';
 
 //-------------------------------------
-// Module exports
+// Exports
 //-------------------------------------
 
 module.exports = CabinetPageObject;
