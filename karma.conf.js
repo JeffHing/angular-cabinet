@@ -17,7 +17,7 @@ var karmaWebpackPlugin = require('karma-webpack');
 var webpackConfig = require('./webpack.config');
 
 // Additional functions needed for testing.
-var TEST_UTILITIES_DIR = 'src/testUtilities';
+var TEST_UTILITIES_DIR = 'src/utilities/test';
 
 /*
  * Creates a karma configuration.

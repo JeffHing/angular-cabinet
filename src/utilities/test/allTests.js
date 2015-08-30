@@ -8,7 +8,7 @@
 'use strict';
 
 (function() {
-    var testsContext = require.context('..', true, /\.test\.js$/);
+    var testsContext = require.context('../..', true, /\.test\.js$/);
     testsContext.keys().forEach(testsContext);
 
     /* Print out test files
